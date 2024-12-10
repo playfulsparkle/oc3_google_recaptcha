@@ -202,36 +202,38 @@ code package and also available on the project page: https://github.com/playfuls
         <operation>
             <search><![CDATA[protected function validate() {]]></search>
             <add position="after"><![CDATA[
-            $this->load->language('extension/captcha/ps_google_recaptcha', 'ps_google_recaptcha');
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
+                $this->load->language('extension/captcha/ps_google_recaptcha', 'ps_google_recaptcha');
 
-            $ps_language = $this->language->get('ps_google_recaptcha');
+                $ps_language = $this->language->get('ps_google_recaptcha');
 
-            unset($this->session->data['ps_google_recaptcha_counter']);
+                unset($this->session->data['ps_google_recaptcha_counter']);
 
-            if (isset($this->request->post['g-recaptcha-response'])) {
-                $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret_key')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
+                if (isset($this->request->post['g-recaptcha-response'])) {
+                    $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret_key')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
 
-                $recaptcha = (array) json_decode($recaptcha, true);
+                    $recaptcha = (array) json_decode($recaptcha, true);
 
-                if ($recaptcha) {
-                    if (!$recaptcha['success']) {
-                        if (isset($recaptcha['error-codes'])) {
-                            $errors = array();
+                    if ($recaptcha) {
+                        if (!$recaptcha['success']) {
+                            if (isset($recaptcha['error-codes'])) {
+                                $errors = array();
 
-                            foreach ($recaptcha['error-codes'] as $error_code) {
-                                $errors[] = $ps_language->get('error_' . str_replace('-', '_', $error_code));
+                                foreach ($recaptcha['error-codes'] as $error_code) {
+                                    $errors[] = $ps_language->get('error_' . str_replace('-', '_', $error_code));
+                                }
+
+                                $this->error['captcha'] = implode(', ', $errors);
+                            } else {
+                                $this->error['captcha'] = $ps_language->get('error_captcha');
                             }
-
-                            $this->error['captcha'] = implode(', ', $errors);
-                        } else {
-                            $this->error['captcha'] = $ps_language->get('error_captcha');
                         }
+                    } else {
+                        $this->error['captcha'] = $ps_language->get('error_captcha');
                     }
                 } else {
                     $this->error['captcha'] = $ps_language->get('error_captcha');
                 }
-            } else {
-                $this->error['captcha'] = $ps_language->get('error_captcha');
             }
             ]]></add>
         </operation>
