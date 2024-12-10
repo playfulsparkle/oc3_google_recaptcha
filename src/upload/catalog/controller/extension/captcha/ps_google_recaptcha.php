@@ -1,38 +1,60 @@
 <?php
-class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller {
-    public function index($error = array()) {
+class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
+{
+    public function index($error = array())
+    {
         $this->load->language('extension/captcha/ps_google_recaptcha');
 
-        if (isset($error['captcha'])) {
-			$data['error_captcha'] = $error['captcha'];
-		} else {
-			$data['error_captcha'] = '';
-		}
+        $data = array();
 
-		$data['site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+        if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
+            $this->session->data['ps_google_recaptcha_counter'] = 0;
+        } else {
+            $this->session->data['ps_google_recaptcha_counter']++;
+        }
 
-        $data['route'] = $this->request->get['route'];
+        $data['widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+        $data['key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+        $data['badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+        $data['badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+        $data['badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+        $data['site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
 
-		return $this->load->view('extension/captcha/ps_google_recaptcha', $data);
+        return $this->load->view('extension/captcha/ps_google_recaptcha', $data);
     }
 
-    public function validate() {
-		if (empty($this->session->data['gcapcha'])) {
-			$this->load->language('extension/captcha/ps_google_recaptcha');
+    public function validate()
+    {
+        $this->load->language('extension/captcha/ps_google_recaptcha');
 
-			if (!isset($this->request->post['g-recaptcha-response'])) {
-				return $this->language->get('error_captcha');
-			}
+        unset($this->session->data['ps_google_recaptcha_counter']);
 
-			$recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
+        if (!isset($this->request->post['g-recaptcha-response'])) {
+            return $this->language->get('error_captcha');
+        }
 
-			$recaptcha = json_decode($recaptcha, true);
+        $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret_key')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
 
-			if ($recaptcha['success']) {
-				$this->session->data['gcapcha']	= true;
-			} else {
-				return $this->language->get('error_captcha');
-			}
-		}
+        $recaptcha = (array) json_decode($recaptcha, true);
+
+        if (!$recaptcha) {
+            return $this->language->get('error_captcha');
+        }
+
+        if ($recaptcha['success']) {
+            return '';
+        }
+
+        if (isset($recaptcha['error-codes'])) {
+            $errors = array();
+
+            foreach ($recaptcha['error-codes'] as $error_code) {
+                $errors[] = $this->language->get('error_' . str_replace('-', '_', $error_code));
+            }
+
+            return implode(', ', $errors);
+        } else {
+            return $this->language->get('error_captcha');
+        }
     }
 }
