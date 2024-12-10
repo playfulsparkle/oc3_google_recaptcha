@@ -28,6 +28,7 @@ $_['text_badge_light']            = 'Light';
 $_['text_badge_compact']          = 'Compact';
 $_['text_badge_normal']           = 'Normal';
 $_['text_badge_invisible']        = 'Invisible';
+$_['text_login']                  = 'Login';
 
 // Tab
 $_['tab_general']                 = 'General';
