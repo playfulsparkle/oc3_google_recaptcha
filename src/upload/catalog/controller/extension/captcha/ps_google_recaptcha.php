@@ -43,28 +43,27 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             return $this->language->get('error_captcha');
         }
 
-        $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret_key')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
+        $recaptcha_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret_key')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
 
-        $recaptcha = (array) json_decode($recaptcha, true);
-
-        if (!$recaptcha) {
-            return $this->language->get('error_captcha');
-        }
+        $recaptcha = array_merge(
+            array('success' => false, 'error-codes' => array()),
+            (array) json_decode($recaptcha_response, true)
+        );
 
         if ($recaptcha['success']) {
             return '';
         }
 
-        if (isset($recaptcha['error-codes'])) {
+        if ($recaptcha['error-codes']) {
             $errors = array();
 
             foreach ($recaptcha['error-codes'] as $error_code) {
                 $errors[] = $this->language->get('error_' . str_replace('-', '_', $error_code));
             }
 
-            return implode(', ', $errors);
-        } else {
-            return $this->language->get('error_captcha');
+            $this->error['captcha'] = implode(', ', $errors);
         }
+
+        $this->error['captcha'] = $this->language->get('error_captcha');
     }
 }
