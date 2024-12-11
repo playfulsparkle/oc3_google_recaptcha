@@ -19,4 +19,60 @@ code package and also available on the project page: https://github.com/playfuls
         </operation>
     </file>
     <!-- frontend end -->
+    <file path="catalog/view/theme/default/template/checkout/checkout.twig">
+        <operation>
+            <search><![CDATA[$('#button-register').button('loading');]]></search>
+            <add position="after"><![CDATA[
+        },
+        complete: function() {
+            var scripts = document.querySelectorAll('script[data-widget-id]');
+            for (var i = 0; i < scripts.length; i++) {
+                var script = scripts[i],
+                widgetId = script.getAttribute('data-widget-id'),
+                methodName = 'resetRecaptcha' + widgetId;
+
+                if (typeof window[methodName] === 'function') {
+                    window[methodName]();
+                }
+            }
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/default/template/checkout/checkout.twig">
+        <operation>
+            <search><![CDATA[$('#button-guest').button('loading');]]></search>
+            <add position="after"><![CDATA[
+        },
+        complete: function() {
+            var scripts = document.querySelectorAll('script[data-widget-id]');
+            for (var i = 0; i < scripts.length; i++) {
+                var script = scripts[i],
+                widgetId = script.getAttribute('data-widget-id'),
+                methodName = 'resetRecaptcha' + widgetId;
+
+                if (typeof window[methodName] === 'function') {
+                    window[methodName]();
+                }
+            }
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/default/template/product/product.twig">
+        <operation>
+            <search><![CDATA[$('#button-review').button('reset');]]></search>
+            <add position="after"><![CDATA[
+        document.querySelectorAll('script[data-widget-id]').forEach(script => {
+            var widgetId = script.getAttribute('data-widget-id');
+            var methodName = 'resetRecaptcha' + widgetId;
+
+            if (typeof window[methodName] === 'function') {
+                console.log(`Calling method: ${methodName}`);
+                window[methodName]();
+            } else {
+                console.warn(`Method not found: ${methodName}`);
+            }
+        });
+            ]]></add>
+        </operation>
+    </file>
 </modification>
