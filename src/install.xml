@@ -10,7 +10,7 @@ code package and also available on the project page: https://github.com/playfuls
     <version>1.0.0</version>
     <author>Playful Sparkle</author>
     <link>https://github.com/playfulsparkle/oc3_google_recaptcha.git</link>
-    <!-- admin setup start -->
+    <!-- frontend start -->
     <file path="catalog/view/theme/default/template/common/header.twig">
         <operation>
             <search><![CDATA[</head>]]></search>
@@ -18,22 +18,7 @@ code package and also available on the project page: https://github.com/playfuls
             <link rel="preconnect" href="https://www.gstatic.com" crossorigin>]]></add>
         </operation>
     </file>
-    <file path="admin/controller/setting/setting.php">
-        <operation>
-            <search><![CDATA[$data['captcha_pages'] = array();]]></search>
-            <add position="after"><![CDATA[
-        $this->load->language('extension/captcha/ps_google_recaptcha', 'ps_google_recaptcha');
-
-        $ps_language = $this->language->get('ps_google_recaptcha');
-
-        $data['captcha_pages'][] = array(
-            'text' => $ps_language->get('text_login'),
-            'value' => 'login'
-        );
-            ]]></add>
-        </operation>
-    </file>
-    <!-- admin setup end -->
+    <!-- frontend end -->
     <!-- register start -->
     <file path="catalog/controller/account/register.php">
         <operation>
@@ -62,8 +47,12 @@ code package and also available on the project page: https://github.com/playfuls
     </file>
     <file path="catalog/view/theme/default/template/account/register.twig">
         <operation>
-            <search position="replace"><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary]]></search>
-            <add><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} g-recaptcha" data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %}]]></add>
+            <search position="replace"><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary" />]]></search>
+            <add><![CDATA[{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %}
+                <input type="submit" value="{{ button_continue }}" class="btn btn-primary g-recaptcha" data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit" />
+            {% else %}
+                <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
     <!-- register end -->
@@ -95,8 +84,12 @@ code package and also available on the project page: https://github.com/playfuls
     </file>
     <file path="catalog/view/theme/default/template/account/return_form.twig">
         <operation>
-            <search position="replace"><![CDATA[<input type="submit" value="{{ button_submit }}" class="btn btn-primary]]></search>
-            <add><![CDATA[<input type="submit" value="{{ button_submit }}" class="btn btn-primary{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} g-recaptcha" data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %}]]></add>
+            <search position="replace"><![CDATA[<input type="submit" value="{{ button_submit }}" class="btn btn-primary" />]]></search>
+            <add><![CDATA[{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %}
+                <input type="submit" value="{{ button_submit }}" class="btn btn-primary g-recaptcha" data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit" />
+            {% else %}
+                <input type="submit" value="{{ button_submit }}" class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
     <!-- return end -->
@@ -128,154 +121,50 @@ code package and also available on the project page: https://github.com/playfuls
     </file>
     <file path="catalog/view/theme/default/template/information/contact.twig">
         <operation>
-            <search position="replace"><![CDATA[<input class="btn btn-primary]]></search>
-            <add><![CDATA[<input class="btn btn-primary{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} g-recaptcha" data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %}]]></add>
+            <search position="replace"><![CDATA[<input class="btn btn-primary" type="submit" value="{{ button_submit }}" />]]></search>
+            <add><![CDATA[{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %}
+                <input class="btn btn-primary g-recaptcha" data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit" type="submit" value="{{ button_submit }}" />
+            {% else %}
+                <input class="btn btn-primary" type="submit" value="{{ button_submit }}" />
+            {% endif %}]]></add>
         </operation>
     </file>
     <!-- contact end -->
-    <!-- account login start -->
-    <file path="catalog/controller/account/login.php">
+    <!-- product review start -->
+    <file path="catalog/controller/product/product.php">
         <operation>
-            <search><![CDATA[protected function validate() {]]></search>
-            <add position="after"><![CDATA[
-        if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $this->load->language('extension/captcha/ps_google_recaptcha', 'ps_google_recaptcha');
-
-            $ps_language = $this->language->get('ps_google_recaptcha');
-
-            unset($this->session->data['ps_google_recaptcha_counter']);
-
-            if (isset($this->request->post['g-recaptcha-response'])) {
-                $recaptcha_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret_key')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
-
-                $recaptcha = array_merge(
-                    array('success' => false, 'error-codes' => array()),
-                    (array) json_decode($recaptcha_response, true)
-                );
-
-                if (!$recaptcha['success']) {
-                    if ($recaptcha['error-codes']) {
-                        $errors = array();
-
-                        foreach ($recaptcha['error-codes'] as $error_code) {
-                            $errors[] = $ps_language->get('error_' . str_replace('-', '_', $error_code));
-                        }
-
-                        $this->error['captcha'] = implode(', ', $errors);
-                    } else {
-                        $this->error['captcha'] = $ps_language->get('error_captcha');
-                    }
-                }
+            <search><![CDATA[$this->response->setOutput($this->load->view('product/product', $data));]]></search>
+            <add position="before"><![CDATA[
+        if (
+            $this->config->get('captcha_ps_google_recaptcha_status') &&
+            ($this->config->get('captcha_ps_google_recaptcha_key_type') !== 'v3' ||
+            $this->config->get('captcha_ps_google_recaptcha_key_type') !== 'v2_invisible')
+        ) {
+            if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
+                $this->session->data['ps_google_recaptcha_counter'] = 0;
             } else {
-                $this->error['captcha'] = $ps_language->get('error_captcha');
+                $this->session->data['ps_google_recaptcha_counter']++;
             }
+
+            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
         }
             ]]></add>
         </operation>
     </file>
-    <file path="catalog/controller/account/login.php">
+    <file path="catalog/view/theme/default/template/product/product.twig">
         <operation>
-            <search><![CDATA[$this->response->setOutput($this->load->view('account/login', $data));]]></search>
-            <add position="before"><![CDATA[
-            if (
-                in_array('login', (array)$this->config->get('config_captcha_page')) &&
-                $this->config->get('captcha_ps_google_recaptcha_status') &&
-                ($this->config->get('captcha_ps_google_recaptcha_key_type') !== 'v3' ||
-                $this->config->get('captcha_ps_google_recaptcha_key_type') !== 'v2_invisible')
-            ) {
-                $this->load->language('extension/captcha/ps_google_recaptcha', 'ps_google_recaptcha');
-
-                $ps_language = $this->language->get('ps_google_recaptcha');
-
-                $data['ps_entry_score_based_captcha'] = $ps_language->get('entry_score_based_captcha');
-
-                if (isset($this->error['captcha'])) {
-                    $data['ps_error_captcha'] = $this->error['captcha'];
-                } else {
-                    $data['ps_error_captcha'] = '';
-                }
-
-                if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
-                    $this->session->data['ps_google_recaptcha_counter'] = 0;
-                } else {
-                    $this->session->data['ps_google_recaptcha_counter']++;
-                }
-
-                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
-            }
-            ]]></add>
+            <search position="replace"><![CDATA[<button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary">{{ button_continue }}</button>]]></search>
+            <add><![CDATA[{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %}
+                <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha" data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit">{{ button_continue }}</button>
+            {% else %}
+                <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary">{{ button_continue }}</button>
+            {% endif %}]]></add>
         </operation>
     </file>
-    <file path="catalog/view/theme/default/template/account/login.twig">
-        <operation>
-            <search><![CDATA[<input type="submit" value="{{ button_login }}"]]></search>
-            <add position="before"><![CDATA[
-            <div class="form-group">
-                {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %}
-                <label class="control-label" for="input-google-recaptcha">{{ ps_entry_score_based_captcha }}</label>
-                <script src="https://www.google.com/recaptcha/api.js?render={{ ps_site_key }}{% if ps_badge_position != 'inline' %}&badge={{ ps_badge_position }}{% endif %}" async defer></script>
-                <script>
-                    var form = document.currentScript ? document.currentScript.closest('form') : null;
-
-                    function onFormSubmit{{ ps_widget_counter }}(token) {
-                        if (form) {
-                            var submitEvent = new Event('submit', { bubbles: true, cancelable: true });
-
-                            if (form.dispatchEvent(submitEvent)) {
-                                form.submit();
-                            }
-                        } else {
-                            console.error("No form element found for the current script.");
-                        }
-                    }
-                </script>
-                {% elseif ps_key_type == 'v2_checkbox' %}
-                <label class="control-label" for="input-google-recaptcha">{{ ps_entry_score_based_captcha }}</label>
-                <div id="g-recaptcha-{{ ps_widget_counter }}" data-sitekey="{{ ps_site_key }}"></div>
-                <script type="text/javascript">
-                    var recaptcha_widget{{ ps_widget_counter }};
-
-                    var onloadCallback{{ ps_widget_counter }} = function () {
-                        recaptcha_widget{{ ps_widget_counter }} = grecaptcha.render('g-recaptcha-{{ ps_widget_counter }}', {
-                            'sitekey': '{{ ps_site_key }}',
-                            'theme': '{{ ps_badge_theme }}',
-                            'size': '{{ ps_badge_size }}'
-                        });
-                    };
-
-                    var form = document.currentScript ? document.currentScript.closest('form') : null;
-
-                    if (typeof form !== 'undefined') {
-                        var resetRecaptcha{{ ps_widget_counter }} = function () {
-                            if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
-                                grecaptcha.reset(recaptcha_widget{{ ps_widget_counter }});
-                            } else {
-                                console.warn('Google reCAPTCHA is not initialized.');
-                            }
-                        };
-
-                        form.addEventListener('submit', function () {
-                            setTimeout(resetRecaptcha{{ ps_widget_counter }}, 1000);
-                        });
-                    }
-                </script>
-                <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback{{ ps_widget_counter }}&render=explicit&badge={{ ps_badge_position }}" async defer></script>
-                {% endif %}
-                {% if ps_error_captcha %}<div class="text-danger">{{ ps_error_captcha }}</div>{% endif %}
-            </div>
-            ]]></add>
-        </operation>
-    </file>
-    <file path="catalog/view/theme/default/template/account/login.twig">
-        <operation>
-            <search position="replace"><![CDATA[<input type="submit" value="{{ button_login }}" class="btn btn-primary]]></search>
-            <add><![CDATA[<input type="submit" value="{{ button_login }}" class="btn btn-primary{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} g-recaptcha" data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %}]]></add>
-        </operation>
-    </file>
-    <!-- account login end -->
+    <!-- product review end -->
 </modification>

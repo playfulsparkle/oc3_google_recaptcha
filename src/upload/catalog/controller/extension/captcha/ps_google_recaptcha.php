@@ -61,9 +61,9 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
                 $errors[] = $this->language->get('error_' . str_replace('-', '_', $error_code));
             }
 
-            $this->error['captcha'] = implode(', ', $errors);
+            return implode(', ', $errors);
         }
 
-        $this->error['captcha'] = $this->language->get('error_captcha');
+        return $this->language->get('error_captcha');
     }
 }
