@@ -30,6 +30,8 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $data['badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
         $data['site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
 
+        $data['route'] = $this->request->get['route'];
+
         return $this->load->view('extension/captcha/ps_google_recaptcha', $data);
     }
 
