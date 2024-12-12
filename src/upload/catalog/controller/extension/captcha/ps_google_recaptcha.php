@@ -1,6 +1,15 @@
 <?php
 class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 {
+    public function __construct($registry)
+    {
+        parent::__construct($registry);
+
+        if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
+            $this->session->data['ps_google_recaptcha_counter'] = 0;
+        }
+    }
+
     public function index($error = array())
     {
         if (!$this->config->get('captcha_ps_google_recaptcha_status')) {
@@ -9,18 +18,14 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
         $this->load->language('extension/captcha/ps_google_recaptcha');
 
+        $this->session->data['ps_google_recaptcha_counter']++;
+
         $data = array();
 
         if (isset($error['captcha'])) {
             $data['error_captcha'] = $error['captcha'];
         } else {
             $data['error_captcha'] = '';
-        }
-
-        if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
-            $this->session->data['ps_google_recaptcha_counter'] = 0;
-        } else {
-            $this->session->data['ps_google_recaptcha_counter']++;
         }
 
         $data['widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
