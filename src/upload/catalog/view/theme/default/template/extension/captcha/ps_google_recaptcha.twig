@@ -1,18 +1,13 @@
 <fieldset>
   <legend>{{ text_captcha }}</legend>
   <div class="form-group required">
-    <label class="col-sm-2 control-label">
-			{% if key_type == 'v2_checkbox' %}
-				{{ entry_challange_captcha }}
-			{% else %}
-				{{ entry_score_based_captcha }}
-			{% endif %}
-		</label>
+    <label class="col-sm-2 control-label">{% if key_type == 'v2_checkbox' %}{{ entry_challange_captcha }}{% else %}{{ entry_score_based_captcha }}{% endif %}</label>
     <div class="col-sm-10">
 			<div id="input-payment-captcha"></div>
 			{% if key_type == 'v2_checkbox' %}
 				<div id="g-recaptcha-{{ widget_counter }}" data-sitekey="{{ site_key }}"></div>
 				<script data-widget-id="{{ widget_counter }}">
+					var recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
 					var recaptcha_widget{{ widget_counter }};
 
 					var onloadCallback{{ widget_counter }} = function () {
@@ -29,10 +24,8 @@
 						}
 					};
 
-					var form = document.currentScript ? document.currentScript.closest('form') : null;
-
-					if (form) {
-						form.addEventListener('submit', function () {
+					if (recaptcha_form{{ widget_counter }}) {
+						recaptcha_form{{ widget_counter }}.addEventListener('submit', function () {
 							setTimeout(resetRecaptcha{{ widget_counter }}, 1000);
 						});
 					}

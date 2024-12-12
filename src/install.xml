@@ -10,6 +10,7 @@ code package and also available on the project page: https://github.com/playfuls
     <version>1.0.0</version>
     <author>Playful Sparkle</author>
     <link>https://github.com/playfulsparkle/oc3_google_recaptcha.git</link>
+
     <!-- frontend start -->
     <file path="catalog/view/theme/default/template/common/header.twig">
         <operation>
@@ -19,6 +20,8 @@ code package and also available on the project page: https://github.com/playfuls
         </operation>
     </file>
     <!-- frontend end -->
+
+    <!-- captcha reset start -->
     <file path="catalog/view/theme/default/template/checkout/checkout.twig">
         <operation>
             <search><![CDATA[$('#button-register').button('loading');]]></search>
@@ -27,17 +30,14 @@ code package and also available on the project page: https://github.com/playfuls
         complete: function() {
             var scripts = document.querySelectorAll('script[data-widget-id]');
             for (var i = 0; i < scripts.length; i++) {
-                var script = scripts[i],
-                widgetId = script.getAttribute('data-widget-id'),
+                var widgetId = scripts[i].getAttribute('data-widget-id'),
                 methodName = 'resetRecaptcha' + widgetId;
-
-                if (typeof window[methodName] === 'function') {
-                    window[methodName]();
-                }
+                if (typeof window[methodName] === 'function') { window[methodName](); }
             }
             ]]></add>
         </operation>
     </file>
+    
     <file path="catalog/view/theme/default/template/checkout/checkout.twig">
         <operation>
             <search><![CDATA[$('#button-guest').button('loading');]]></search>
@@ -46,33 +46,27 @@ code package and also available on the project page: https://github.com/playfuls
         complete: function() {
             var scripts = document.querySelectorAll('script[data-widget-id]');
             for (var i = 0; i < scripts.length; i++) {
-                var script = scripts[i],
-                widgetId = script.getAttribute('data-widget-id'),
+                var widgetId = scripts[i].getAttribute('data-widget-id'),
                 methodName = 'resetRecaptcha' + widgetId;
-
-                if (typeof window[methodName] === 'function') {
-                    window[methodName]();
-                }
+                if (typeof window[methodName] === 'function') { window[methodName](); }
             }
             ]]></add>
         </operation>
     </file>
+
     <file path="catalog/view/theme/default/template/product/product.twig">
         <operation>
             <search><![CDATA[$('#button-review').button('reset');]]></search>
             <add position="after"><![CDATA[
-        document.querySelectorAll('script[data-widget-id]').forEach(script => {
-            var widgetId = script.getAttribute('data-widget-id');
-            var methodName = 'resetRecaptcha' + widgetId;
-
-            if (typeof window[methodName] === 'function') {
-                console.log(`Calling method: ${methodName}`);
-                window[methodName]();
-            } else {
-                console.warn(`Method not found: ${methodName}`);
+            var scripts = document.querySelectorAll('script[data-widget-id]');
+            for (var i = 0; i < scripts.length; i++) {
+                var widgetId = scripts[i].getAttribute('data-widget-id'),
+                methodName = 'resetRecaptcha' + widgetId;
+                if (typeof window[methodName] === 'function') { window[methodName](); }
             }
-        });
             ]]></add>
         </operation>
     </file>
+    <!-- captcha reset end -->
+
 </modification>
