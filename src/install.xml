@@ -226,17 +226,33 @@ code package and also available on the project page: https://github.com/playfuls
         </operation>
     </file>
 
+    <file path="catalog/view/theme/default/template/checkout/checkout.twig">
+        <operation>
+            <search position="replace"><![CDATA[$('#button-guest').button]]></search>
+            <add><![CDATA[$('#ps-button-guest').button]]></add>
+        </operation>
+    </file>
+
     <file path="catalog/view/theme/default/template/checkout/guest.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="button" value="{{ button_continue }}" id="button-guest" data-loading-text="{{ text_loading }}" class="btn btn-primary" />]]></search>
-            <add><![CDATA[<input type="button" value="{{ button_continue }}" data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />]]></add>
+            <add><![CDATA[<input type="button" value="{{ button_continue }}" id="ps-button-guest" data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onGuestFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+            <button id="button-guest" aria-hidden="true" style="display: none;"></button>]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/default/template/checkout/checkout.twig">
+        <operation>
+            <search position="replace"><![CDATA[$('#button-register').button]]></search>
+            <add><![CDATA[$('#ps-button-register').button]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/checkout/register.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="button" value="{{ button_continue }}" id="button-register" data-loading-text="{{ text_loading }}" class="btn btn-primary" />]]></search>
-            <add><![CDATA[<input type="button" value="{{ button_continue }}" data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />]]></add>
+            <add><![CDATA[<input type="button" value="{{ button_continue }}" id="ps-button-register" data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onRegisterFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+            <button id="button-register" aria-hidden="true" style="display: none;"></button>]]></add>
         </operation>
     </file>
 

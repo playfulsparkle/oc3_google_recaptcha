@@ -13,6 +13,12 @@
 										if (recaptcha_form{{ widget_counter }}.dispatchEvent(submitEvent)) { recaptcha_form{{ widget_counter }}.submit(); }
 								}
 						}
+						{% if route|slice(0, 9) == 'checkout/' %}function onGuestFormSubmit{{ widget_counter }}(token) {
+							document.querySelector('#button-guest').click();
+						}
+						function onRegisterFormSubmit{{ widget_counter }}(token) {
+							document.querySelector('#button-register').click();
+						}{% endif %}
 						{% if badge_position == 'inline' %}var repositionCaptchaBadge{{ widget_counter }} = function () {
 								var grecaptchaBadge = document.querySelector('.grecaptcha-badge'),
 								grecaptchaContainer = grecaptchaBadge ? grecaptchaBadge.closest('div') : null,
