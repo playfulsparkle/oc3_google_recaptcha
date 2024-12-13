@@ -1,44 +1,45 @@
 Playful Sparkle - Google reCAPTCHA
 
-The Playful Sparkle - Google reCAPTCHA extension for OpenCart 3.x+ revolutionizes the
-search functionality by offering real-time, autocomplete suggestions as users
-type, making it easier to find relevant products. With the flexibility to
-customize the search results, store owners can enable or disable different types
-of suggestions, control the length of product descriptions, and adjust the
-visibility and size of product images. The extension also supports
-multi-language and multi-store setups, ensuring a seamless experience across
-various regions and storefronts. Whether you’re running a single store or
-multiple, this extension adapts to your needs, offering an efficient and
-user-friendly search solution for your eCommerce platform.
+The Playful Sparkle - Google reCAPTCHA extension for OpenCart 3.x+ enhances the
+security of your online store by integrating Google’s advanced reCAPTCHA
+service. Safeguard your store from spam and automated abuse while providing a
+frictionless experience for legitimate users. This extension supports flexible
+implementation options, including reCAPTCHA v3 (background validation),
+v2 (checkbox), and v2 Invisible. With multi-language support and fully
+customizable settings, such as badge position, theme, and size, the extension
+ensures a seamless fit for your store's design and functionality. It also
+complies with Google’s guidelines, including the ability to hide the badge when
+the required branding is visibly included in the user flow.
 
 Features
 
-- Real-time Autocomplete Suggestions: Displays instant, real-time search
-  suggestions as customers type, making it faster and easier for users to
-  find products.
-- Customizable Search Results: Administrators can enable or disable specific
-  suggestion categories like products, offering full control over the
-  search experience.
-- Adjustable Product Descriptions: Customize the length and display of product
-  descriptions in the search results, allowing for a clean and informative
-  layout tailored to your preferences.
-- Image Display Customization: Choose whether to display product images in the
-  search results and control their visibility and size, offering a visually
-  appealing user experience.
-- Enhanced User Experience: With an intuitive search interface and customizable
-  display options, customers can find exactly what they’re looking for quickly
-  and easily, leading to a better shopping experience.
+- Comprehensive reCAPTCHA Options:
+  - Support for reCAPTCHA v3 (score-based): Validate user actions in the
+    background without user intervention.
+  - Support for reCAPTCHA v2 (checkbox): Displays the "I'm not a robot"
+    checkbox challenge.
+  - Support for reCAPTCHA v2 Invisible: Validates actions in the background with
+    minimal user interruption.
+- Customizable Display Settings:
+  - For v3:
+    - Badge position: Choose between bottom left, bottom right, or inline.
+    - Theme: Select between light and dark.
+    - Option to hide the badge with a footer notice to comply with
+      Google policy.
+  - For v2 Checkbox:
+    - Badge theme: Choose between light and dark.
+    - Badge size: Select normal or compact.
+  - For v2 Invisible:
+    - Badge position: Choose between bottom left, bottom right, or inline.
+    - Theme: Select between light and dark.
+    - Option to hide the badge with a footer notice to comply with
+      Google policy.
 - Compatibility: Integrates smoothly with OpenCart 3.x+, supporting a range of
   online store setups.
-- Multi-store Support: Supports multi-store setups by default, making it easy
-  to integrate across multiple OpenCart stores.
 - Multilingual Support: Ready for international use with languages including
   Čeština (cs-cz), Deutsch (de-de), English (GB) (en-gb), English (US) (en-us),
   Español (es-es), Français (fr-fr), Magyar (hu-hu), Italiano (it-it),
   Русский (ru-ru), and Slovenčina (sk-sk).
-
-For more information, visit the extension's GitHub page
-at https://github.com/playfulsparkle/oc3_google_recaptcha.git.
 
 Demo frontend: https://opencart3.playfulsparkle.com/
 Demo backend: https://opencart3.playfulsparkle.com/admin/
