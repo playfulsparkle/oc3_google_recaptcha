@@ -31,6 +31,7 @@ $_['text_badge_invisible']        = 'Invisible';
 
 // Tab
 $_['tab_general']                 = 'General';
+$_['tab_security']                = 'Security';
 $_['tab_help_and_support']        = 'Help &amp; Support';
 
 // Entry
