@@ -104,7 +104,7 @@
 								</div>
 							</div>
 
-							<div id="hide-badge" class="form-group"{% if captcha_ps_google_recaptcha_key_type != 'v3' %} style="display: none;"{% endif %}>
+							<div id="hide-badge" class="form-group"{% if captcha_ps_google_recaptcha_key_type != 'v3' and captcha_ps_google_recaptcha_key_type != 'v2_invisible' %} style="display: none;"{% endif %}>
 								<label class="col-sm-2 control-label" for="input-hide-badge">{{ entry_hide_badge }}</label>
 								<div class="col-sm-10">
 									<label class="radio-inline"> {% if captcha_ps_google_recaptcha_hide_badge %}
@@ -184,7 +184,7 @@
 		$('#input-badge-size option').prop('disabled', true).prop('selected', false);
 		$('#hide-badge input[value="0"]').prop('checked', true);
 
-		if (selectedValue === 'v3') {
+		if (selectedValue === 'v3' || selectedValue === 'v2_invisible') {
 			$('#hide-badge').show();
 		}
 
