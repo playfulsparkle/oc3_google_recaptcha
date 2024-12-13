@@ -15,56 +15,68 @@ code package and also available on the project page: https://github.com/playfuls
     <file path="catalog/view/theme/default/template/common/header.twig">
         <operation>
             <search><![CDATA[</head>]]></search>
-            <add position="before"><![CDATA[<link rel="preconnect" href="https://www.google.com">
-            <link rel="preconnect" href="https://www.gstatic.com" crossorigin>]]></add>
+            <add position="before"><![CDATA[
+            <link rel="preconnect" href="https://www.google.com">
+            <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+            ]]></add>
         </operation>
     </file>
     <!-- frontend end -->
 
     <!-- captcha reset start -->
+    <file path="catalog/controller/checkout/checkout.php">
+        <operation>
+            <search><![CDATA[$this->response->setOutput($this->load->view('checkout/checkout', $data));]]></search>
+            <add position="before"><![CDATA[$data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');]]></add>
+        </operation>
+    </file>
+
     <file path="catalog/view/theme/default/template/checkout/checkout.twig">
         <operation>
             <search><![CDATA[$('#button-register').button('loading');]]></search>
-            <add position="after"><![CDATA[
-        },
-        complete: function() {
-            var scripts = document.querySelectorAll('script[data-widget-id]');
-            for (var i = 0; i < scripts.length; i++) {
-                var widgetId = scripts[i].getAttribute('data-widget-id'),
-                methodName = 'resetRecaptcha' + widgetId;
-                if (typeof window[methodName] === 'function') { window[methodName](); }
+            <add position="after"><![CDATA[{% if ps_google_recaptcha_status %}
+            },
+            complete: function() {
+                var scripts = document.querySelectorAll('script[data-widget-id]');
+
+                for (var i = 0; i < scripts.length; i++) {
+                    var widgetId = scripts[i].getAttribute('data-widget-id'),
+                    methodName = 'resetRecaptcha' + widgetId;
+                    if (typeof window[methodName] === 'function') { window[methodName](); }
             }
-            ]]></add>
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/checkout/checkout.twig">
         <operation>
             <search><![CDATA[$('#button-guest').button('loading');]]></search>
-            <add position="after"><![CDATA[
-        },
-        complete: function() {
-            var scripts = document.querySelectorAll('script[data-widget-id]');
-            for (var i = 0; i < scripts.length; i++) {
-                var widgetId = scripts[i].getAttribute('data-widget-id'),
-                methodName = 'resetRecaptcha' + widgetId;
-                if (typeof window[methodName] === 'function') { window[methodName](); }
+            <add position="after"><![CDATA[{% if ps_google_recaptcha_status %}
+            },
+            complete: function() {
+                var scripts = document.querySelectorAll('script[data-widget-id]');
+
+                for (var i = 0; i < scripts.length; i++) {
+                    var widgetId = scripts[i].getAttribute('data-widget-id'),
+                    methodName = 'resetRecaptcha' + widgetId;
+                    if (typeof window[methodName] === 'function') { window[methodName](); }
             }
-            ]]></add>
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/product/product.twig">
         <operation>
             <search><![CDATA[$('#button-review').button('reset');]]></search>
-            <add position="after"><![CDATA[
+            <add position="after"><![CDATA[{% if ps_google_recaptcha_status %}
             var scripts = document.querySelectorAll('script[data-widget-id]');
+
             for (var i = 0; i < scripts.length; i++) {
                 var widgetId = scripts[i].getAttribute('data-widget-id'),
                 methodName = 'resetRecaptcha' + widgetId;
                 if (typeof window[methodName] === 'function') { window[methodName](); }
             }
-            ]]></add>
+            {% endif %}]]></add>
         </operation>
     </file>
     <!-- captcha reset end -->
@@ -72,128 +84,144 @@ code package and also available on the project page: https://github.com/playfuls
     <file path="catalog/controller/account/register.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('account/register', $data));]]></search>
-            <add position="before"><![CDATA[if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            $data['ps_route'] = $this->request->get['route'];
-        }]]></add>
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            }
+            ]]></add>
         </operation>
     </file>
 
     <file path="catalog/controller/account/return.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('account/return_form', $data));]]></search>
-            <add position="before"><![CDATA[if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            $data['ps_route'] = $this->request->get['route'];
-        }]]></add>
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            }
+            ]]></add>
         </operation>
     </file>
 
     <file path="catalog/controller/account/register.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('account/register', $data));]]></search>
-            <add position="before"><![CDATA[if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            $data['ps_route'] = $this->request->get['route'];
-        }]]></add>
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            }
+            ]]></add>
         </operation>
     </file>
 
     <file path="catalog/controller/affiliate/register.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('affiliate/register', $data));]]></search>
-            <add position="before"><![CDATA[if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            $data['ps_route'] = $this->request->get['route'];
-        }]]></add>
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            }
+            ]]></add>
         </operation>
     </file>
 
     <file path="catalog/controller/checkout/guest.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('checkout/guest', $data));]]></search>
-            <add position="before"><![CDATA[if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            $data['ps_route'] = $this->request->get['route'];
-        }]]></add>
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            }
+            ]]></add>
         </operation>
     </file>
 
     <file path="catalog/controller/checkout/register.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('checkout/register', $data));]]></search>
-            <add position="before"><![CDATA[if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            $data['ps_route'] = $this->request->get['route'];
-        }]]></add>
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            }
+            ]]></add>
         </operation>
     </file>
 
     <file path="catalog/controller/information/contact.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('information/contact', $data));]]></search>
-            <add position="before"><![CDATA[if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            $data['ps_route'] = $this->request->get['route'];
-        }]]></add>
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            }
+            ]]></add>
         </operation>
     </file>
 
     <file path="catalog/controller/product/product.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('product/product', $data));]]></search>
-            <add position="before"><![CDATA[if ($this->config->get('captcha_ps_google_recaptcha_status')) {
-            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            $data['ps_route'] = $this->request->get['route'];
-        }]]></add>
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+            }
+            ]]></add>
         </operation>
     </file>
 
@@ -201,86 +229,130 @@ code package and also available on the project page: https://github.com/playfuls
     <file path="catalog/view/theme/default/template/account/register.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary" />]]></search>
-            <add><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />]]></add>
+            <add><![CDATA[<input type="submit" value="{{ button_continue }}"
+            {% if ps_google_recaptcha_status %}
+                 class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+            {% else %}
+                 class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/account/return_form.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="submit" value="{{ button_submit }}" class="btn btn-primary" />]]></search>
-            <add><![CDATA[<input type="submit" value="{{ button_submit }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />]]></add>
+            <add><![CDATA[<input type="submit" value="{{ button_submit }}"
+            {% if ps_google_recaptcha_status %}
+                class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+            {% else %}
+                 class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/account/register.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary" />]]></search>
-            <add><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />]]></add>
+            <add><![CDATA[<input type="submit" value="{{ button_continue }}"
+            {% if ps_google_recaptcha_status %}
+                class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+            {% else %}
+                 class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/affiliate/register.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary" />]]></search>
-            <add><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />]]></add>
+            <add><![CDATA[<input type="submit" value="{{ button_continue }}"
+            {% if ps_google_recaptcha_status %}
+                class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+            {% else %}
+                 class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/checkout/checkout.twig">
         <operation>
             <search position="replace"><![CDATA[$('#button-guest').button]]></search>
-            <add><![CDATA[$('#ps-button-guest').button]]></add>
+            <add><![CDATA[{% if ps_google_recaptcha_status %}$('#ps-button-guest').button{% else %}$('#button-guest').button{% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/checkout/guest.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="button" value="{{ button_continue }}" id="button-guest" data-loading-text="{{ text_loading }}" class="btn btn-primary" />]]></search>
-            <add><![CDATA[<input type="button" value="{{ button_continue }}" {% if ps_key_type == 'v2_checkbox' %}id="button-guest"{% else %}id="ps-button-guest"{% endif %} data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onGuestFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
-            {% if ps_key_type != 'v2_checkbox' %}<button id="button-guest" aria-hidden="true" style="display: none;"></button>{% endif %}]]></add>
+            <add><![CDATA[<input type="button" value="{{ button_continue }}" data-loading-text="{{ text_loading }}"
+            {% if ps_google_recaptcha_status %}
+                class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v2_checkbox' %}id="button-guest"{% else %}id="ps-button-guest"{% endif %}
+                {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onGuestFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+                {% if ps_key_type != 'v2_checkbox' %}<button id="button-guest" aria-hidden="true" style="display: none;"></button>{% endif %}
+            {% else %}
+                id="button-guest" class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/checkout/checkout.twig">
         <operation>
             <search position="replace"><![CDATA[$('#button-register').button]]></search>
-            <add><![CDATA[$('#ps-button-register').button]]></add>
+            <add><![CDATA[{% if ps_google_recaptcha_status %}$('#ps-button-register').button{% else %}$('#button-register').button{% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/checkout/register.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="button" value="{{ button_continue }}" id="button-register" data-loading-text="{{ text_loading }}" class="btn btn-primary" />]]></search>
-            <add><![CDATA[<input type="button" value="{{ button_continue }}" {% if ps_key_type == 'v2_checkbox' %}id="button-register"{% else %}id="ps-button-register"{% endif %} data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onRegisterFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
-            {% if ps_key_type != 'v2_checkbox' %}<button id="button-register" aria-hidden="true" style="display: none;"></button>{% endif %}]]></add>
+            <add><![CDATA[<input type="button" value="{{ button_continue }}" data-loading-text="{{ text_loading }}"
+            {% if ps_google_recaptcha_status %}
+                 class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v2_checkbox' %}id="button-register"{% else %}id="ps-button-register"{% endif %}
+                {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onRegisterFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+                {% if ps_key_type != 'v2_checkbox' %}<button id="button-register" aria-hidden="true" style="display: none;"></button>{% endif %}
+            {% else %}
+                id="button-register" class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/information/contact.twig">
         <operation>
             <search position="replace"><![CDATA[<input class="btn btn-primary" type="submit" value="{{ button_submit }}" />]]></search>
-            <add><![CDATA[<input class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} type="submit" value="{{ button_submit }}" />]]></add>
+            <add><![CDATA[<input type="submit" value="{{ button_submit }}"
+            {% if ps_google_recaptcha_status %}
+                class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %} />
+            {% else %}
+                class="btn btn-primary" />
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/product/product.twig">
         <operation>
             <search position="replace"><![CDATA[$('#button-review').on('click', function() {]]></search>
-            <add><![CDATA[
-        {% if ps_key_type == 'v2_checkbox' %}
-            $('#button-review').on('click', function() {
-        {% else %}
-            $('#form-review').on('submit', function(e) {
-            e.preventDefault();
-        {% endif %}
-            ]]></add>
+            <add><![CDATA[{% if ps_google_recaptcha_status %}
+                {% if ps_key_type == 'v2_checkbox' %}
+                    $('#button-review').on('click', function() {
+                {% else %}
+                    $('#form-review').on('submit', function(e) {
+                    e.preventDefault();
+                {% endif %}
+            {% endif %}]]></add>
         </operation>
     </file>
 
     <file path="catalog/view/theme/default/template/product/product.twig">
         <operation>
             <search position="replace"><![CDATA[<button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary">]]></search>
-            <add><![CDATA[<button type="button" {% if ps_key_type == 'v2_checkbox' %}id="button-review"{% endif %} data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"{% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %}>]]></add>
+            <add><![CDATA[<button type="button" data-loading-text="{{ text_loading }}"
+            {% if ps_google_recaptcha_status %}
+                class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v2_checkbox' %}id="button-review"{% endif %}
+                {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-theme="{{ ps_badge_theme }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-badge="{{ ps_badge_position }}"{% if ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %} data-action="submit"{% endif %}>
+            {% else %}
+                id="button-review" class="btn btn-primary">
+            {% endif %}
+            ]]></add>
         </operation>
     </file>
     <!-- replace v3 and v2_invisible buttons -->
@@ -289,7 +361,9 @@ code package and also available on the project page: https://github.com/playfuls
         <operation>
             <search><![CDATA[$this->load->view('common/footer', $data);]]></search>
             <add position="before"><![CDATA[
-            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
+
+            if ($data['ps_google_recaptcha_status']) {
                 $this->load->language('extension/captcha/ps_google_recaptcha', 'ps_google_recaptcha');
 
                 $ps_language = $this->language->get('ps_google_recaptcha');
@@ -313,7 +387,9 @@ code package and also available on the project page: https://github.com/playfuls
         <operation>
             <search><![CDATA[$this->load->view('common/header', $data);]]></search>
             <add position="before"><![CDATA[
-            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
+
+            if ($data['ps_google_recaptcha_status']) {
                 $data['ps_hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
                 $data['ps_css_nonce'] = $this->config->get('captcha_ps_google_recaptcha_css_nonce');
             }
@@ -324,7 +400,14 @@ code package and also available on the project page: https://github.com/playfuls
     <file path="catalog/view/theme/default/template/common/header.twig">
         <operation>
             <search><![CDATA[</head>]]></search>
-            <add position="before"><![CDATA[{% if ps_hide_badge %}<style{% if ps_css_nonce %} nonce="{{ ps_css_nonce }}"{% endif %}>.grecaptcha-badge { visibility: hidden; }</style>{% endif %}]]></add>
+            <add position="before"><![CDATA[{% if ps_google_recaptcha_status %}
+            <style{% if ps_css_nonce %} nonce="{{ ps_css_nonce }}"{% endif %}>
+            {% if ps_hide_badge %}.grecaptcha-badge { visibility: hidden; }{% endif %}
+            .pull-right > div:has(.grecaptcha-badge) {
+                display: inline-block;
+            }
+            </style>
+            {% endif %}]]></add>
         </operation>
     </file>
 
