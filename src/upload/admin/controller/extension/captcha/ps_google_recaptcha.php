@@ -28,6 +28,10 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
                 $this->request->post['captcha_ps_google_recaptcha_badge_position'] = 'bottomright';
             }
 
+            if ($this->request->post['captcha_ps_google_recaptcha_key_type'] !== 'v3') {
+                $this->request->post['captcha_ps_google_recaptcha_hide_badge'] = 0;
+            }
+
             $this->model_setting_setting->editSetting('captcha_ps_google_recaptcha', $this->request->post);
 
             $this->session->data['success'] = $this->language->get('text_success');
@@ -114,6 +118,12 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $data['captcha_ps_google_recaptcha_badge_size'] = $this->request->post['captcha_ps_google_recaptcha_badge_size'];
         } else {
             $data['captcha_ps_google_recaptcha_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+        }
+
+        if (isset($this->request->post['captcha_ps_google_recaptcha_hide_badge'])) {
+            $data['captcha_ps_google_recaptcha_hide_badge'] = $this->request->post['captcha_ps_google_recaptcha_hide_badge'];
+        } else {
+            $data['captcha_ps_google_recaptcha_hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
         }
 
         $data['recaptcha_key_types'] = array(

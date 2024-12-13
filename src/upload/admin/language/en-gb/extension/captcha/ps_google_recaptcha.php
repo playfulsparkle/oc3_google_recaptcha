@@ -41,9 +41,11 @@ $_['entry_status']                = 'Status';
 $_['entry_badge_position']        = 'Badge Position';
 $_['entry_badge_theme']           = 'Badge Theme';
 $_['entry_badge_size']            = 'Badge Size';
+$_['entry_hide_badge']            = 'Hide Badge';
 
 // Help
 $_['help_key_type']               = 'Choose the type of reCAPTCHA for this site key. A site key only works with a single reCAPTCHA site type. See <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Site Types</a> for more details.';
+$_['help_hide_badge']             = 'By enabling this option, you can completely hide the Google reCAPTCHA badge. A notice will automatically be added to the footer of every page to comply with Google\'s guidelines. For more information, refer to the <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">I\'d like to hide the reCAPTCHA badge. What is allowed?</a> section on the Google reCAPTCHA FAQ page.';
 $_['help_site_key']               = 'Use this site key in the HTML code your site serves to users.';
 $_['help_secret_key']             = 'Use this secret key for communication between your site and reCAPTCHA.';
 
