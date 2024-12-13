@@ -315,6 +315,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
+                $data['ps_css_nonce'] = $this->config->get('captcha_ps_google_recaptcha_css_nonce');
             }
             ]]></add>
         </operation>
@@ -323,7 +324,7 @@ code package and also available on the project page: https://github.com/playfuls
     <file path="catalog/view/theme/default/template/common/header.twig">
         <operation>
             <search><![CDATA[</head>]]></search>
-            <add position="before"><![CDATA[{% if ps_hide_badge %}<style>.grecaptcha-badge { visibility: hidden; }</style>{% endif %}]]></add>
+            <add position="before"><![CDATA[{% if ps_hide_badge %}<style{% if ps_css_nonce %} nonce="{{ ps_css_nonce }}"{% endif %}>.grecaptcha-badge { visibility: hidden; }</style>{% endif %}]]></add>
         </operation>
     </file>
 

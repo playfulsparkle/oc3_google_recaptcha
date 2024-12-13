@@ -129,6 +129,24 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $data['captcha_ps_google_recaptcha_hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
         }
 
+        if (isset($this->request->post['captcha_ps_google_recaptcha_script_nonce'])) {
+            $data['captcha_ps_google_recaptcha_script_nonce'] = $this->request->post['captcha_ps_google_recaptcha_script_nonce'];
+        } else {
+            $data['captcha_ps_google_recaptcha_script_nonce'] = $this->config->get('captcha_ps_google_recaptcha_script_nonce');
+        }
+
+        if (isset($this->request->post['captcha_ps_google_recaptcha_google_captcha_nonce'])) {
+            $data['captcha_ps_google_recaptcha_google_captcha_nonce'] = $this->request->post['captcha_ps_google_recaptcha_google_captcha_nonce'];
+        } else {
+            $data['captcha_ps_google_recaptcha_google_captcha_nonce'] = $this->config->get('captcha_ps_google_recaptcha_google_captcha_nonce');
+        }
+
+        if (isset($this->request->post['captcha_ps_google_recaptcha_css_nonce'])) {
+            $data['captcha_ps_google_recaptcha_css_nonce'] = $this->request->post['captcha_ps_google_recaptcha_css_nonce'];
+        } else {
+            $data['captcha_ps_google_recaptcha_css_nonce'] = $this->config->get('captcha_ps_google_recaptcha_css_nonce');
+        }
+
         $data['recaptcha_key_types'] = array(
             'v3' => $this->language->get('text_key_type_v3'),
             'v2_checkbox' => $this->language->get('text_key_type_v2_checkbox'),
@@ -184,6 +202,9 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
         $data = array(
             'captcha_ps_google_recaptcha_key_type' => 'v3',
+            'captcha_ps_google_recaptcha_script_nonce' => $this->generateGuid(),
+            'captcha_ps_google_recaptcha_google_captcha_nonce' => $this->generateGuid(),
+            'captcha_ps_google_recaptcha_css_nonce' => $this->generateGuid(),
         );
 
         $this->model_setting_setting->editSetting('captcha_ps_google_recaptcha', $data);
@@ -192,5 +213,16 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
     public function uninstall()
     {
 
+    }
+
+    public function generateGuid() {
+        return sprintf(
+            '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+            mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0x0fff) | 0x4000, // Version 4
+            mt_rand(0, 0x3fff) | 0x8000, // Variant 10
+            mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+        );
     }
 }

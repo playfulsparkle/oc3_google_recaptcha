@@ -3,7 +3,8 @@
   <div class="form-group required">
     <label class="{% if route|slice(0, 9) != 'checkout/' %}col-sm-2 {% endif %}control-label">{% if key_type == 'v2_checkbox' %}{{ entry_challange_captcha }}{% else %}{{ entry_score_based_captcha }}{% endif %}</label>
     {% if route|slice(0, 9) != 'checkout/' %}<div class="col-sm-10">{% endif %}
-			<script data-widget-id="{{ widget_counter }}">
+			{% if key_type == 'v2_checkbox' %}<div id="{% if route|slice(0, 9) == 'checkout/' %}input-payment-captcha{% else %}g-recaptcha-{{ widget_counter }}{% endif %}" data-sitekey="{{ site_key }}"></div>{% endif %}
+			<script{% if ps_script_nonce %} nonce="{{ ps_script_nonce }}"{% endif %} data-widget-id="{{ widget_counter }}">
 				var repositionCaptchaBadge{{ widget_counter }} = function () {
 					var grecaptchaBadge = document.querySelector('.grecaptcha-badge'),
 					grecaptchaContainer = grecaptchaBadge ? grecaptchaBadge.closest('div') : null,
@@ -20,50 +21,45 @@
 						}
 					}
 				};
-			</script>
 			{% if key_type == 'v3' or key_type == 'v2_invisible' %}
-				<script data-widget-id="{{ widget_counter }}">
-						var recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
+				var recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
 
-						var onFormSubmit{{ widget_counter }} = function (token) {
-								if (recaptcha_form{{ widget_counter }}) {
-										var submitEvent = new Event('submit', {bubbles: true, cancelable: true});
-										if (recaptcha_form{{ widget_counter }}.dispatchEvent(submitEvent)) { recaptcha_form{{ widget_counter }}.submit(); }
-								}
+				var onFormSubmit{{ widget_counter }} = function (token) {
+						if (recaptcha_form{{ widget_counter }}) {
+								var submitEvent = new Event('submit', {bubbles: true, cancelable: true});
+								if (recaptcha_form{{ widget_counter }}.dispatchEvent(submitEvent)) { recaptcha_form{{ widget_counter }}.submit(); }
 						}
-						{% if route|slice(0, 9) == 'checkout/' %}
-						var onGuestFormSubmit{{ widget_counter }} = function(token) {
-							document.querySelector('#button-guest').click();
-						}
+				}
+				{% if route|slice(0, 9) == 'checkout/' %}
+				var onGuestFormSubmit{{ widget_counter }} = function(token) {
+					document.querySelector('#button-guest').click();
+				}
 
-						var onRegisterFormSubmit{{ widget_counter }} = function (token) {
-							document.querySelector('#button-register').click();
-						}
-						{% endif %}
-				</script>
-			{% elseif key_type == 'v2_checkbox' %}
-				<div id="{% if route|slice(0, 9) == 'checkout/' %}input-payment-captcha{% else %}g-recaptcha-{{ widget_counter }}{% endif %}" data-sitekey="{{ site_key }}"></div>
-				<script data-widget-id="{{ widget_counter }}">
-					var recaptcha_widget{{ widget_counter }},
-					recaptcha_widget_obj{{ widget_counter }} = {% if route|slice(0, 9) == 'checkout/' %}document.querySelector('#input-payment-captcha'){% else %}document.querySelector('#g-recaptcha-{{ widget_counter }}'){% endif %},
-					recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
-
-					var onloadCallback{{ widget_counter }} = function () {
-						recaptcha_widget{{ widget_counter }} = grecaptcha.render(recaptcha_widget_obj{{ widget_counter }}, {
-							'sitekey': '{{ site_key }}',
-							'theme': '{{ badge_theme }}',
-							'size': '{{ badge_size }}'
-						});
-					};
-
-					if (recaptcha_form{{ widget_counter }}) {
-						recaptcha_form{{ widget_counter }}.addEventListener('submit', function () {
-							setTimeout(resetRecaptcha{{ widget_counter }}, 1000);
-						});
-					}
-				</script>
+				var onRegisterFormSubmit{{ widget_counter }} = function (token) {
+					document.querySelector('#button-register').click();
+				}
 			{% endif %}
-			<script src="{{ google_captcha_url }}" async defer></script>
+			{% elseif key_type == 'v2_checkbox' %}
+				var recaptcha_widget{{ widget_counter }},
+				recaptcha_widget_obj{{ widget_counter }} = {% if route|slice(0, 9) == 'checkout/' %}document.querySelector('#input-payment-captcha'){% else %}document.querySelector('#g-recaptcha-{{ widget_counter }}'){% endif %},
+				recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
+
+				var onloadCallback{{ widget_counter }} = function () {
+					recaptcha_widget{{ widget_counter }} = grecaptcha.render(recaptcha_widget_obj{{ widget_counter }}, {
+						'sitekey': '{{ site_key }}',
+						'theme': '{{ badge_theme }}',
+						'size': '{{ badge_size }}'
+					});
+				};
+
+				if (recaptcha_form{{ widget_counter }}) {
+					recaptcha_form{{ widget_counter }}.addEventListener('submit', function () {
+						setTimeout(resetRecaptcha{{ widget_counter }}, 1000);
+					});
+				}
+			{% endif %}
+			</script>
+			<script{% if ps_google_captcha_nonce %} nonce="{{ ps_google_captcha_nonce }}"{% endif %} src="{{ google_captcha_url }}" async defer></script>
 			{% if error_captcha %}<div id="error-captcha" class="text-danger">{{ error_captcha }}</div>{% else %}<div id="error-captcha"></div>{% endif %}
 			{% if route|slice(0, 9) != 'checkout/' %}</div>{% endif %}
 	</div>

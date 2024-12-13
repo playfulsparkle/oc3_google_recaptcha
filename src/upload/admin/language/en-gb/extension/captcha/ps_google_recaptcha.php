@@ -28,6 +28,7 @@ $_['text_badge_light']            = 'Light';
 $_['text_badge_compact']          = 'Compact';
 $_['text_badge_normal']           = 'Normal';
 $_['text_badge_invisible']        = 'Invisible';
+$_['text_csp_info']               = 'Ensure your Content-Security-Policy (CSP) is correctly configured to work with Google reCAPTCHA. We recommend using the <strong>nonce-based approach from CSP3</strong> for maximum security. Alternatively, include <strong>script-src</strong> to allow <strong>https://www.google.com/recaptcha/</strong> and <strong>https://www.gstatic.com/recaptcha/</strong>, and <strong>frame-src</strong> to allow <strong>https://www.google.com/recaptcha/</strong> and <strong>https://recaptcha.google.com/recaptcha/</strong>. Using <strong>strict-dynamic</strong> is also supported on compatible browsers.';
 
 // Tab
 $_['tab_general']                 = 'General';
@@ -43,6 +44,9 @@ $_['entry_badge_position']        = 'Badge Position';
 $_['entry_badge_theme']           = 'Badge Theme';
 $_['entry_badge_size']            = 'Badge Size';
 $_['entry_hide_badge']            = 'Hide Badge';
+$_['entry_script_nonce']          = 'Script Nonce';
+$_['entry_google_captcha_nonce']  = 'Google Captcha API Script Nonce';
+$_['entry_css_nonce']             = 'CSS Style Tag Nonce';
 
 // Help
 $_['help_key_type']               = 'Choose the type of reCAPTCHA for this site key. A site key only works with a single reCAPTCHA site type. See <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Site Types</a> for more details.';
