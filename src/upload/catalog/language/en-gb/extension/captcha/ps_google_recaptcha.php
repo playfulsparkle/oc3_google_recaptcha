@@ -1,6 +1,7 @@
 <?php
 // Text
 $_['text_captcha']                 = 'Captcha';
+$_['text_recaptcha_branding']      = 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.';
 
 // Entry
 $_['entry_challange_captcha']      = 'Please complete the captcha validation below';
