@@ -81,24 +81,6 @@ code package and also available on the project page: https://github.com/playfuls
     </file>
     <!-- captcha reset end -->
 
-    <file path="catalog/controller/account/register.php">
-        <operation>
-            <search><![CDATA[$this->response->setOutput($this->load->view('account/register', $data));]]></search>
-            <add position="before"><![CDATA[
-            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
-
-            if ($data['ps_google_recaptcha_status']) {
-                $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-                $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
-                $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
-                $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
-                $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
-                $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
-            }
-            ]]></add>
-        </operation>
-    </file>
-
     <file path="catalog/controller/account/return.php">
         <operation>
             <search><![CDATA[$this->response->setOutput($this->load->view('account/return_form', $data));]]></search>
