@@ -3,6 +3,20 @@
   <div class="form-group required">
     <label class="{% if route|slice(0, 9) != 'checkout/' %}col-sm-2 {% endif %}control-label">{% if key_type == 'v2_checkbox' %}{{ entry_challange_captcha }}{% else %}{{ entry_score_based_captcha }}{% endif %}</label>
     {% if route|slice(0, 9) != 'checkout/' %}<div class="col-sm-10">{% endif %}
+			<script>
+				var repositionCaptchaBadge{{ widget_counter }} = function () {
+					var grecaptchaBadge = document.querySelector('.grecaptcha-badge'),
+					grecaptchaContainer = grecaptchaBadge ? grecaptchaBadge.closest('div') : null,
+					errorCaptcha = document.querySelector('#error-captcha');
+					if (grecaptchaContainer && errorCaptcha) { errorCaptcha.parentNode.insertBefore(grecaptchaContainer, errorCaptcha); }
+				};
+
+				var resetRecaptcha{{ widget_counter }} = function () {
+					if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
+						grecaptcha.reset(recaptcha_widget{{ widget_counter }});
+					}
+				};
+			</script>
 			{% if key_type == 'v3' or key_type == 'v2_invisible' %}
 				<script src="https://www.google.com/recaptcha/api.js?render={{ site_key }}{% if badge_position == 'inline' %}&onload=repositionCaptchaBadge{{ widget_counter }}{% else %}&badge={{ badge_position }}{% endif %}" async defer></script>
 				<script data-widget-id="{{ widget_counter }}">
@@ -19,12 +33,6 @@
 						function onRegisterFormSubmit{{ widget_counter }}(token) {
 							document.querySelector('#button-register').click();
 						}{% endif %}
-						{% if badge_position == 'inline' %}var repositionCaptchaBadge{{ widget_counter }} = function () {
-								var grecaptchaBadge = document.querySelector('.grecaptcha-badge'),
-								grecaptchaContainer = grecaptchaBadge ? grecaptchaBadge.closest('div') : null,
-								errorCaptcha = document.querySelector('#error-captcha');
-								if (grecaptchaContainer && errorCaptcha) { errorCaptcha.parentNode.insertBefore(grecaptchaContainer, errorCaptcha); }
-						};{% endif %}
 				</script>
 			{% elseif key_type == 'v2_checkbox' %}
 				<div id="{% if route|slice(0, 9) == 'checkout/' %}input-payment-captcha{% else %}g-recaptcha-{{ widget_counter }}{% endif %}" data-sitekey="{{ site_key }}"></div>
@@ -39,12 +47,6 @@
 							'theme': '{{ badge_theme }}',
 							'size': '{{ badge_size }}'
 						});
-					};
-
-					var resetRecaptcha{{ widget_counter }} = function () {
-						if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
-							grecaptcha.reset(recaptcha_widget{{ widget_counter }});
-						}
 					};
 
 					if (recaptcha_form{{ widget_counter }}) {
