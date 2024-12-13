@@ -25,18 +25,22 @@
 				<script src="https://www.google.com/recaptcha/api.js?render={{ site_key }}{% if badge_position == 'inline' %}&onload=repositionCaptchaBadge{{ widget_counter }}{% else %}&badge={{ badge_position }}{% endif %}" async defer></script>
 				<script data-widget-id="{{ widget_counter }}">
 						var recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
-						function onFormSubmit{{ widget_counter }}(token) {
+
+						var onFormSubmit{{ widget_counter }} = function (token) {
 								if (recaptcha_form{{ widget_counter }}) {
 										var submitEvent = new Event('submit', {bubbles: true, cancelable: true});
 										if (recaptcha_form{{ widget_counter }}.dispatchEvent(submitEvent)) { recaptcha_form{{ widget_counter }}.submit(); }
 								}
 						}
-						{% if route|slice(0, 9) == 'checkout/' %}function onGuestFormSubmit{{ widget_counter }}(token) {
+						{% if route|slice(0, 9) == 'checkout/' %}
+						var onGuestFormSubmit{{ widget_counter }} = function(token) {
 							document.querySelector('#button-guest').click();
 						}
-						function onRegisterFormSubmit{{ widget_counter }}(token) {
+
+						var onRegisterFormSubmit{{ widget_counter }} = function (token) {
 							document.querySelector('#button-register').click();
-						}{% endif %}
+						}
+						{% endif %}
 				</script>
 			{% elseif key_type == 'v2_checkbox' %}
 				<div id="{% if route|slice(0, 9) == 'checkout/' %}input-payment-captcha{% else %}g-recaptcha-{{ widget_counter }}{% endif %}" data-sitekey="{{ site_key }}"></div>
