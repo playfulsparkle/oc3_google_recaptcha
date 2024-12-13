@@ -12,7 +12,11 @@
 				};
 
 				var resetRecaptcha{{ widget_counter }} = function () {
-					if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
+					if (
+						window.grecaptcha &&
+						typeof grecaptcha.reset === 'function' &&
+						typeof recaptcha_widget{{ widget_counter }} === 'number'
+					) {
 						grecaptcha.reset(recaptcha_widget{{ widget_counter }});
 					}
 				};
