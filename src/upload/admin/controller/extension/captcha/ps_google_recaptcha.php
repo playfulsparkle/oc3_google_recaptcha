@@ -42,7 +42,11 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=captcha', true));
         }
 
-        if (isset($this->error['warning'])) {
+        if (isset($this->session->data['error'])) {
+            $data['error_warning'] = $this->session->data['error'];
+
+            unset($this->session->data['error']);
+        } else if (isset($this->error['warning'])) {
             $data['error_warning'] = $this->error['warning'];
         } else {
             $data['error_warning'] = '';
@@ -315,13 +319,13 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         if (!is_file($error_log_filename)) {
             $this->session->data['error'] = sprintf($this->language->get('error_error_log_file'), $this->config->get('captcha_ps_google_recaptcha_log_filename'));
 
-            $this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=captcha', true));
+            $this->response->redirect($this->url->link('extension/captcha/ps_google_recaptcha', 'user_token=' . $this->session->data['user_token'], true));
         }
 
         if (!filesize($error_log_filename)) {
             $this->session->data['error'] = sprintf($this->language->get('error_error_log_empty'), $this->config->get('captcha_ps_google_recaptcha_log_filename'));
 
-            $this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=captcha', true));
+            $this->response->redirect($this->url->link('extension/captcha/ps_google_recaptcha', 'user_token=' . $this->session->data['user_token'], true));
         }
 
         $this->response->addheader('Pragma: public');

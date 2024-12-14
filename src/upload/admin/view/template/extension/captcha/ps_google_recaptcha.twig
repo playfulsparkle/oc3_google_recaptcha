@@ -21,8 +21,6 @@
     </div>
     {% endif %}
 
-		<div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_signup }}</div>
-
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
@@ -30,6 +28,8 @@
       <div class="panel-body">
 
         <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-captcha" class="form-horizontal">
+
+					<div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_signup }}</div>
 
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
