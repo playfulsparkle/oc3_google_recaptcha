@@ -66,6 +66,40 @@
 								</div>
 							</div>
 
+							<fieldset id="v3-score-threshold"{% if captcha_ps_google_recaptcha_key_type != 'v3' %} style="display: none;"{% endif %}>
+								<legend>{{ heading_v3_score_threshold }}</legend>
+								{% for captcha_page in captcha_pages %}
+								<div class="form-group required">
+									<label class="col-sm-2 control-label" for="input-v3-score-threshold-{{ captcha_page.value }}">{{ captcha_page.text }}</label>
+									<div class="col-sm-10">
+										<input type="number" step="0.1" min="0" max="1" name="captcha_ps_google_recaptcha_v3_score_threshold[{{ captcha_page.value }}]" value="{{ captcha_ps_google_recaptcha_v3_score_threshold[captcha_page.value] | default('0.5') }}" placeholder="{{ captcha_page.text }}" id="input-v3-score-threshold-{{ captcha_page.value }}" class="form-control" />
+									</div>
+								</div>
+								{% endfor %}
+								<div class="col-sm-offset-2 help-block text-muted">{{ help_v3_score_threshold }}</div>
+							</fieldset>
+
+							<div id="hide-badge" class="form-group"{% if captcha_ps_google_recaptcha_key_type != 'v3' and captcha_ps_google_recaptcha_key_type != 'v2_invisible' %} style="display: none;"{% endif %}>
+								<label class="col-sm-2 control-label" for="input-hide-badge">{{ entry_hide_badge }}</label>
+								<div class="col-sm-10">
+									<label class="radio-inline"> {% if captcha_ps_google_recaptcha_hide_badge %}
+                    <input type="radio" name="captcha_ps_google_recaptcha_hide_badge" value="1" checked="checked" />
+                    {{ text_yes }}
+                    {% else %}
+                    <input type="radio" name="captcha_ps_google_recaptcha_hide_badge" value="1" />
+                    {{ text_yes }}
+                    {% endif %} </label>
+                  <label class="radio-inline"> {% if not captcha_ps_google_recaptcha_hide_badge %}
+                    <input type="radio" name="captcha_ps_google_recaptcha_hide_badge" value="0" checked="checked" />
+                    {{ text_no }}
+                    {% else %}
+                    <input type="radio" name="captcha_ps_google_recaptcha_hide_badge" value="0" />
+                    {{ text_no }}
+                    {% endif %} </label>
+									<div class="help-block text-muted">{{ help_hide_badge }}</div>
+								</div>
+							</div>
+
 							<div id="badge-positions" class="form-group"{% if captcha_ps_google_recaptcha_key_type == 'v2_checkbox' %} style="display: none;"{% endif %}>
 								<label class="col-sm-2 control-label" for="input-badge-position">{{ entry_badge_position }}</label>
 								<div class="col-sm-10">
@@ -102,27 +136,6 @@
 										{% endfor %}
 									</select>
 									<div class="help-block text-muted">{{ help_badge_size }}</div>
-								</div>
-							</div>
-
-							<div id="hide-badge" class="form-group"{% if captcha_ps_google_recaptcha_key_type != 'v3' and captcha_ps_google_recaptcha_key_type != 'v2_invisible' %} style="display: none;"{% endif %}>
-								<label class="col-sm-2 control-label" for="input-hide-badge">{{ entry_hide_badge }}</label>
-								<div class="col-sm-10">
-									<label class="radio-inline"> {% if captcha_ps_google_recaptcha_hide_badge %}
-                    <input type="radio" name="captcha_ps_google_recaptcha_hide_badge" value="1" checked="checked" />
-                    {{ text_yes }}
-                    {% else %}
-                    <input type="radio" name="captcha_ps_google_recaptcha_hide_badge" value="1" />
-                    {{ text_yes }}
-                    {% endif %} </label>
-                  <label class="radio-inline"> {% if not captcha_ps_google_recaptcha_hide_badge %}
-                    <input type="radio" name="captcha_ps_google_recaptcha_hide_badge" value="0" checked="checked" />
-                    {{ text_no }}
-                    {% else %}
-                    <input type="radio" name="captcha_ps_google_recaptcha_hide_badge" value="0" />
-                    {{ text_no }}
-                    {% endif %} </label>
-									<div class="help-block text-muted">{{ help_hide_badge }}</div>
 								</div>
 							</div>
 
@@ -230,11 +243,16 @@
 		$('#badge-positions').hide();
 		$('#badge-sizes').hide();
 		$('#hide-badge').hide();
+		$('#v3-score-threshold').hide();
 
 		$('#input-badge-position').prop('selectedIndex', 0);
 		$('#input-badge-theme').prop('selectedIndex', 0);
 		$('#input-badge-size option').prop('disabled', true).prop('selected', false);
 		$('#hide-badge input[value="0"]').prop('checked', true);
+
+		if (selectedValue === 'v3') {
+			$('#v3-score-threshold').show();
+		}
 
 		if (selectedValue === 'v3' || selectedValue === 'v2_invisible') {
 			$('#hide-badge').show();

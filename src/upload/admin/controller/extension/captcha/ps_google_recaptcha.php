@@ -170,6 +170,33 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             array('disabled' => $this->config->get('captcha_ps_google_recaptcha_key_type') === 'v2_checkbox', 'value' => 'invisible', 'name' => $this->language->get('text_badge_invisible'), ),
         );
 
+        $data['captcha_pages'] = array();
+
+		$data['captcha_pages'][] = array(
+			'text'  => $this->language->get('text_v3_score_threshold_register'),
+			'value' => 'register'
+		);
+
+		$data['captcha_pages'][] = array(
+			'text'  => $this->language->get('text_v3_score_threshold_guest'),
+			'value' => 'guest'
+		);
+
+		$data['captcha_pages'][] = array(
+			'text'  => $this->language->get('text_v3_score_threshold_review'),
+			'value' => 'review'
+		);
+
+		$data['captcha_pages'][] = array(
+			'text'  => $this->language->get('text_v3_score_threshold_return'),
+			'value' => 'return'
+		);
+
+		$data['captcha_pages'][] = array(
+			'text'  => $this->language->get('text_v3_score_threshold_contact'),
+			'value' => 'contact'
+		);
+
         $data['text_contact'] = sprintf($this->language->get('text_contact'), self::EXTENSION_EMAIL, self::EXTENSION_EMAIL, self::EXTENSION_DOC);
 
         $data['header'] = $this->load->controller('common/header');
