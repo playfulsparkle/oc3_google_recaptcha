@@ -66,3 +66,4 @@ $_['help_v3_score_threshold']          = 'This setting defines the threshold for
 $_['error_permission']                 = 'Warning: You do not have permission to modify Google reCAPTCHA!';
 $_['error_site_key']                   = 'Key required!';
 $_['error_secret_key']                 = 'Secret required!';
+$_['error_v3_score_threshold_value']   = 'The score value must be between 0 and 1. It cannot be lower than 0 or greater than 1.';

@@ -66,3 +66,4 @@ $_['help_v3_score_threshold']          = 'Ez a beállítás a reCAPTCHA v3 álta
 $_['error_permission']                 = 'Figyelmeztetés: Nincs engedélye a Google reCAPTCHA módosításához!';
 $_['error_site_key']                   = 'A kulcs megadása kötelező!';
 $_['error_secret_key']                 = 'A titkos kulcs megadása kötelező!';
+$_['error_v3_score_threshold_value']   = 'A pontszám értékének 0 és 1 között kell lennie. Nem lehet kisebb, mint 0, és nem lehet nagyobb, mint 1.';

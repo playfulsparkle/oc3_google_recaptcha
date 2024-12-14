@@ -66,3 +66,4 @@ $_['help_v3_score_threshold']          = 'Diese Einstellung definiert die Schwel
 $_['error_permission']                 = 'Warnung: Sie haben keine Berechtigung, Google reCAPTCHA zu ändern!';
 $_['error_site_key']                   = 'Websiteschlüssel ist erforderlich!';
 $_['error_secret_key']                 = 'Geheimen Schlüssel ist erforderlich!';
+$_['error_v3_score_threshold_value']  = 'Der Wert des Scores muss zwischen 0 und 1 liegen. Er darf nicht kleiner als 0 oder größer als 1 sein.';

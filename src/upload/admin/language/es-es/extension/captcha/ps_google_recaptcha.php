@@ -66,3 +66,4 @@ $_['help_v3_score_threshold']          = 'Esta configuración define el umbral p
 $_['error_permission']                 = 'Advertencia: ¡No tiene permiso para modificar Google reCAPTCHA!';
 $_['error_site_key']                   = '¡Clave del sitio requerida!';
 $_['error_secret_key']                 = '¡Clave secreta requerida!';
+$_['error_v3_score_threshold_value']   = 'El valor del puntaje debe estar entre 0 y 1. No puede ser menor que 0 ni mayor que 1.';

@@ -60,6 +60,12 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $data['error_secret_key'] = '';
         }
 
+        if (isset($this->error['v3_score_threshold'])) {
+            $data['error_v3_score_threshold'] = (array) $this->error['v3_score_threshold'];
+        } else {
+            $data['error_v3_score_threshold'] = array();
+        }
+
         $data['breadcrumbs'] = array();
 
         $data['breadcrumbs'][] = array(
@@ -147,6 +153,12 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $data['captcha_ps_google_recaptcha_css_nonce'] = $this->config->get('captcha_ps_google_recaptcha_css_nonce');
         }
 
+        if (isset($this->request->post['captcha_ps_google_recaptcha_v3_score_threshold'])) {
+            $data['captcha_ps_google_recaptcha_v3_score_threshold'] = (array) $this->request->post['captcha_ps_google_recaptcha_v3_score_threshold'];
+        } else {
+            $data['captcha_ps_google_recaptcha_v3_score_threshold'] = (array) $this->config->get('captcha_ps_google_recaptcha_v3_score_threshold');
+        }
+
         $data['recaptcha_key_types'] = array(
             'v3' => $this->language->get('text_key_type_v3'),
             'v2_checkbox' => $this->language->get('text_key_type_v2_checkbox'),
@@ -172,30 +184,30 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
         $data['captcha_pages'] = array();
 
-		$data['captcha_pages'][] = array(
-			'text'  => $this->language->get('text_v3_score_threshold_register'),
-			'value' => 'register'
-		);
+        $data['captcha_pages'][] = array(
+            'text' => $this->language->get('text_v3_score_threshold_register'),
+            'value' => 'register'
+        );
 
-		$data['captcha_pages'][] = array(
-			'text'  => $this->language->get('text_v3_score_threshold_guest'),
-			'value' => 'guest'
-		);
+        $data['captcha_pages'][] = array(
+            'text' => $this->language->get('text_v3_score_threshold_guest'),
+            'value' => 'guest'
+        );
 
-		$data['captcha_pages'][] = array(
-			'text'  => $this->language->get('text_v3_score_threshold_review'),
-			'value' => 'review'
-		);
+        $data['captcha_pages'][] = array(
+            'text' => $this->language->get('text_v3_score_threshold_review'),
+            'value' => 'review'
+        );
 
-		$data['captcha_pages'][] = array(
-			'text'  => $this->language->get('text_v3_score_threshold_return'),
-			'value' => 'return'
-		);
+        $data['captcha_pages'][] = array(
+            'text' => $this->language->get('text_v3_score_threshold_return'),
+            'value' => 'return'
+        );
 
-		$data['captcha_pages'][] = array(
-			'text'  => $this->language->get('text_v3_score_threshold_contact'),
-			'value' => 'contact'
-		);
+        $data['captcha_pages'][] = array(
+            'text' => $this->language->get('text_v3_score_threshold_contact'),
+            'value' => 'contact'
+        );
 
         $data['text_contact'] = sprintf($this->language->get('text_contact'), self::EXTENSION_EMAIL, self::EXTENSION_EMAIL, self::EXTENSION_DOC);
 
@@ -218,6 +230,14 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
         if (!$this->request->post['captcha_ps_google_recaptcha_secret_key']) {
             $this->error['secret_key'] = $this->language->get('error_secret_key');
+        }
+
+        if (isset($this->request->post['captcha_ps_google_recaptcha_v3_score_threshold'])) {
+            foreach ($this->request->post['captcha_ps_google_recaptcha_v3_score_threshold'] as $captcha_page => $value) {
+                if ($value < 0 || $value > 1) {
+                    $this->error['v3_score_threshold'][$captcha_page] = $this->language->get('error_v3_score_threshold_value');
+                }
+            }
         }
 
         return !$this->error;

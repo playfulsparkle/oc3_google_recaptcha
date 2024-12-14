@@ -66,3 +66,4 @@ $_['help_v3_score_threshold']          = 'Questa impostazione definisce la sogli
 $_['error_permission']                 = 'Attenzione: Non hai il permesso di modificare Google reCAPTCHA!';
 $_['error_site_key']                   = 'Chiave richiesta!';
 $_['error_secret_key']                 = 'Chiave segreta richiesta!';
+$_['error_v3_score_threshold_value']   = 'Il valore del punteggio deve essere compreso tra 0 e 1. Non può essere inferiore a 0 né superiore a 1.';

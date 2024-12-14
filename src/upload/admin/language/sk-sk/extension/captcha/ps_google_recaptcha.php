@@ -66,3 +66,4 @@ $_['help_v3_score_threshold']          = 'Toto nastavenie definuje prahovú hodn
 $_['error_permission']                 = 'Upozornenie: Nemáte oprávnenie na úpravu Google reCAPTCHA!';
 $_['error_site_key']                   = 'Vyžaduje sa kľúč!';
 $_['error_secret_key']                 = 'Vyžaduje sa tajný kľúč!';
+$_['error_v3_score_threshold_value']   = 'Hodnota skóre musí byť medzi 0 a 1. Nemôže byť menšia ako 0 ani väčšia ako 1.';
