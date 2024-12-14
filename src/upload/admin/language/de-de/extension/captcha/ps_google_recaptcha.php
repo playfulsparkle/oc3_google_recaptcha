@@ -2,7 +2,7 @@
 // Überschrift
 $_['heading_title']               = 'Playful Sparkle - Google reCAPTCHA';
 $_['heading_getting_started']     = 'Erste Schritte';
-$_['heading_setup']               = 'Einrichtung des Google Tag Managers';
+$_['heading_setup']               = 'Einrichtung des Google reCAPTCHA';
 $_['heading_troubleshot']         = 'Häufige Fehlersuche';
 $_['heading_faq']                 = 'Häufig gestellte Fragen';
 $_['heading_contact']             = 'Support kontaktieren';
