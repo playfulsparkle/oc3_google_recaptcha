@@ -77,9 +77,19 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             return $this->language->get('error_captcha');
         }
 
-        $recaptcha_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret_key')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array(
+            'secret' => $this->config->get('captcha_ps_google_recaptcha_secret_key'),
+            'response' => $this->request->post['g-recaptcha-response'],
+            'remoteip' => $this->request->server['REMOTE_ADDR']
+        )));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
 
-        $recaptcha = array_merge(
+        $captcha_response = array_merge(
             array(
                 'success' => false,      // whether this request was a valid reCAPTCHA token for your site
                 'score' => 0,            // the score for this request (0.0 - 1.0)
@@ -88,41 +98,39 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
                 'hostname' => '',        // the hostname of the site where the reCAPTCHA was solved
                 'error-codes' => array() // optional
             ),
-            (array) json_decode($recaptcha_response, true)
+            (array) json_decode($response, true)
         );
 
-        if ($recaptcha['success']) {
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return $this->language->get('error_captcha');
+        }
+
+        if ($captcha_response['success']) {
             return '';
         }
 
         if ($this->config->get('captcha_ps_google_recaptcha_key_type') === 'v3') {
-            if ($this->request->get['route'] === 'product/product/write') {
-                $recaptcha_page = 'review';
-            } else if ($this->request->get['route'] === 'information/contact') {
-                $recaptcha_page = 'contact';
-            } else if ($this->request->get['route'] === 'account/return/add') {
-                $recaptcha_page = 'returns';
-            } else if ($this->request->get['route'] === 'account/register') {
-                $recaptcha_page = 'register';
-            } else if ($this->request->get['route'] === 'checkout/register/save') {
-                $recaptcha_page = 'register';
-            } else if ($this->request->get['route'] === 'checkout/guest/save') {
-                $recaptcha_page = 'guest';
-            } else {
-                $recaptcha_page = '';
-            }
+            $route_to_page = array(
+                'product/product/write' => 'review',
+                'information/contact' => 'contact',
+                'account/return/add' => 'returns',
+                'account/register' => 'register',
+                'checkout/register/save' => 'register',
+                'checkout/guest/save' => 'guest'
+            );
+            $recaptcha_page = isset($route_to_page[$this->request->get['route']]) ? $route_to_page[$this->request->get['route']] : '';
 
             $recaptcha_pages = (array) $this->config->get('captcha_ps_google_recaptcha_v3_score_threshold');
 
-            if ($recaptcha_page && isset($recaptcha_pages[$recaptcha_page]) && $recaptcha['score'] < $recaptcha_pages[$recaptcha_page]) {
+            if ($recaptcha_page && isset($recaptcha_pages[$recaptcha_page]) && $captcha_response['score'] < $recaptcha_pages[$recaptcha_page]) {
                 return $this->language->get('error_captcha');
             }
         }
 
-        if ($recaptcha['error-codes']) {
+        if ($captcha_response['error-codes']) {
             $errors = array();
 
-            foreach ($recaptcha['error-codes'] as $error_code) {
+            foreach ($captcha_response['error-codes'] as $error_code) {
                 $errors[] = $this->language->get('error_' . str_replace('-', '_', $error_code));
             }
 
