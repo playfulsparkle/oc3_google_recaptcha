@@ -29,7 +29,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         }
 
         $data['widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
-        
+
         $data['key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
         $data['badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
         $data['badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
@@ -37,6 +37,8 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $data['site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
         $data['ps_script_nonce'] = $this->config->get('captcha_ps_google_recaptcha_script_nonce');
         $data['ps_google_captcha_nonce'] = $this->config->get('captcha_ps_google_recaptcha_google_captcha_nonce');
+
+        $data['route'] = $this->request->get['route'];
 
         $query = array();
 
@@ -88,6 +90,22 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             ),
             (array) json_decode($recaptcha_response, true)
         );
+
+        if ($this->request->get['route'] === 'product/product/write') {
+            $recaptcha_page = 'review';
+        } else if ($this->request->get['route'] === 'information/contact') {
+            $recaptcha_page = 'contact';
+        } else if ($this->request->get['route'] === 'account/return/add') {
+            $recaptcha_page = 'returns';
+        } else if ($this->request->get['route'] === 'account/register') {
+            $recaptcha_page = 'register';
+        } else if ($this->request->get['route'] === 'checkout/register/save') {
+            $recaptcha_page = 'register';
+        } else if ($this->request->get['route'] === 'checkout/guest/save') {
+            $recaptcha_page = 'guest';
+        } else {
+            $recaptcha_page = '';
+        }
 
         if ($recaptcha['success']) {
             return '';

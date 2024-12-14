@@ -33,10 +33,12 @@
 				{% if route|slice(0, 9) == 'checkout/' %}
 				var onGuestFormSubmit{{ widget_counter }} = function(token) {
 					document.querySelector('#button-guest').click();
+					console.log('document.querySelector(\'#button-guest\').click();');
 				}
 
 				var onRegisterFormSubmit{{ widget_counter }} = function (token) {
 					document.querySelector('#button-register').click();
+					console.log('document.querySelector(\'#button-register\').click();');
 				}
 			{% endif %}
 			{% elseif key_type == 'v2_checkbox' %}
