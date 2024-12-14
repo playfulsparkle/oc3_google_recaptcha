@@ -91,24 +91,32 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             (array) json_decode($recaptcha_response, true)
         );
 
-        if ($this->request->get['route'] === 'product/product/write') {
-            $recaptcha_page = 'review';
-        } else if ($this->request->get['route'] === 'information/contact') {
-            $recaptcha_page = 'contact';
-        } else if ($this->request->get['route'] === 'account/return/add') {
-            $recaptcha_page = 'returns';
-        } else if ($this->request->get['route'] === 'account/register') {
-            $recaptcha_page = 'register';
-        } else if ($this->request->get['route'] === 'checkout/register/save') {
-            $recaptcha_page = 'register';
-        } else if ($this->request->get['route'] === 'checkout/guest/save') {
-            $recaptcha_page = 'guest';
-        } else {
-            $recaptcha_page = '';
-        }
-
         if ($recaptcha['success']) {
             return '';
+        }
+
+        if ($this->config->get('captcha_ps_google_recaptcha_key_type') === 'v3') {
+            if ($this->request->get['route'] === 'product/product/write') {
+                $recaptcha_page = 'review';
+            } else if ($this->request->get['route'] === 'information/contact') {
+                $recaptcha_page = 'contact';
+            } else if ($this->request->get['route'] === 'account/return/add') {
+                $recaptcha_page = 'returns';
+            } else if ($this->request->get['route'] === 'account/register') {
+                $recaptcha_page = 'register';
+            } else if ($this->request->get['route'] === 'checkout/register/save') {
+                $recaptcha_page = 'register';
+            } else if ($this->request->get['route'] === 'checkout/guest/save') {
+                $recaptcha_page = 'guest';
+            } else {
+                $recaptcha_page = '';
+            }
+
+            $recaptcha_pages = (array) $this->config->get('captcha_ps_google_recaptcha_v3_score_threshold');
+
+            if ($recaptcha_page && isset($recaptcha_pages[$recaptcha_page]) && $recaptcha['score'] < $recaptcha_pages[$recaptcha_page]) {
+                return $this->language->get('error_captcha');
+            }
         }
 
         if ($recaptcha['error-codes']) {
