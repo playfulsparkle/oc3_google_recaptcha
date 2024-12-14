@@ -1,60 +1,60 @@
 <?php
 // Heading
 $_['heading_title']               = 'Playful Sparkle - Google reCAPTCHA';
-$_['heading_getting_started']     = 'Getting Started';
-$_['heading_setup']               = 'Setting Up Google reCAPTCHA';
-$_['heading_troubleshot']         = 'Common Troubleshooting';
-$_['heading_faq']                 = 'FAQ';
-$_['heading_contact']             = 'Contact Support';
+$_['heading_getting_started']     = 'Začíname';
+$_['heading_setup']               = 'Nastavenie Google reCAPTCHA';
+$_['heading_troubleshot']         = 'Bežné problémy';
+$_['heading_faq']                 = 'Často kladené otázky';
+$_['heading_contact']             = 'Kontaktujte podporu';
 
 // Text
-$_['text_extension']              = 'Extensions';
-$_['text_success']                = 'Success: You have modified Google reCAPTCHA!';
-$_['text_edit']                   = 'Edit Google reCAPTCHA';
-$_['text_signup']                 = 'Go to <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">Google reCAPTCHA page</a> and register your website.';
-$_['text_getting_started']        = '<p><strong>Overview:</strong> Playful Sparkle - Google reCAPTCHA is an advanced extension for OpenCart 4, designed to protect your store from spam and abuse. It supports multiple implementations of Google reCAPTCHA, including Score-based (v3), Checkbox (v2), and Invisible (v2), providing flexibility and enhanced security for your store.</p><p><strong>Requirements:</strong> OpenCart 3.x+, PHP 7.3 or higher</p>';
-$_['text_setup']                  = '<ul><li><strong>Step 1:</strong> Obtain your reCAPTCHA Site Key and Secret Key from the <a href="https://www.google.com/recaptcha/admin/create" target="_blank" rel="noopener noreferrer">Google reCAPTCHA admin console</a>.</li><li><strong>Step 2:</strong> In your OpenCart admin panel, navigate to the extension settings and choose the reCAPTCHA implementation you want to use (Score-based v3, Checkbox v2, or Invisible v2).</li><li><strong>Step 3:</strong> Customize your settings based on the selected implementation:<ul><li>For Score based (v3): Set badge position (bottom left, bottom right, or inline). For inline, choose light or dark theme, or hide the badge (with a footer notice to comply with Google policy).</li><li>For Challenge (v2) Checkbox challenge: Set badge theme (light or dark) and size (normal or compact).</li><li>For Challenge (v2) Invisible: Set badge position (bottom left, bottom right, or inline). For inline, choose light or dark theme.</li></ul></li><li><strong>Step 4:</strong> Configure reCAPTCHA for the desired pages in the OpenCart settings page.</li><li><strong>Step 5:</strong> Refresh the modification cache to apply the changes. To do this:<ul><li>Go to <strong>Extensions</strong> &gt; <strong>Modifications</strong> in your OpenCart admin panel.</li><li>Click the blue <strong>Refresh</strong> button in the top-right corner of the page.</li></ul>This step ensures that the updated reCAPTCHA settings are correctly applied to your store.</li></ul>';
-$_['text_troubleshot']            = '<ul><li><strong>Issue:</strong> reCAPTCHA is not displaying. <strong>Solution:</strong> Ensure the correct Site Key and Secret Key are entered, and confirm your domain is registered in the Google reCAPTCHA admin console. Additionally, make sure to refresh the modification cache after making changes.</li><li><strong>Issue:</strong> Error appears during validation. <strong>Solution:</strong> Verify that the key pair matches the reCAPTCHA implementation (e.g., v2 Checkbox keys cannot be used for v3).</li><li><strong>Issue:</strong> Badge customization does not appear as expected. <strong>Solution:</strong> Double-check badge configuration settings (e.g., position, theme, or size), ensure the cache is cleared, and refresh the modification cache.</li></ul>';
-$_['text_faq']                    = '<details><summary>Which reCAPTCHA implementation should I choose?</summary> It depends on your needs:<ul><li><strong>Score-based (v3):</strong> Best for seamless user experience without direct interaction, useful for background validation.</li><li><strong>Checkbox (v2):</strong> Adds a clear "I\'m not a robot" checkbox for visible interaction, great for user-facing forms.</li><li><strong>Invisible (v2):</strong> Validates requests in the background without requiring user interaction, ideal for cleaner interfaces with optional badge display.</li></ul></details><details><summary>Why am I getting a "Invalid site key" error?</summary> This occurs when the keys you entered do not match the reCAPTCHA implementation you selected. Make sure to use the correct key pair for the chosen implementation (e.g., v3 keys for v3, v2 Checkbox keys for v2 Checkbox, etc.).</details><details><summary>Where can I enable reCAPTCHA?</summary> reCAPTCHA can be configured for various pages in the OpenCart settings page.</details>';
-$_['text_contact']                = '<p>For further assistance, please reach out to our support team:</p><ul><li><strong>Contact:</strong> <a href="mailto:%s">%s</a></li><li><strong>Documentation:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">User Documentation</a></li></ul>';
-$_['text_key_type_v3']            = 'Score based (v3) - Verify requests with a score';
-$_['text_key_type_v2_checkbox']   = 'Challenge (v2) - "I\'m not a robot" Checkbox challenge';
-$_['text_key_type_v2_invisible']  = 'Challenge (v2) - Invisible reCAPTCHA badge challenge';
+$_['text_extension']              = 'Rozšírenia';
+$_['text_success']                = 'Úspech: Google reCAPTCHA bolo úspešne upravené!';
+$_['text_edit']                   = 'Upraviť Google reCAPTCHA';
+$_['text_signup']                 = 'Prejdite na <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">stránku Google reCAPTCHA</a> a zaregistrujte svoju webovú stránku.';
+$_['text_getting_started']        = '<p><strong>Prehľad:</strong> Playful Sparkle - Google reCAPTCHA je pokročilé rozšírenie pre OpenCart 4, navrhnuté na ochranu vašej stránky pred spamom a zneužívaním. Podporuje viacero implementácií Google reCAPTCHA, vrátane skóre (v3), zaškrtávacieho políčka (v2) a neviditeľného (v2), čím poskytuje flexibilitu a zvýšenú bezpečnosť pre vašu stránku.</p><p><strong>Požiadavky:</strong> OpenCart 4.x+, PHP 7.4+ alebo novší</p>';
+$_['text_setup']                  = '<ul><li><strong>Krok 1:</strong> Získajte svoj reCAPTCHA Site Key a Secret Key z <a href="https://www.google.com/recaptcha/admin/create" target="_blank" rel="noopener noreferrer">Google reCAPTCHA admin konzoly</a>.</li><li><strong>Krok 2:</strong> V administratívnom paneli OpenCart prejdite na nastavenia rozšírenia a vyberte implementáciu reCAPTCHA, ktorú chcete použiť (Score-based v3, Checkbox v2 alebo Invisible v2).</li><li><strong>Krok 3:</strong> Prispôsobte nastavenia na základe vybranej implementácie:<ul><li>Pre Score-based (v3): Nastavte pozíciu nálepky (dolný ľavý, dolný pravý alebo inline). Pre inline vyberte svetlú alebo tmavú tému, alebo skryte nálepku (s upozornením v päte stránky na dodržiavanie politiky Google).</li><li>Pre Challenge (v2) Checkbox výzvu: Nastavte tému nálepky (svetlá alebo tmavá) a veľkosť (normálna alebo kompaktná).</li><li>Pre Challenge (v2) Invisible: Nastavte pozíciu nálepky (dolný ľavý, dolný pravý alebo inline). Pre inline vyberte svetlú alebo tmavú tému.</li></ul></li><li><strong>Krok 4:</strong> Nakonfigurujte reCAPTCHA pre požadované stránky na stránke nastavení OpenCart.</li><li><strong>Krok 5:</strong> Obnovte cache úprav, aby sa aplikovali zmeny. Na tento účel:<ul><li>Prejdite do <strong>Rozšírenia</strong> &gt; <strong>Úpravy</strong> vo vašom administratívnom paneli OpenCart.</li><li>Kliknite na modré tlačidlo <strong>Obnoviť</strong> v pravom hornom rohu stránky.</li></ul>Tento krok zabezpečí, že aktualizované nastavenia reCAPTCHA sa správne aplikujú na váš obchod.</li></ul>';
+$_['text_troubleshot']            = '<ul><li><strong>Problém:</strong> reCAPTCHA sa nezobrazuje. <strong>Riešenie:</strong> Skontrolujte, či sú správne zadané Site Key a Secret Key, a potvrďte, že vaša doména je registrovaná v Google reCAPTCHA admin konzole. Okrem toho nezabudnite obnoviť cache úprav po vykonaní zmien.</li><li><strong>Problém:</strong> Počas validácie sa zobrazuje chyba. <strong>Riešenie:</strong> Overte, či kľúče zodpovedajú implementácii reCAPTCHA (napr. v2 Checkbox kľúče nemožno použiť pre v3).</li><li><strong>Problém:</strong> Prispôsobenie nálepky sa nezobrazuje podľa očakávaní. <strong>Riešenie:</strong> Dvojito skontrolujte nastavenia konfigurácie nálepky (napr. pozícia, téma alebo veľkosť), uistite sa, že bola vymazaná cache a obnovte cache úprav.</li></ul>';
+$_['text_faq']                    = '<details><summary>Akú implementáciu reCAPTCHA by som mal vybrať?</summary> Závisí to od vašich potrieb:<ul><li><strong>Skóre (v3):</strong> Najlepšie pre plynulý používateľský zážitok bez priamej interakcie, užitočné pre pozadím overenie.</li><li><strong>Zaškrtávacie políčko (v2):</strong> Pridáva jasné zaškrtávacie políčko „Nie som robot“ pre viditeľnú interakciu, ideálne pre formuláre pre používateľov.</li><li><strong>Neviditeľné (v2):</strong> Overuje požiadavky na pozadí bez potreby používateľskej interakcie, ideálne pre čistšie rozhrania s voliteľným zobrazením odznaku.</li></ul></details><details><summary>Prečo dostávam chybu „Neplatný kľúč stránky“?</summary> K tejto chybe dochádza, keď kľúče, ktoré ste zadali, nezodpovedajú implementácii reCAPTCHA, ktorú ste vybrali. Uistite sa, že používate správny pár kľúčov pre vybranú implementáciu (napr. kľúče v3 pre v3, kľúče v2 zaškrtávacie políčko pre v2 zaškrtávacie políčko atď.).</details><details><summary>Kde môžem povoliť reCAPTCHA?</summary> reCAPTCHA môže byť nakonfigurované pre rôzne stránky v nastaveniach OpenCart.</details>';
+$_['text_contact']                = '<p>Pre ďalšiu pomoc sa, prosím, obráťte na náš tím podpory:</p><ul><li><strong>Kontakt:</strong> <a href="mailto:%s">%s</a></li><li><strong>Dokumentácia:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Dokumentácia pre používateľov</a></li></ul>';
+$_['text_key_type_v3']            = 'Skóre na základe (v3) - Overiť požiadavky pomocou skóre';
+$_['text_key_type_v2_checkbox']   = 'Výzva (v2) - Zaškrtávacie políčko „Nie som robot“';
+$_['text_key_type_v2_invisible']  = 'Výzva (v2) - Neviditeľné reCAPTCHA odznak';
 $_['text_badge_inline']           = 'Inline';
-$_['text_badge_bottom_left']      = 'Bottom Left';
-$_['text_badge_bottom_right']     = 'Bottom Right';
-$_['text_badge_dark']             = 'Dark';
-$_['text_badge_light']            = 'Light';
-$_['text_badge_compact']          = 'Compact';
-$_['text_badge_normal']           = 'Normal';
-$_['text_badge_invisible']        = 'Invisible';
-$_['text_csp_info']               = 'Ensure your Content-Security-Policy (CSP) is correctly configured to work with Google reCAPTCHA. We recommend using the <strong>nonce-based approach from CSP3</strong> for maximum security. Alternatively, include <strong>script-src</strong> to allow <strong>https://www.google.com/recaptcha/</strong> and <strong>https://www.gstatic.com/recaptcha/</strong>, and <strong>frame-src</strong> to allow <strong>https://www.google.com/recaptcha/</strong> and <strong>https://recaptcha.google.com/recaptcha/</strong>. Using <strong>strict-dynamic</strong> is also supported on compatible browsers.';
+$_['text_badge_bottom_left']      = 'Dole vľavo';
+$_['text_badge_bottom_right']     = 'Dole vpravo';
+$_['text_badge_dark']             = 'Tmavé';
+$_['text_badge_light']            = 'Svetlé';
+$_['text_badge_compact']          = 'Kompaktné';
+$_['text_badge_normal']           = 'Normálne';
+$_['text_badge_invisible']        = 'Neviditeľné';
+$_['text_csp_info']               = 'Uistite sa, že vaša Content-Security-Policy (CSP) je správne nakonfigurovaná na spoluprácu s Google reCAPTCHA. Odporúčame použiť <strong>nonce-based prístup z CSP3</strong> pre maximálnu bezpečnosť. Alternatívne zahrňte <strong>script-src</strong>, aby sa umožnilo <strong>https://www.google.com/recaptcha/</strong> a <strong>https://www.gstatic.com/recaptcha/</strong>, a <strong>frame-src</strong>, aby sa umožnilo <strong>https://www.google.com/recaptcha/</strong> a <strong>https://recaptcha.google.com/recaptcha/</strong>. Používanie <strong>strict-dynamic</strong> je tiež podporované v kompatibilných prehliadačoch.';
 
 // Tab
-$_['tab_general']                 = 'General';
-$_['tab_security']                = 'Security';
-$_['tab_help_and_support']        = 'Help &amp; Support';
+$_['tab_general']                 = 'Všeobecné';
+$_['tab_security']                = 'Bezpečnosť';
+$_['tab_help_and_support']        = 'Pomoc & Podpora';
 
 // Entry
-$_['entry_key_type']              = 'reCAPTCHA type';
+$_['entry_key_type']              = 'Typ reCAPTCHA';
 $_['entry_site_key']              = 'Site key';
-$_['entry_secret_key']            = 'Secret key';
-$_['entry_status']                = 'Status';
-$_['entry_badge_position']        = 'Badge Position';
-$_['entry_badge_theme']           = 'Badge Theme';
-$_['entry_badge_size']            = 'Badge Size';
-$_['entry_hide_badge']            = 'Hide Badge';
-$_['entry_script_nonce']          = 'Script Nonce';
-$_['entry_google_captcha_nonce']  = 'Google Captcha API Script Nonce';
-$_['entry_css_nonce']             = 'CSS Style Tag Nonce';
+$_['entry_secret_key']            = 'Tajný kľúč';
+$_['entry_status']                = 'Stav';
+$_['entry_badge_position']        = 'Pozícia nálepky';
+$_['entry_badge_theme']           = 'Téma nálepky';
+$_['entry_badge_size']            = 'Veľkosť nálepky';
+$_['entry_hide_badge']            = 'Skryť nálepku';
+$_['entry_script_nonce']          = 'Nonce skriptu';
+$_['entry_google_captcha_nonce']  = 'Nonce Google reCAPTCHA API skriptu';
+$_['entry_css_nonce']             = 'Nonce štýlu CSS značky';
 
 // Help
-$_['help_key_type']               = 'Choose the type of reCAPTCHA for this site key. A site key only works with a single reCAPTCHA site type. See <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Site Types</a> for more details.';
-$_['help_hide_badge']             = 'By enabling this option, you can completely hide the Google reCAPTCHA badge. A notice will automatically be added to the footer of every page to comply with Google\'s guidelines. For more information, refer to the <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">I\'d like to hide the reCAPTCHA badge. What is allowed?</a> section on the Google reCAPTCHA FAQ page.';
-$_['help_site_key']               = 'Use this site key in the HTML code your site serves to users.';
-$_['help_secret_key']             = 'Use this secret key for communication between your site and reCAPTCHA.';
+$_['help_key_type']               = 'Vyberte typ reCAPTCHA pre tento site key. Site key funguje iba s jedným typom reCAPTCHA. Viac informácií nájdete na stránke <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Typy stránok</a>.';
+$_['help_hide_badge']             = 'Povolením tejto možnosti môžete úplne skryť Google reCAPTCHA nálepku. Oznámenie bude automaticky pridané do päty každej stránky, aby bola splnená smernica spoločnosti Google. Viac informácií nájdete v sekcii <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">Chcem skryť reCAPTCHA nálepku. Čo je povolené?</a> na stránke FAQ Google reCAPTCHA.';
+$_['help_site_key']               = 'Použite tento site key v HTML kóde, ktorý vaša stránka poskytuje používateľom.';
+$_['help_secret_key']             = 'Použite tento tajný kľúč na komunikáciu medzi vašou stránkou a reCAPTCHA.';
 
 // Error
-$_['error_permission']            = 'Warning: You do not have permission to modify Google reCAPTCHA!';
-$_['error_site_key']              = 'Key required!';
-$_['error_secret_key']            = 'Secret required!';
+$_['error_permission']            = 'Upozornenie: Nemáte oprávnenie na úpravu Google reCAPTCHA!';
+$_['error_site_key']              = 'Vyžaduje sa kľúč!';
+$_['error_secret_key']            = 'Vyžaduje sa tajný kľúč!';
