@@ -49,6 +49,7 @@ $_['entry_google_captcha_nonce']  = 'Google Captcha API Script nonce';
 $_['entry_css_nonce']             = 'CSS stílus elem nonce';
 
 // Help
+$_['help_copy']                   = 'URL másolása';
 $_['help_key_type']               = 'Válassza ki a reCAPTCHA típusát ehhez a webhely kulcshoz. A webhely kulcs csak egy adott reCAPTCHA típusú webhelyhez működik. További információkért tekintse meg a <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Webhely típusok</a> oldalt.';
 $_['help_hide_badge']             = 'Ezen lehetőség engedélyezésével teljesen elrejtheti a Google reCAPTCHA badge-t. A láblécben automatikusan megjelenik egy figyelmeztetés minden oldalon a Google irányelveinek való megfelelés érdekében. További információkért látogasson el a Google reCAPTCHA GYIK oldalának <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">A reCAPTCHA badge elrejtését szeretném. Mi megengedett?</a> szakaszához.';
 $_['help_site_key']               = 'Használja ezt a webhely kulcsot az HTML kódban, amelyet a webhelye a felhasználóknak küld.';

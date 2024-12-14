@@ -49,6 +49,7 @@ $_['entry_google_captcha_nonce']  = 'Nonce Google reCAPTCHA API skriptu';
 $_['entry_css_nonce']             = 'Nonce CSS stylu';
 
 // Help
+$_['help_copy']                   = 'Zkopírovat URL';
 $_['help_key_type']               = 'Vyberte typ reCAPTCHA pro tento klíč webu. Klíč webu funguje pouze s jedním typem reCAPTCHA. Pro více informací navštivte <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Typy webů</a>.';
 $_['help_hide_badge']             = 'Povolením této možnosti můžete úplně skrýt badge Google reCAPTCHA. Oznámení bude automaticky přidáno do zápatí každé stránky, aby bylo splněno Google pravidla. Pro více informací se podívejte na sekci <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">Chci skrýt badge reCAPTCHA. Co je povoleno?</a> na stránce FAQ Google reCAPTCHA.';
 $_['help_site_key']               = 'Použijte tento klíč webu v HTML kódu, který váš web poskytuje uživatelům.';

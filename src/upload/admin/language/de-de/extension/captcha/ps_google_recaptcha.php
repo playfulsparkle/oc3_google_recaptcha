@@ -49,6 +49,7 @@ $_['entry_google_captcha_nonce']  = 'Google-Captcha-API-Skript-Nonce';
 $_['entry_css_nonce']             = 'CSS-Style-Tag-Nonce';
 
 // Help
+$_['help_copy']                   = 'URL kopieren';
 $_['help_key_type']               = 'Wählen Sie den reCAPTCHA-Typ für diesen Schlüssel. Ein Websiteschlüssel funktioniert nur mit einem spezifischen reCAPTCHA-Typ. Weitere Informationen finden Sie unter <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Site Types</a>.';
 $_['help_hide_badge']             = 'Wenn Sie diese Option aktivieren, wird das Google reCAPTCHA-Badge vollständig ausgeblendet. Ein Hinweis wird automatisch im Footer jeder Seite hinzugefügt, um die Google-Richtlinien einzuhalten. Weitere Informationen finden Sie im Abschnitt <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">I\'d like to hide the reCAPTCHA badge. What is allowed?</a> auf der Google reCAPTCHA FAQ-Seite.';
 $_['help_site_key']               = 'Verwenden Sie diesen websiteschlüssel im HTML-Code, den Ihre Seite den Nutzern bereitstellt.';

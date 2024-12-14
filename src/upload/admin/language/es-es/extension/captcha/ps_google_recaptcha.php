@@ -49,6 +49,7 @@ $_['entry_google_captcha_nonce']  = 'Nonce del script de Google Captcha API';
 $_['entry_css_nonce']             = 'Nonce de la etiqueta de estilo CSS';
 
 // Help
+$_['help_copy']                   = 'Copiar URL';
 $_['help_key_type']               = 'Elija el tipo de reCAPTCHA para esta clave del sitio. Una clave del sitio solo funciona con un único tipo de reCAPTCHA. Consulte <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Tipos de sitios</a> para más detalles.';
 $_['help_hide_badge']             = 'Al habilitar esta opción, puede ocultar completamente la insignia de Google reCAPTCHA. Se añadirá automáticamente un aviso al pie de página de cada página para cumplir con las directrices de Google. Para más información, consulte la sección <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">Quisiera ocultar la insignia de reCAPTCHA. ¿Qué está permitido?</a> en la página de preguntas frecuentes de Google reCAPTCHA.';
 $_['help_site_key']               = 'Utilice esta clave del sitio en el código HTML que su sitio sirve a los usuarios.';

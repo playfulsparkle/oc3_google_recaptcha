@@ -53,6 +53,7 @@ $_['entry_css_nonce']             = 'Nonce de la balise de style CSS';
 $_['button_fix_event_handler']    = 'Corriger le gestionnaire d\'événements';
 
 // Help
+$_['help_copy']                   = 'Copier l\'URL';
 $_['help_key_type']               = 'Choisissez le type de reCAPTCHA pour cette clé de site. Une clé de site ne fonctionne qu’avec un seul type de site reCAPTCHA. Consultez <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Types de sites</a> pour plus de détails.';
 $_['help_hide_badge']             = 'En activant cette option, vous pouvez complètement masquer le badge Google reCAPTCHA. Un avis sera automatiquement ajouté au pied de page de chaque page pour se conformer aux directives de Google. Pour plus d\'informations, consultez la section <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">Je voudrais masquer le badge reCAPTCHA. Qu\'est-ce qui est autorisé ?</a> sur la page FAQ de Google reCAPTCHA.';
 $_['help_site_key']               = 'Utilisez cette clé de site dans le code HTML que votre site sert aux utilisateurs.';

@@ -49,6 +49,7 @@ $_['entry_google_captcha_nonce']  = 'Nonce для скрипта Google Captcha 
 $_['entry_css_nonce']             = 'Nonce для тега стилей CSS';
 
 // Help
+$_['help_copy']                   = 'Копировать URL';
 $_['help_key_type']               = 'Выберите тип reCAPTCHA для этого ключа сайта. Ключ сайта работает только с одним типом reCAPTCHA. См. <a href="https://developers.google.com/recaptcha/docs/versions" target="_blank" rel="noopener noreferrer">Типы сайтов</a> для получения дополнительной информации.';
 $_['help_hide_badge']             = 'Включив эту опцию, вы можете полностью скрыть значок Google reCAPTCHA. Внизу каждой страницы автоматически будет добавлено уведомление для соблюдения руководящих принципов Google. Для получения дополнительной информации обратитесь к разделу <a href="https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed" target="_blank" rel="noopener noreferrer">Я хочу скрыть значок reCAPTCHA. Что разрешено?</a> на странице часто задаваемых вопросов Google reCAPTCHA.';
 $_['help_site_key']               = 'Используйте этот ключ сайта в HTML-коде, который ваш сайт отправляет пользователям.';
