@@ -29,6 +29,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         }
 
         $data['widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+        
         $data['key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
         $data['badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
         $data['badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
@@ -37,9 +38,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $data['ps_script_nonce'] = $this->config->get('captcha_ps_google_recaptcha_script_nonce');
         $data['ps_google_captcha_nonce'] = $this->config->get('captcha_ps_google_recaptcha_google_captcha_nonce');
 
-        $data['route'] = $this->request->get['route'];
-
-        $query = [];
+        $query = array();
 
         if ($this->config->get('captcha_ps_google_recaptcha_key_type') === 'v3') {
             $query['render'] = $this->config->get('captcha_ps_google_recaptcha_site_key');

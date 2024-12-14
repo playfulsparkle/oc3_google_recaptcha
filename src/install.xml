@@ -89,6 +89,7 @@ code package and also available on the project page: https://github.com/playfuls
 
             if ($data['ps_google_recaptcha_status']) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
                 $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
                 $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
@@ -107,6 +108,7 @@ code package and also available on the project page: https://github.com/playfuls
 
             if ($data['ps_google_recaptcha_status']) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
                 $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
                 $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
@@ -125,6 +127,7 @@ code package and also available on the project page: https://github.com/playfuls
 
             if ($data['ps_google_recaptcha_status']) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
                 $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
                 $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
@@ -143,6 +146,7 @@ code package and also available on the project page: https://github.com/playfuls
 
             if ($data['ps_google_recaptcha_status']) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
                 $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
                 $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
@@ -161,6 +165,7 @@ code package and also available on the project page: https://github.com/playfuls
 
             if ($data['ps_google_recaptcha_status']) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
                 $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
                 $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
@@ -179,6 +184,7 @@ code package and also available on the project page: https://github.com/playfuls
 
             if ($data['ps_google_recaptcha_status']) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
                 $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
                 $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
@@ -197,6 +203,7 @@ code package and also available on the project page: https://github.com/playfuls
 
             if ($data['ps_google_recaptcha_status']) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+                
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
                 $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
                 $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');

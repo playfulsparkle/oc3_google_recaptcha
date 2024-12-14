@@ -24,7 +24,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
             if ($this->request->post['captcha_ps_google_recaptcha_key_type'] === 'v3') {
                 $this->request->post['captcha_ps_google_recaptcha_badge_size'] = '';
-            } else  if ($this->request->post['captcha_ps_google_recaptcha_key_type'] === 'v2_checkbox') {
+            } else if ($this->request->post['captcha_ps_google_recaptcha_key_type'] === 'v2_checkbox') {
                 $this->request->post['captcha_ps_google_recaptcha_badge_position'] = 'bottomright';
             }
 
@@ -164,11 +164,11 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             'inline' => $this->language->get('text_badge_inline'),
         );
 
-        $data['badge_sizes'] = [
-            ['disabled' => $this->config->get('captcha_ps_google_recaptcha_key_type') === 'v2_invisible', 'value' => 'normal', 'name' => $this->language->get('text_badge_normal'),],
-            ['disabled' => $this->config->get('captcha_ps_google_recaptcha_key_type') === 'v2_invisible', 'value' => 'compact', 'name' => $this->language->get('text_badge_compact'),],
-            ['disabled' => $this->config->get('captcha_ps_google_recaptcha_key_type') === 'v2_checkbox', 'value' => 'invisible', 'name' => $this->language->get('text_badge_invisible'),],
-        ];
+        $data['badge_sizes'] = array(
+            array('disabled' => $this->config->get('captcha_ps_google_recaptcha_key_type') === 'v2_invisible', 'value' => 'normal', 'name' => $this->language->get('text_badge_normal'), ),
+            array('disabled' => $this->config->get('captcha_ps_google_recaptcha_key_type') === 'v2_invisible', 'value' => 'compact', 'name' => $this->language->get('text_badge_compact'), ),
+            array('disabled' => $this->config->get('captcha_ps_google_recaptcha_key_type') === 'v2_checkbox', 'value' => 'invisible', 'name' => $this->language->get('text_badge_invisible'), ),
+        );
 
         $data['text_contact'] = sprintf($this->language->get('text_contact'), self::EXTENSION_EMAIL, self::EXTENSION_EMAIL, self::EXTENSION_DOC);
 
@@ -215,14 +215,18 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
     }
 
-    public function generateGuid() {
+    public function generateGuid()
+    {
         return sprintf(
             '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
-            mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
             mt_rand(0, 0xffff),
             mt_rand(0, 0x0fff) | 0x4000, // Version 4
             mt_rand(0, 0x3fff) | 0x8000, // Variant 10
-            mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff)
         );
     }
 }
