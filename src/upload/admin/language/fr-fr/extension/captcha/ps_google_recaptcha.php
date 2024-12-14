@@ -1,7 +1,6 @@
 <?php
 // Heading
 $_['heading_title']                    = 'Playful Sparkle - Google reCAPTCHA';
-$_['heading_fix']                      = 'Corriger les erreurs courantes';
 $_['heading_getting_started']          = 'Démarrage';
 $_['heading_setup']                    = 'Configuration de Google reCAPTCHA';
 $_['heading_troubleshot']              = 'Dépannage courant';
@@ -36,10 +35,12 @@ $_['text_v3_score_threshold_guest']    = 'Achat en tant qu\'invité';
 $_['text_v3_score_threshold_review']   = 'Avis';
 $_['text_v3_score_threshold_return']   = 'Retours';
 $_['text_v3_score_threshold_contact']  = 'Contact';
+$_['text_log_clear_success']     = 'Le journal des erreurs a été vidé avec succès.';
 
 // Tab
 $_['tab_general']                      = 'Général';
 $_['tab_security']                     = 'Sécurité';
+$_['tab_error_log']                    = 'Journal des erreurs';
 $_['tab_help_and_support']             = 'Aide &amp; Support';
 
 // Entry
@@ -54,9 +55,13 @@ $_['entry_hide_badge']                 = 'Masquer le badge';
 $_['entry_script_nonce']               = 'Nonce du script';
 $_['entry_google_captcha_nonce']       = 'Nonce du script Google Captcha API';
 $_['entry_css_nonce']                  = 'Nonce de la balise de style CSS';
+$_['entry_log_filename']               = 'Nom du fichier de journal de validation';
+$_['entry_send_client_ip']               = 'Envoyer l\'adresse IP du client';
+$_['entry_enable_error_log']           = 'Activer le journal des erreurs';
 
 // Button
-$_['button_fix_event_handler']         = 'Corriger le gestionnaire d\'événements';
+$_['button_download']                  = 'Télécharger';
+$_['button_clear']                     = 'Effacer';
 
 // Help
 $_['help_copy']                        = 'Copier l\'URL';
@@ -65,9 +70,14 @@ $_['help_hide_badge']                  = 'En activant cette option, vous pouvez 
 $_['help_site_key']                    = 'Utilisez cette clé de site dans le code HTML que votre site sert aux utilisateurs.';
 $_['help_secret_key']                  = 'Utilisez cette clé secrète pour la communication entre votre site et reCAPTCHA.';
 $_['help_v3_score_threshold']          = 'Ce paramètre définit le seuil pour le score renvoyé par reCAPTCHA v3. Le score varie de 0,0 à 1,0, un score plus élevé (proche de 1,0) indiquant une plus grande probabilité d\'une interaction légitime de l\'utilisateur, et un score plus bas (proche de 0,0) suggérant une plus grande probabilité d\'un bot. Vous pouvez ajuster ce seuil pour déterminer les actions à entreprendre en fonction du score. Par défaut, un seuil de 0,5 est utilisé, mais vous pouvez le modifier en fonction des besoins spécifiques de votre site.';
+$_['help_log_filename']                = 'Entrez le nom du fichier de journal pour stocker les erreurs de validation de reCAPTCHA.';
 
 // Error
 $_['error_permission']                 = 'Avertissement : Vous n\'avez pas la permission de modifier Google reCAPTCHA !';
+$_['error_error_log_permission']       = 'Avertissement : Vous n\'avez pas l\'autorisation de vider le journal des erreurs !';
+$_['error_error_log_file']             = 'Avertissement : Le fichier %s est introuvable !';
+$_['error_error_log_empty']            = 'Avertissement : Le fichier journal %s est vide !';
 $_['error_site_key']                   = 'Clé requise !';
 $_['error_secret_key']                 = 'Clé secrète requise !';
 $_['error_v3_score_threshold_value']   = 'La valeur du score doit être comprise entre 0 et 1. Elle ne peut pas être inférieure à 0 ni supérieure à 1.';
+$_['error_log_filename']               = 'Un nom de fichier de journal est requis pour stocker les erreurs de validation de reCAPTCHA.';

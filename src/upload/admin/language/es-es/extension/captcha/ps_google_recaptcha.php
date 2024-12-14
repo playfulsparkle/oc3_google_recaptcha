@@ -35,10 +35,12 @@ $_['text_v3_score_threshold_guest']    = 'Compra como invitado';
 $_['text_v3_score_threshold_review']   = 'Reseñas';
 $_['text_v3_score_threshold_return']   = 'Devoluciones';
 $_['text_v3_score_threshold_contact']  = 'Contacto';
+$_['text_log_clear_success']     = 'El registro de errores se ha borrado con éxito.';
 
 // Tab
 $_['tab_general']                      = 'General';
 $_['tab_security']                     = 'Seguridad';
+$_['tab_error_log']                    = 'Registro de errores';
 $_['tab_help_and_support']             = 'Ayuda y Soporte';
 
 // Entry
@@ -53,6 +55,13 @@ $_['entry_hide_badge']                 = 'Ocultar insignia';
 $_['entry_script_nonce']               = 'Nonce del script';
 $_['entry_google_captcha_nonce']       = 'Nonce del script de Google Captcha API';
 $_['entry_css_nonce']                  = 'Nonce de la etiqueta de estilo CSS';
+$_['entry_log_filename']               = 'Nombre del archivo de registro de validación';
+$_['entry_send_client_ip']             = 'Enviar la dirección IP del cliente';
+$_['entry_enable_error_log']           = 'Habilitar registro de errores';
+
+// Button
+$_['button_download']                  = 'Descargar';
+$_['button_clear']                     = 'Borrar';
 
 // Help
 $_['help_copy']                        = 'Copiar URL';
@@ -61,9 +70,14 @@ $_['help_hide_badge']                  = 'Al habilitar esta opción, puede ocult
 $_['help_site_key']                    = 'Utilice esta clave del sitio en el código HTML que su sitio sirve a los usuarios.';
 $_['help_secret_key']                  = 'Utilice esta clave secreta para la comunicación entre su sitio y reCAPTCHA.';
 $_['help_v3_score_threshold']          = 'Esta configuración define el umbral para la puntuación devuelta por reCAPTCHA v3. La puntuación varía de 0,0 a 1,0, donde una puntuación más alta (más cerca de 1,0) indica una mayor probabilidad de una interacción legítima del usuario, y una puntuación más baja (más cerca de 0,0) sugiere una mayor probabilidad de un bot. Puede ajustar este umbral para determinar las acciones que debe realizar según la puntuación. Por defecto, se utiliza un umbral de 0,5, pero puede modificarlo según los requisitos específicos de su sitio.';
+$_['help_log_filename']                = 'Introduzca el nombre del archivo de registro para almacenar los errores de validación de reCAPTCHA.';
 
 // Error
 $_['error_permission']                 = 'Advertencia: ¡No tiene permiso para modificar Google reCAPTCHA!';
+$_['error_error_log_permission']       = 'Advertencia: ¡No tiene permiso para borrar el registro de errores!';
+$_['error_error_log_file']             = 'Advertencia: ¡No se pudo encontrar el archivo %s!';
+$_['error_error_log_empty']            = 'Advertencia: ¡El archivo de registro %s está vacío!';
 $_['error_site_key']                   = '¡Clave del sitio requerida!';
 $_['error_secret_key']                 = '¡Clave secreta requerida!';
 $_['error_v3_score_threshold_value']   = 'El valor del puntaje debe estar entre 0 y 1. No puede ser menor que 0 ni mayor que 1.';
+$_['error_log_filename']               = 'Se requiere un nombre de archivo de registro para almacenar los errores de validación de reCAPTCHA.';

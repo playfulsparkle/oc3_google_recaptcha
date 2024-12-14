@@ -35,10 +35,12 @@ $_['text_v3_score_threshold_guest']    = 'Acquisto come ospite';
 $_['text_v3_score_threshold_review']   = 'Recensioni';
 $_['text_v3_score_threshold_return']   = 'Resi';
 $_['text_v3_score_threshold_contact']  = 'Contatto';
+$_['text_log_clear_success']     = 'Il registro degli errori è stato cancellato con successo.';
 
 // Tab
 $_['tab_general']                      = 'Generale';
 $_['tab_security']                     = 'Sicurezza';
+$_['tab_error_log']                    = 'Registro errori';
 $_['tab_help_and_support']             = 'Aiuto e supporto';
 
 // Entry
@@ -53,6 +55,13 @@ $_['entry_hide_badge']                 = 'Nascondi il badge';
 $_['entry_script_nonce']               = 'Nonce dello script';
 $_['entry_google_captcha_nonce']       = 'Nonce dello script API Google Captcha';
 $_['entry_css_nonce']                  = 'Nonce del tag CSS';
+$_['entry_log_filename']               = 'Nome file di registro per la convalida';
+$_['entry_send_client_ip']             = 'Invia l\'indirizzo IP del client';
+$_['entry_enable_error_log']           = 'Abilitare il registro degli errori';
+
+// Button
+$_['button_download']                  = 'Scarica';
+$_['button_clear']                     = 'Pulisci';
 
 // Help
 $_['help_copy']                        = 'Copia URL';
@@ -61,9 +70,14 @@ $_['help_hide_badge']                  = 'Abilitando questa opzione, puoi nascon
 $_['help_site_key']                    = 'Usa questa chiave del sito nel codice HTML che il tuo sito serve agli utenti.';
 $_['help_secret_key']                  = 'Usa questa chiave segreta per la comunicazione tra il tuo sito e reCAPTCHA.';
 $_['help_v3_score_threshold']          = 'Questa impostazione definisce la soglia per il punteggio restituito da reCAPTCHA v3. Il punteggio varia da 0,0 a 1,0, dove un punteggio più alto (più vicino a 1,0) indica una maggiore probabilità di un\'interazione legittima dell\'utente, e un punteggio più basso (più vicino a 0,0) suggerisce una maggiore probabilità di un bot. Puoi regolare questa soglia per determinare le azioni da intraprendere in base al punteggio. Per impostazione predefinita, viene utilizzata una soglia di 0,5, ma puoi modificarla in base alle esigenze specifiche del tuo sito.';
+$_['help_log_filename']                = 'Inserisci il nome del file di registro per memorizzare gli errori di convalida di reCAPTCHA.';
 
 // Error
 $_['error_permission']                 = 'Attenzione: Non hai il permesso di modificare Google reCAPTCHA!';
+$_['error_error_log_permission']       = 'Attenzione: Non hai il permesso di cancellare il registro degli errori!';
+$_['error_error_log_file']             = 'Attenzione: Il file %s non è stato trovato!';
+$_['error_error_log_empty']            = 'Attenzione: Il file di registro %s è vuoto!';
 $_['error_site_key']                   = 'Chiave richiesta!';
 $_['error_secret_key']                 = 'Chiave segreta richiesta!';
 $_['error_v3_score_threshold_value']   = 'Il valore del punteggio deve essere compreso tra 0 e 1. Non può essere inferiore a 0 né superiore a 1.';
+$_['error_log_filename']               = 'È necessario un nome di file di registro per memorizzare gli errori di convalida di reCAPTCHA.';

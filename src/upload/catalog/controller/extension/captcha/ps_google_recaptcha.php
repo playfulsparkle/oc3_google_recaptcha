@@ -71,20 +71,37 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
     public function validate()
     {
+        $log_status = (bool) $this->config->get('captcha_ps_google_recaptcha_error_log_status') && !empty($this->config->get('captcha_ps_google_recaptcha_log_filename'));
+
+        if ($log_status) {
+            $log = new Log($this->config->get('captcha_ps_google_recaptcha_log_filename'));
+        }
+
         $this->load->language('extension/captcha/ps_google_recaptcha');
 
         if (!isset($this->request->post['g-recaptcha-response'])) {
+            if ($log_status) {
+                $log->write('reCAPTCHA Error: Missing g-recaptcha-response. IP: ' . $this->request->server['REMOTE_ADDR'] .
+                    ', URL: ' . $this->request->server['REQUEST_URI'] .
+                    ', User-Agent: ' . $this->request->server['HTTP_USER_AGENT']);
+            }
+
             return $this->language->get('error_captcha');
+        }
+
+        $post_data = array(
+            'secret' => $this->config->get('captcha_ps_google_recaptcha_secret_key'),
+            'response' => $this->request->post['g-recaptcha-response'],
+        );
+
+        if ($this->config->get('captcha_ps_google_recaptcha_send_client_ip')) {
+            $post_data['remoteip'] = $this->request->server['REMOTE_ADDR'];
         }
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array(
-            'secret' => $this->config->get('captcha_ps_google_recaptcha_secret_key'),
-            'response' => $this->request->post['g-recaptcha-response'],
-            'remoteip' => $this->request->server['REMOTE_ADDR']
-        )));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
         curl_close($ch);
@@ -101,7 +118,11 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             (array) json_decode($response, true)
         );
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if (JSON_ERROR_NONE !== $json_last_error = json_last_error()) {
+            if ($log_status) {
+                $log->write('JSON Error: ' . json_last_error_msg() . ' (Code: ' . $json_last_error . ')');
+            }
+
             return $this->language->get('error_captcha');
         }
 
@@ -123,6 +144,13 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $recaptcha_pages = (array) $this->config->get('captcha_ps_google_recaptcha_v3_score_threshold');
 
             if ($recaptcha_page && isset($recaptcha_pages[$recaptcha_page]) && $captcha_response['score'] < $recaptcha_pages[$recaptcha_page]) {
+                if ($log_status) {
+                    $log->write('V3 Score threshold error on page ' . $recaptcha_page .
+                        '. Score: ' . $captcha_response['score'] .
+                        ', Threshold: ' . $recaptcha_pages[$recaptcha_page] .
+                        ', IP: ' . $this->request->server['REMOTE_ADDR']);
+                }
+
                 return $this->language->get('error_captcha');
             }
         }
@@ -131,10 +159,20 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $errors = array();
 
             foreach ($captcha_response['error-codes'] as $error_code) {
-                $errors[] = $this->language->get('error_' . str_replace('-', '_', $error_code));
+                $error_message = $this->language->get('error_' . str_replace('-', '_', $error_code));
+
+                $errors[] = $error_message;
+
+                if ($log_status) {
+                    $log->write('reCAPTCHA Error: ' . $error_code . ' - ' . $error_message . ', IP: ' . $this->request->server['REMOTE_ADDR']);
+                }
             }
 
             return implode(', ', $errors);
+        }
+
+        if ($log_status) {
+            $log->write('reCAPTCHA Error: ' . $this->language->get('error_captcha') . ', IP: ' . $this->request->server['REMOTE_ADDR']);
         }
 
         return $this->language->get('error_captcha');

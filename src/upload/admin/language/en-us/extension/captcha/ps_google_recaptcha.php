@@ -35,10 +35,12 @@ $_['text_v3_score_threshold_guest']    = 'Guest Checkout';
 $_['text_v3_score_threshold_review']   = 'Reviews';
 $_['text_v3_score_threshold_return']   = 'Returns';
 $_['text_v3_score_threshold_contact']  = 'Contact';
+$_['text_log_clear_success']     = 'The error log has been cleared successfully.';
 
 // Tab
 $_['tab_general']                      = 'General';
 $_['tab_security']                     = 'Security';
+$_['tab_error_log']                    = 'Error Log';
 $_['tab_help_and_support']             = 'Help &amp; Support';
 
 // Entry
@@ -53,6 +55,13 @@ $_['entry_hide_badge']                 = 'Hide Badge';
 $_['entry_script_nonce']               = 'Script Nonce';
 $_['entry_google_captcha_nonce']       = 'Google Captcha API Script Nonce';
 $_['entry_css_nonce']                  = 'CSS Style Tag Nonce';
+$_['entry_log_filename']               = 'Validation log filename';
+$_['entry_send_client_ip']               = 'Send Client IP Address';
+$_['entry_enable_error_log']           = 'Enable Error Log';
+
+// Button
+$_['button_download']                  = 'Download';
+$_['button_clear']                     = 'Clear';
 
 // Help
 $_['help_copy']                        = 'Copy URL';
@@ -61,9 +70,14 @@ $_['help_hide_badge']                  = 'By enabling this option, you can compl
 $_['help_site_key']                    = 'Use this site key in the HTML code your site serves to users.';
 $_['help_secret_key']                  = 'Use this secret key for communication between your site and reCAPTCHA.';
 $_['help_v3_score_threshold']          = 'This setting defines the threshold for the score returned by reCAPTCHA v3. The score ranges from 0.0 to 1.0, where a higher score (closer to 1.0) indicates a higher likelihood of a legitimate user interaction, and a lower score (closer to 0.0) suggests a higher likelihood of a bot. You can adjust this threshold to determine the actions you take based on the score. By default, a threshold of 0.5 is used, but you may modify it according to your site\'s specific requirements.';
+$_['help_log_filename']                = 'Enter the log filename to store reCAPTCHA validation errors.';
 
 // Error
 $_['error_permission']                 = 'Warning: You do not have permission to modify Google reCAPTCHA!';
+$_['error_error_log_permission']       = 'Warning: You do not have permission to clear the error log!';
+$_['error_error_log_file']             = 'Warning: The %s file could not be found!';
+$_['error_error_log_empty']            = 'Warning: The log file %s is empty!';
 $_['error_site_key']                   = 'Key required!';
 $_['error_secret_key']                 = 'Secret required!';
 $_['error_v3_score_threshold_value']   = 'The score value must be between 0 and 1. It cannot be lower than 0 or greater than 1.';
+$_['error_log_filename']               = 'A log filename is required to store reCAPTCHA validation errors.';

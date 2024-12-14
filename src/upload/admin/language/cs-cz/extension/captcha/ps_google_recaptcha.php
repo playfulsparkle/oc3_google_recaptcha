@@ -35,10 +35,12 @@ $_['text_v3_score_threshold_guest']    = 'Nákup jako host';
 $_['text_v3_score_threshold_review']   = 'Recenze';
 $_['text_v3_score_threshold_return']   = 'Vrácení zboží';
 $_['text_v3_score_threshold_contact']  = 'Kontakt';
+$_['text_log_clear_success']     = 'Protokol chyb byl úspěšně vymazán.';
 
 // Tab
 $_['tab_general']                      = 'Obecné';
 $_['tab_security']                     = 'Bezpečnost';
+$_['tab_error_log']                    = 'Protokol chyb';
 $_['tab_help_and_support']             = 'Nápověda a podpora';
 
 // Entry
@@ -53,6 +55,13 @@ $_['entry_hide_badge']                 = 'Skrýt badge';
 $_['entry_script_nonce']               = 'Nonce skriptu';
 $_['entry_google_captcha_nonce']       = 'Nonce Google reCAPTCHA API skriptu';
 $_['entry_css_nonce']                  = 'Nonce CSS stylu';
+$_['entry_log_filename']               = 'Název souboru protokolu pro validaci';
+$_['entry_send_client_ip']               = 'Odeslat IP adresu klienta';
+$_['entry_enable_error_log']           = 'Povolit log chyb';
+
+// Button
+$_['button_download']                  = 'Stáhnout';
+$_['button_clear']                     = 'Vymazat';
 
 // Help
 $_['help_copy']                        = 'Zkopírovat URL';
@@ -61,9 +70,14 @@ $_['help_hide_badge']                  = 'Povolením této možnosti můžete ú
 $_['help_site_key']                    = 'Použijte tento klíč webu v HTML kódu, který váš web poskytuje uživatelům.';
 $_['help_secret_key']                  = 'Použijte tento tajný klíč pro komunikaci mezi vaším webem a reCAPTCHA.';
 $_['help_v3_score_threshold']          = 'Toto nastavení definuje práh pro skóre vrácené reCAPTCHA v3. Skóre se pohybuje od 0,0 do 1,0, přičemž vyšší skóre (blíže k 1,0) naznačuje vyšší pravděpodobnost legitimní interakce uživatele a nižší skóre (blíže k 0,0) naznačuje vyšší pravděpodobnost, že jde o robota. Tento práh můžete upravit podle toho, jaké akce chcete provádět na základě skóre. Výchozí hodnota je 0,5, ale můžete ji upravit podle specifických požadavků vaší stránky.';
+$_['help_log_filename']                = 'Zadejte název souboru protokolu pro uložení chyb validace reCAPTCHA.';
 
 // Error
 $_['error_permission']                 = 'Upozornění: Nemáte oprávnění upravovat Google reCAPTCHA!';
+$_['error_error_log_permission']       = 'Upozornění: Nemáte oprávnění vymazat chyby v protokolu!';
+$_['error_error_log_file']             = 'Upozornění: Soubor %s nebyl nalezen!';
+$_['error_error_log_empty']            = 'Upozornění: Protokol %s je prázdný!';
 $_['error_site_key']                   = 'Klíč je požadován!';
 $_['error_secret_key']                 = 'Tajný klíč je požadován!';
 $_['error_v3_score_threshold_value']   = 'Hodnota skóre musí být mezi 0 a 1. Nemůže být nižší než 0 ani vyšší než 1.';
+$_['error_log_filename']               = 'Pro uložení chyb validace reCAPTCHA je požadován název souboru protokolu.';

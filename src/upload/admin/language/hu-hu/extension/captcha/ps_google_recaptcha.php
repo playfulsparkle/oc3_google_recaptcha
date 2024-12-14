@@ -35,10 +35,12 @@ $_['text_v3_score_threshold_guest']    = 'Vendég vásárlás';
 $_['text_v3_score_threshold_review']   = 'Vélemények';
 $_['text_v3_score_threshold_return']   = 'Visszaküldés';
 $_['text_v3_score_threshold_contact']  = 'Kapcsolat';
+$_['text_log_clear_success']     = 'A hibanapló sikeresen törlésre került.';
 
 // Tab
 $_['tab_general']                      = 'Általános';
 $_['tab_security']                     = 'Biztonság';
+$_['tab_error_log']                    = 'Hiba napló';
 $_['tab_help_and_support']             = 'Segítség &amp; Támogatás';
 
 // Entry
@@ -53,6 +55,13 @@ $_['entry_hide_badge']                 = 'Badge elrejtése';
 $_['entry_script_nonce']               = 'Script nonce';
 $_['entry_google_captcha_nonce']       = 'Google Captcha API Script nonce';
 $_['entry_css_nonce']                  = 'CSS stílus elem nonce';
+$_['entry_log_filename']               = 'Érvényesítési naplófájl neve';
+$_['entry_send_client_ip']             = 'Kliens IP-címének küldése';
+$_['entry_enable_error_log']           = 'Hibák naplózásának engedélyezése';
+
+// Button
+$_['button_download']                  = 'Letöltés';
+$_['button_clear']                     = 'Törlés';
 
 // Help
 $_['help_copy']                        = 'URL másolása';
@@ -61,9 +70,14 @@ $_['help_hide_badge']                  = 'Ezen lehetőség engedélyezésével t
 $_['help_site_key']                    = 'Használja ezt a webhely kulcsot az HTML kódban, amelyet a webhelye a felhasználóknak küld.';
 $_['help_secret_key']                  = 'Használja ezt a titkos kulcsot a webhelye és a reCAPTCHA közötti kommunikációhoz.';
 $_['help_v3_score_threshold']          = 'Ez a beállítás a reCAPTCHA v3 által visszaadott pontszám küszöbértékét határozza meg. A pontszám 0,0 és 1,0 között mozog, ahol a magasabb pontszám (közelebb 1,0-hoz) a jogos felhasználói interakció magasabb valószínűségét jelzi, míg az alacsonyabb pontszám (közelebb 0,0-hoz) nagyobb valószínűséget jelez arra, hogy botról van szó. Ezt a küszöbértéket módosíthatja annak érdekében, hogy az Ön által választott akciókat a pontszám alapján hajtsa végre. Alapértelmezés szerint 0,5-ös küszöbértéket használ, de ezt módosíthatja a weboldal speciális igényei szerint.';
+$_['help_log_filename']                = 'Adja meg a naplófájl nevét a reCAPTCHA érvényesítési hibák tárolásához.';
 
 // Error
 $_['error_permission']                 = 'Figyelmeztetés: Nincs engedélye a Google reCAPTCHA módosításához!';
+$_['error_error_log_permission']       = 'Figyelmeztetés: Nincs engedélye a hibanapló törlésére!';
+$_['error_error_log_file']             = 'Figyelmeztetés: A %s fájl nem található!';
+$_['error_error_log_empty']            = 'Figyelmeztetés: A %s napló fájl üres!';
 $_['error_site_key']                   = 'A kulcs megadása kötelező!';
 $_['error_secret_key']                 = 'A titkos kulcs megadása kötelező!';
 $_['error_v3_score_threshold_value']   = 'A pontszám értékének 0 és 1 között kell lennie. Nem lehet kisebb, mint 0, és nem lehet nagyobb, mint 1.';
+$_['error_log_filename']               = 'A reCAPTCHA érvényesítési hibáinak tárolásához szükséges egy naplófájl név.';

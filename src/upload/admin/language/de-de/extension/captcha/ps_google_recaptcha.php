@@ -35,10 +35,12 @@ $_['text_v3_score_threshold_guest']    = 'Gastbestellung';
 $_['text_v3_score_threshold_review']   = 'Bewertungen';
 $_['text_v3_score_threshold_return']   = 'Rücksendungen';
 $_['text_v3_score_threshold_contact']  = 'Kontakt';
+$_['text_log_clear_success']     = 'Das Fehlerprotokoll wurde erfolgreich gelöscht.';
 
 // Tab
 $_['tab_general']                      = 'Allgemein';
 $_['tab_security']                     = 'Sicherheit';
+$_['tab_error_log']                    = 'Fehlerprotokoll';
 $_['tab_help_and_support']             = 'Hilfe &amp; Unterstützung';
 
 // Entry
@@ -53,6 +55,13 @@ $_['entry_hide_badge']                 = 'Badge ausblenden';
 $_['entry_script_nonce']               = 'Skript-Nonce';
 $_['entry_google_captcha_nonce']       = 'Google-Captcha-API-Skript-Nonce';
 $_['entry_css_nonce']                  = 'CSS-Style-Tag-Nonce';
+$_['entry_log_filename']               = 'Log-Dateiname für Validierung';
+$_['entry_send_client_ip']             = 'Client-IP-Adresse senden';
+$_['entry_enable_error_log']           = 'Fehlerprotokoll aktivieren';
+
+// Button
+$_['button_download']                  = 'Herunterladen';
+$_['button_clear']                     = 'Löschen';
 
 // Help
 $_['help_copy']                        = 'URL kopieren';
@@ -61,9 +70,14 @@ $_['help_hide_badge']                  = 'Wenn Sie diese Option aktivieren, wird
 $_['help_site_key']                    = 'Verwenden Sie diesen websiteschlüssel im HTML-Code, den Ihre Seite den Nutzern bereitstellt.';
 $_['help_secret_key']                  = 'Verwenden Sie diesen geheimen Schlüssel für die Kommunikation zwischen Ihrer Website und reCAPTCHA.';
 $_['help_v3_score_threshold']          = 'Diese Einstellung definiert die Schwelle für das von reCAPTCHA v3 zurückgegebene Score. Das Score reicht von 0,0 bis 1,0, wobei ein höherer Score (näher an 1,0) eine höhere Wahrscheinlichkeit für eine legitime Benutzerinteraktion anzeigt und ein niedrigerer Score (näher an 0,0) eine höhere Wahrscheinlichkeit für einen Bot bedeutet. Sie können diese Schwelle anpassen, um die Aktionen basierend auf dem Score zu bestimmen. Standardmäßig wird eine Schwelle von 0,5 verwendet, aber Sie können diese entsprechend den Anforderungen Ihrer Website anpassen.';
+$_['help_log_filename']                = 'Geben Sie den Log-Dateinamen ein, um Fehler bei der reCAPTCHA-Validierung zu speichern.';
 
 // Error
 $_['error_permission']                 = 'Warnung: Sie haben keine Berechtigung, Google reCAPTCHA zu ändern!';
+$_['error_error_log_permission']       = 'Warnung: Sie haben keine Berechtigung, das Fehlerprotokoll zu löschen!';
+$_['error_error_log_file']             = 'Warnung: Die Datei %s konnte nicht gefunden werden!';
+$_['error_error_log_empty']            = 'Warnung: Die Protokolldatei %s ist leer!';
 $_['error_site_key']                   = 'Websiteschlüssel ist erforderlich!';
 $_['error_secret_key']                 = 'Geheimen Schlüssel ist erforderlich!';
-$_['error_v3_score_threshold_value']  = 'Der Wert des Scores muss zwischen 0 und 1 liegen. Er darf nicht kleiner als 0 oder größer als 1 sein.';
+$_['error_v3_score_threshold_value']   = 'Der Wert des Scores muss zwischen 0 und 1 liegen. Er darf nicht kleiner als 0 oder größer als 1 sein.';
+$_['error_log_filename']               = 'Ein Log-Dateiname ist erforderlich, um Fehler bei der reCAPTCHA-Validierung zu speichern.';
