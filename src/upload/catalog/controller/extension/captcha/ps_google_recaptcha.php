@@ -79,7 +79,14 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $recaptcha_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($this->config->get('captcha_ps_google_recaptcha_secret_key')) . '&response=' . $this->request->post['g-recaptcha-response'] . '&remoteip=' . $this->request->server['REMOTE_ADDR']);
 
         $recaptcha = array_merge(
-            array('success' => false, 'error-codes' => array()),
+            array(
+                'success' => false,      // whether this request was a valid reCAPTCHA token for your site
+                'score' => 0,            // the score for this request (0.0 - 1.0)
+                'action' => '',          // the action name for this request (important to verify)
+                'challenge_ts' => '',    // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+                'hostname' => '',        // the hostname of the site where the reCAPTCHA was solved
+                'error-codes' => array() // optional
+            ),
             (array) json_decode($recaptcha_response, true)
         );
 
