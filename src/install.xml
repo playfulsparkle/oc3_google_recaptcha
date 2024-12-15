@@ -271,13 +271,6 @@ code package and also available on the project page: https://github.com/playfuls
         </operation>
     </file>
 
-    <file path="catalog/view/theme/default/template/checkout/checkout.twig">
-        <operation>
-            <search position="replace"><![CDATA[$('#button-guest').button]]></search>
-            <add><![CDATA[{% if ps_google_recaptcha_status %}$('#ps-button-guest').button{% else %}$('#button-guest').button{% endif %}]]></add>
-        </operation>
-    </file>
-
     <file path="catalog/view/theme/default/template/checkout/guest.twig">
         <operation>
             <search position="replace"><![CDATA[<input type="button" value="{{ button_continue }}" id="button-guest" data-loading-text="{{ text_loading }}" class="btn btn-primary" />]]></search>
@@ -296,8 +289,8 @@ code package and also available on the project page: https://github.com/playfuls
 
     <file path="catalog/view/theme/default/template/checkout/checkout.twig">
         <operation>
-            <search position="replace"><![CDATA[$('#button-register').button]]></search>
-            <add><![CDATA[{% if ps_google_recaptcha_status %}$('#ps-button-register').button{% else %}$('#button-register').button{% endif %}]]></add>
+            <search position="replace"><![CDATA[$('#button-guest').button]]></search>
+            <add><![CDATA[{% if ps_google_recaptcha_status %}$('#ps-button-guest').button{% else %}$('#button-guest').button{% endif %}]]></add>
         </operation>
     </file>
 
@@ -314,6 +307,13 @@ code package and also available on the project page: https://github.com/playfuls
             {% else %}
                 <input type="button" value="{{ button_continue }}" id="button-register" data-loading-text="{{ text_loading }}" class="btn btn-primary" />
             {% endif %}]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/default/template/checkout/checkout.twig">
+        <operation>
+            <search position="replace"><![CDATA[$('#button-register').button]]></search>
+            <add><![CDATA[{% if ps_google_recaptcha_status %}$('#ps-button-register').button{% else %}$('#button-register').button{% endif %}]]></add>
         </operation>
     </file>
 
