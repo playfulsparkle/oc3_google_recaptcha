@@ -35,7 +35,8 @@ $_['text_v3_score_threshold_guest']    = 'Compra como invitado';
 $_['text_v3_score_threshold_review']   = 'Reseñas';
 $_['text_v3_score_threshold_return']   = 'Devoluciones';
 $_['text_v3_score_threshold_contact']  = 'Contacto';
-$_['text_log_clear_success']     = 'El registro de errores se ha borrado con éxito.';
+$_['text_default']                     = '(predeterminado)';
+$_['text_log_clear_success']           = 'El registro de errores se ha borrado con éxito.';
 
 // Tab
 $_['tab_general']                      = 'General';

@@ -35,7 +35,8 @@ $_['text_v3_score_threshold_guest']    = 'Achat en tant qu\'invité';
 $_['text_v3_score_threshold_review']   = 'Avis';
 $_['text_v3_score_threshold_return']   = 'Retours';
 $_['text_v3_score_threshold_contact']  = 'Contact';
-$_['text_log_clear_success']     = 'Le journal des erreurs a été vidé avec succès.';
+$_['text_default']                     = '(par défaut)';
+$_['text_log_clear_success']           = 'Le journal des erreurs a été vidé avec succès.';
 
 // Tab
 $_['tab_general']                      = 'Général';
@@ -56,7 +57,7 @@ $_['entry_script_nonce']               = 'Nonce du script';
 $_['entry_google_captcha_nonce']       = 'Nonce du script Google Captcha API';
 $_['entry_css_nonce']                  = 'Nonce de la balise de style CSS';
 $_['entry_log_filename']               = 'Nom du fichier de journal de validation';
-$_['entry_send_client_ip']               = 'Envoyer l\'adresse IP du client';
+$_['entry_send_client_ip']             = 'Envoyer l\'adresse IP du client';
 $_['entry_enable_error_log']           = 'Activer le journal des erreurs';
 
 // Button

@@ -35,7 +35,8 @@ $_['text_v3_score_threshold_guest']    = 'Nákup ako hosť';
 $_['text_v3_score_threshold_review']   = 'Recenzie';
 $_['text_v3_score_threshold_return']   = 'Vrátenie tovaru';
 $_['text_v3_score_threshold_contact']  = 'Kontakt';
-$_['text_log_clear_success']     = 'Chybový log bol úspešne vymazaný.';
+$_['text_default']                     = '(predvolené)';
+$_['text_log_clear_success']           = 'Chybový log bol úspešne vymazaný.';
 
 // Tab
 $_['tab_general']                      = 'Všeobecné';

@@ -35,7 +35,8 @@ $_['text_v3_score_threshold_guest']    = 'Gastbestellung';
 $_['text_v3_score_threshold_review']   = 'Bewertungen';
 $_['text_v3_score_threshold_return']   = 'Rücksendungen';
 $_['text_v3_score_threshold_contact']  = 'Kontakt';
-$_['text_log_clear_success']     = 'Das Fehlerprotokoll wurde erfolgreich gelöscht.';
+$_['text_default']                     = '(Standard)';
+$_['text_log_clear_success']           = 'Das Fehlerprotokoll wurde erfolgreich gelöscht.';
 
 // Tab
 $_['tab_general']                      = 'Allgemein';

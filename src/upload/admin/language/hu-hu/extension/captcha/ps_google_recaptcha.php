@@ -35,7 +35,8 @@ $_['text_v3_score_threshold_guest']    = 'Vendég vásárlás';
 $_['text_v3_score_threshold_review']   = 'Vélemények';
 $_['text_v3_score_threshold_return']   = 'Visszaküldés';
 $_['text_v3_score_threshold_contact']  = 'Kapcsolat';
-$_['text_log_clear_success']     = 'A hibanapló sikeresen törlésre került.';
+$_['text_default']                     = '(alapértelmezett)';
+$_['text_log_clear_success']           = 'A hibanapló sikeresen törlésre került.';
 
 // Tab
 $_['tab_general']                      = 'Általános';

@@ -35,7 +35,8 @@ $_['text_v3_score_threshold_guest']    = 'Guest Checkout';
 $_['text_v3_score_threshold_review']   = 'Reviews';
 $_['text_v3_score_threshold_return']   = 'Returns';
 $_['text_v3_score_threshold_contact']  = 'Contact';
-$_['text_log_clear_success']     = 'The error log has been cleared successfully.';
+$_['text_default']                     = '(default)';
+$_['text_log_clear_success']           = 'The error log has been cleared successfully.';
 
 // Tab
 $_['tab_general']                      = 'General';
@@ -56,7 +57,7 @@ $_['entry_script_nonce']               = 'Script Nonce';
 $_['entry_google_captcha_nonce']       = 'Google Captcha API Script Nonce';
 $_['entry_css_nonce']                  = 'CSS Style Tag Nonce';
 $_['entry_log_filename']               = 'Validation log filename';
-$_['entry_send_client_ip']               = 'Send Client IP Address';
+$_['entry_send_client_ip']             = 'Send Client IP Address';
 $_['entry_enable_error_log']           = 'Enable Error Log';
 
 // Button

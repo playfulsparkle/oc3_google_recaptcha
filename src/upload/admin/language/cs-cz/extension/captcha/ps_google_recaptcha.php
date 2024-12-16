@@ -35,7 +35,8 @@ $_['text_v3_score_threshold_guest']    = 'Nákup jako host';
 $_['text_v3_score_threshold_review']   = 'Recenze';
 $_['text_v3_score_threshold_return']   = 'Vrácení zboží';
 $_['text_v3_score_threshold_contact']  = 'Kontakt';
-$_['text_log_clear_success']     = 'Protokol chyb byl úspěšně vymazán.';
+$_['text_default']                     = '(výchozí)';
+$_['text_log_clear_success']           = 'Protokol chyb byl úspěšně vymazán.';
 
 // Tab
 $_['tab_general']                      = 'Obecné';
@@ -56,7 +57,7 @@ $_['entry_script_nonce']               = 'Nonce skriptu';
 $_['entry_google_captcha_nonce']       = 'Nonce Google reCAPTCHA API skriptu';
 $_['entry_css_nonce']                  = 'Nonce CSS stylu';
 $_['entry_log_filename']               = 'Název souboru protokolu pro validaci';
-$_['entry_send_client_ip']               = 'Odeslat IP adresu klienta';
+$_['entry_send_client_ip']             = 'Odeslat IP adresu klienta';
 $_['entry_enable_error_log']           = 'Povolit log chyb';
 
 // Button
