@@ -31,7 +31,10 @@ code package and also available on the project page: https://github.com/playfuls
             <search><![CDATA[</head>]]></search>
             <add position="before"><![CDATA[{% if ps_google_recaptcha_status %}
             <style{% if ps_css_nonce %} nonce="{{ ps_css_nonce }}"{% endif %}>
-            {% if ps_hide_badge %}.grecaptcha-badge { visibility: hidden; }{% endif %}
+            {% if ps_hide_badge %}
+            .grecaptcha-badge { visibility: hidden; }
+            .form-group .col-sm-10 .grecaptcha-badge { visibility: visible; }
+            {% endif %}
             .pull-right > div:has(.grecaptcha-badge) {
                 display: inline-block;
             }
@@ -266,8 +269,8 @@ code package and also available on the project page: https://github.com/playfuls
             <search position="replace"><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary" />]]></search>
             <add><![CDATA[{% if ps_google_recaptcha_status %}
                 <input type="submit" value="{{ button_continue }}" class="btn btn-primary g-recaptcha"
-                 {% if badge_position == 'inline' %} data-theme="{{ badge_theme }}"{% else %} data-badge="{{ badge_position }}"{% endif %}
-                 {% if key_type == 'v2_checkbox' or key_type == 'v2_invisible' %} data-size="{{ badge_size }}"{% endif %}
+                 {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                 {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
                  {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %} />
             {% else %}
                 <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
@@ -280,8 +283,8 @@ code package and also available on the project page: https://github.com/playfuls
             <search position="replace"><![CDATA[<input type="submit" value="{{ button_submit }}" class="btn btn-primary" />]]></search>
             <add><![CDATA[{% if ps_google_recaptcha_status %}
                 <input type="submit" value="{{ button_submit }}" class="btn btn-primary g-recaptcha"
-                {% if badge_position == 'inline' %} data-theme="{{ badge_theme }}"{% else %} data-badge="{{ badge_position }}"{% endif %}
-                {% if key_type == 'v2_checkbox' or key_type == 'v2_invisible' %} data-size="{{ badge_size }}"{% endif %}
+                {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
                 {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %} />
             {% else %}
                 <input type="submit" value="{{ button_submit }}" class="btn btn-primary" />
@@ -294,8 +297,8 @@ code package and also available on the project page: https://github.com/playfuls
             <search position="replace"><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary" />]]></search>
             <add><![CDATA[{% if ps_google_recaptcha_status %}
                 <input type="submit" value="{{ button_continue }}" class="btn btn-primary g-recaptcha"
-                {% if badge_position == 'inline' %} data-theme="{{ badge_theme }}"{% else %} data-badge="{{ badge_position }}"{% endif %}
-                {% if key_type == 'v2_checkbox' or key_type == 'v2_invisible' %} data-size="{{ badge_size }}"{% endif %}
+                {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
                 {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %} />
             {% else %}
                 <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
@@ -308,8 +311,8 @@ code package and also available on the project page: https://github.com/playfuls
             <search position="replace"><![CDATA[<input type="submit" value="{{ button_continue }}" class="btn btn-primary" />]]></search>
             <add><![CDATA[{% if ps_google_recaptcha_status %}
                 <input type="submit" value="{{ button_continue }}" class="btn btn-primary g-recaptcha"
-                {% if badge_position == 'inline' %} data-theme="{{ badge_theme }}"{% else %} data-badge="{{ badge_position }}"{% endif %}
-                {% if key_type == 'v2_checkbox' or key_type == 'v2_invisible' %} data-size="{{ badge_size }}"{% endif %}
+                {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
                 {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %} />
             {% else %}
                 <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
@@ -323,8 +326,8 @@ code package and also available on the project page: https://github.com/playfuls
             <add><![CDATA[{% if ps_google_recaptcha_status %}
                 <input type="button" value="{{ button_continue }}" data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"
                 {% if ps_key_type == 'v2_checkbox' %}id="button-guest"{% else %}id="ps-button-guest"{% endif %}
-                {% if badge_position == 'inline' %} data-theme="{{ badge_theme }}"{% else %} data-badge="{{ badge_position }}"{% endif %}
-                {% if key_type == 'v2_checkbox' or key_type == 'v2_invisible' %} data-size="{{ badge_size }}"{% endif %}
+                {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
                 {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onGuestFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %} />
                 {% if ps_key_type != 'v2_checkbox' %}<button id="button-guest" aria-hidden="true" style="display: none;"></button>{% endif %}
             {% else %}
@@ -346,8 +349,8 @@ code package and also available on the project page: https://github.com/playfuls
             <add><![CDATA[{% if ps_google_recaptcha_status %}
                 <input type="button" value="{{ button_continue }}" data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha"
                 {% if ps_key_type == 'v2_checkbox' %}id="button-register"{% else %}id="ps-button-register"{% endif %}
-                {% if badge_position == 'inline' %} data-theme="{{ badge_theme }}"{% else %} data-badge="{{ badge_position }}"{% endif %}
-                {% if key_type == 'v2_checkbox' or key_type == 'v2_invisible' %} data-size="{{ badge_size }}"{% endif %}
+                {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
                 {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onRegisterFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %} />
                 {% if ps_key_type != 'v2_checkbox' %}<button id="button-register" aria-hidden="true" style="display: none;"></button>{% endif %}
             {% else %}
@@ -368,8 +371,8 @@ code package and also available on the project page: https://github.com/playfuls
             <search position="replace"><![CDATA[<input class="btn btn-primary" type="submit" value="{{ button_submit }}" />]]></search>
             <add><![CDATA[{% if ps_google_recaptcha_status %}
                 <input type="submit" value="{{ button_submit }}" class="btn btn-primary g-recaptcha"
-                {% if badge_position == 'inline' %} data-theme="{{ badge_theme }}"{% else %} data-badge="{{ badge_position }}"{% endif %}
-                {% if key_type == 'v2_checkbox' or key_type == 'v2_invisible' %} data-size="{{ badge_size }}"{% endif %}
+                {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
                 {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %} />
             {% else %}
                 <input class="btn btn-primary" type="submit" value="{{ button_submit }}" />
@@ -396,8 +399,8 @@ code package and also available on the project page: https://github.com/playfuls
             <search position="replace"><![CDATA[<button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary">]]></search>
             <add><![CDATA[{% if ps_google_recaptcha_status %}
                 <button type="button" data-loading-text="{{ text_loading }}" class="btn btn-primary g-recaptcha" {% if ps_key_type == 'v2_checkbox' %}id="button-review"{% endif %}
-                {% if badge_position == 'inline' %} data-theme="{{ badge_theme }}"{% else %} data-badge="{{ badge_position }}"{% endif %}
-                {% if key_type == 'v2_checkbox' or key_type == 'v2_invisible' %} data-size="{{ badge_size }}"{% endif %}
+                {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
                 {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %}>
             {% else %}
                 <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-primary">
