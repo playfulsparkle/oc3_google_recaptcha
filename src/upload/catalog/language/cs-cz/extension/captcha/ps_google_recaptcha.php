@@ -8,10 +8,9 @@ $_['entry_challange_captcha']      = 'Dokončete prosím ověření captcha ní�
 $_['entry_score_based_captcha']    = 'Ověření captcha';
 
 // Error
-$_['error_captcha']                = 'Ověření není správné!';
-$_['error_missing_input_secret']   = 'Chybí parametr secret.';
-$_['error_invalid_input_secret']   = 'Parametr secret je neplatný nebo špatně formátovaný.';
-$_['error_missing_input_response'] = 'Chybí parametr response.';
-$_['error_invalid_input_response'] = 'Parametr response je neplatný nebo špatně formátovaný.';
-$_['error_bad_request']            = 'Požadavek je neplatný nebo špatně formátovaný.';
-$_['error_timeout_or_duplicate']   = 'Odpověď již není platná: je buď příliš stará, nebo již byla použita.';
+$_['error_missing_input_secret']   = 'Chybí tajný klíč. Ujistěte se, že váš reCAPTCHA tajný klíč je zahrnut v požadavku.';
+$_['error_invalid_input_secret']   = 'Poskytnutý tajný klíč je neplatný nebo má nesprávný formát. Zkontrolujte svůj reCAPTCHA tajný klíč a zkuste to znovu.';
+$_['error_missing_input_response'] = 'Chybí odpověď na reCAPTCHA. Ujistěte se, že výzva reCAPTCHA byla dokončena před odesláním formuláře.';
+$_['error_invalid_input_response'] = 'Poskytnutá odpověď na reCAPTCHA je neplatná nebo má nesprávný formát. Zkuste znovu dokončit výzvu reCAPTCHA.';
+$_['error_bad_request']            = 'Požadavek nemohl být zpracován, protože je neplatný nebo nesprávně vytvořený. Ověřte formát a parametry požadavku a zkuste to znovu.';
+$_['error_timeout_or_duplicate']   = 'Odpověď na reCAPTCHA již není platná. Mohla vypršet nebo být znovu použita. Obnovte stránku a znovu dokončete výzvu reCAPTCHA.';

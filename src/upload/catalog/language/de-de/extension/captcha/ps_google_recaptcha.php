@@ -8,10 +8,9 @@ $_['entry_challange_captcha']      = 'Bitte vervollständigen Sie die Captcha-Va
 $_['entry_score_based_captcha']    = 'Captcha-Validierung';
 
 // Error
-$_['error_captcha']                = 'Die Verifizierung ist nicht korrekt!';
-$_['error_missing_input_secret']   = 'Der Parameter "secret" fehlt.';
-$_['error_invalid_input_secret']   = 'Der Parameter "secret" ist ungültig oder fehlerhaft.';
-$_['error_missing_input_response'] = 'Der Parameter "response" fehlt.';
-$_['error_invalid_input_response'] = 'Der Parameter "response" ist ungültig oder fehlerhaft.';
-$_['error_bad_request']            = 'Die Anfrage ist ungültig oder fehlerhaft formatiert.';
-$_['error_timeout_or_duplicate']   = 'Die Antwort ist nicht mehr gültig: Sie ist entweder zu alt oder wurde bereits verwendet.';
+$_['error_missing_input_secret']   = 'Der geheime Schlüssel fehlt. Bitte stellen Sie sicher, dass Ihr reCAPTCHA-Schlüssel in der Anfrage enthalten ist.';
+$_['error_invalid_input_secret']   = 'Der angegebene geheime Schlüssel ist ungültig oder falsch formatiert. Überprüfen Sie Ihren reCAPTCHA-Schlüssel und versuchen Sie es erneut.';
+$_['error_missing_input_response'] = 'Die reCAPTCHA-Antwort fehlt. Bitte stellen Sie sicher, dass die reCAPTCHA-Aufgabe abgeschlossen wurde, bevor das Formular gesendet wird.';
+$_['error_invalid_input_response'] = 'Die angegebene reCAPTCHA-Antwort ist ungültig oder falsch formatiert. Bitte versuchen Sie, die reCAPTCHA-Aufgabe erneut zu lösen.';
+$_['error_bad_request']            = 'Die Anfrage konnte nicht verarbeitet werden, da sie ungültig oder fehlerhaft ist. Überprüfen Sie das Format und die Parameter der Anfrage und versuchen Sie es erneut.';
+$_['error_timeout_or_duplicate']   = 'Die reCAPTCHA-Antwort ist nicht mehr gültig. Sie könnte abgelaufen oder erneut verwendet worden sein. Bitte aktualisieren Sie die Seite und lösen Sie die reCAPTCHA-Aufgabe erneut.';

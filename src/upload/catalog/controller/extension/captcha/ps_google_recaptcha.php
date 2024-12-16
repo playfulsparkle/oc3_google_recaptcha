@@ -86,7 +86,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
                     ', User-Agent: ' . $this->request->server['HTTP_USER_AGENT']);
             }
 
-            return $this->language->get('error_captcha');
+            return $this->language->get('error_missing_input_response');
         }
 
         $post_data = array(
@@ -123,7 +123,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
                 $log->write('JSON Error: ' . json_last_error_msg() . ' (Code: ' . $json_last_error . ')');
             }
 
-            return $this->language->get('error_captcha');
+            return $this->language->get('error_bad_request');
         }
 
         if ($captcha_response['success']) {
@@ -155,7 +155,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
                         ', IP: ' . $this->request->server['REMOTE_ADDR']);
                 }
 
-                return $this->language->get('error_captcha');
+                return $this->language->get('error_invalid_input_response');
             }
         }
 
@@ -179,6 +179,6 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $log->write('reCAPTCHA Error: ' . $this->language->get('error_captcha') . ', IP: ' . $this->request->server['REMOTE_ADDR']);
         }
 
-        return $this->language->get('error_captcha');
+        return $this->language->get('error_bad_request');
     }
 }
