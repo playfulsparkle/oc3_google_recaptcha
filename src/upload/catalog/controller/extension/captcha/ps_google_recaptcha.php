@@ -143,7 +143,11 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
             $recaptcha_pages = (array) $this->config->get('captcha_ps_google_recaptcha_v3_score_threshold');
 
-            if ($recaptcha_page && isset($recaptcha_pages[$recaptcha_page]) && $captcha_response['score'] < $recaptcha_pages[$recaptcha_page]) {
+            if (!isset($recaptcha_pages[$recaptcha_page])) {
+                $recaptcha_pages[$recaptcha_page] = 0.5; // default value
+            }
+
+            if ($recaptcha_page && $captcha_response['score'] < $recaptcha_pages[$recaptcha_page]) {
                 if ($log_status) {
                     $log->write('V3 Score threshold error on page ' . $recaptcha_page .
                         '. Score: ' . $captcha_response['score'] .
