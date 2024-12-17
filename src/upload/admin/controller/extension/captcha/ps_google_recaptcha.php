@@ -347,7 +347,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
     {
         $this->load->language('extension/captcha/ps_google_recaptcha');
 
-        $json = [];
+        $json = array();
 
         if (!$this->user->hasPermission('modify', 'tool/log')) {
             $json['error'] = $this->language->get('error_permission');
