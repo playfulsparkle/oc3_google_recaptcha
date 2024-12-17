@@ -39,7 +39,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $data['google_captcha_nonce'] = $this->config->get('captcha_ps_google_recaptcha_google_captcha_nonce');
         $data['hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
 
-        $data['route'] = $this->request->get['route'];
+        $data['checkout_page'] = substr($this->request->get['route'], 0, 9) === 'checkout/';
 
         $query = array();
 
