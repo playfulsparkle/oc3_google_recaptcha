@@ -65,11 +65,11 @@
 			{% if error_captcha %}<div id="error-captcha" class="text-danger">{{ error_captcha }}</div>{% else %}<div id="error-captcha"></div>{% endif %}
 			{% if route|slice(0, 9) != 'checkout/' %}</div>{% endif %}
 	</div>
-	{% if hide_badge %}
-	<div class="form-group">
-		<div class="col-sm-12">
-			<p>{{ text_recaptcha_branding }}</p>
-		</div>
-	</div>
-	{% endif %}
 </fieldset>
+{% if hide_badge %}
+<div class="form-group">
+	<div class="col-sm-12">
+		<p>{{ text_recaptcha_branding }}</p>
+	</div>
+</div>
+{% endif %}
