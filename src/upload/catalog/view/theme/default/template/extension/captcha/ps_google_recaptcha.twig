@@ -4,7 +4,7 @@
 		<label class="{% if route|slice(0, 9) != 'checkout/' %}col-sm-2 {% endif %}control-label">{% if key_type == 'v2_checkbox' %}{{ entry_challange_captcha }}{% else %}{{ entry_score_based_captcha }}{% endif %}</label>
     {% if route|slice(0, 9) != 'checkout/' %}<div class="col-sm-10">{% endif %}
 			{% if key_type == 'v2_checkbox' %}<div id="{% if route|slice(0, 9) == 'checkout/' %}input-payment-captcha{% else %}g-recaptcha-{{ widget_counter }}{% endif %}" data-sitekey="{{ site_key }}"></div>{% endif %}
-			<script{% if ps_script_nonce %} nonce="{{ ps_script_nonce }}"{% endif %} data-widget-id="{{ widget_counter }}">
+			<script{% if script_nonce %} nonce="{{ script_nonce }}"{% endif %} data-widget-id="{{ widget_counter }}">
 				var repositionCaptchaBadge{{ widget_counter }} = function () {
 					var grecaptchaBadge = document.querySelector('.grecaptcha-badge'),
 					grecaptchaContainer = grecaptchaBadge ? grecaptchaBadge.closest('div') : null,
@@ -61,8 +61,15 @@
 				}
 			{% endif %}
 			</script>
-			<script{% if ps_google_captcha_nonce %} nonce="{{ ps_google_captcha_nonce }}"{% endif %} src="{{ google_captcha_url }}" async defer></script>
+			<script{% if google_captcha_nonce %} nonce="{{ google_captcha_nonce }}"{% endif %} src="{{ google_captcha_url }}" async defer></script>
 			{% if error_captcha %}<div id="error-captcha" class="text-danger">{{ error_captcha }}</div>{% else %}<div id="error-captcha"></div>{% endif %}
 			{% if route|slice(0, 9) != 'checkout/' %}</div>{% endif %}
 	</div>
+	{% if hide_badge %}
+	<div class="form-group">
+		<div class="col-sm-12">
+			<p>{{ text_recaptcha_branding }}</p>
+		</div>
+	</div>
+	{% endif %}
 </fieldset>

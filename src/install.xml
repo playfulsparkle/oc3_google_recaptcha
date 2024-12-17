@@ -44,32 +44,6 @@ code package and also available on the project page: https://github.com/playfuls
             {% endif %}]]></add>
         </operation>
     </file>
-
-    <file path="catalog/controller/common/footer.php">
-        <operation>
-            <search><![CDATA[$this->load->view('common/footer', $data);]]></search>
-            <add position="before"><![CDATA[
-            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
-
-            if ($data['ps_google_recaptcha_status']) {
-                $this->load->language('extension/captcha/ps_google_recaptcha', 'ps_google_recaptcha');
-
-                $ps_language = $this->language->get('ps_google_recaptcha');
-
-                $data['ps_text_recaptcha_branding'] = $ps_language->get('text_recaptcha_branding');
-
-                $data['ps_hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
-            }
-            ]]></add>
-        </operation>
-    </file>
-
-    <file path="catalog/view/theme/default/template/common/footer.twig">
-        <operation>
-            <search><![CDATA[<p>{{ powered }}</p>]]></search>
-            <add position="after"><![CDATA[{% if ps_hide_badge %}<p>{{ ps_text_recaptcha_branding }}</p>{% endif %}]]></add>
-        </operation>
-    </file>
     <!-- frontend end -->
 
     <!-- captcha reset start -->
