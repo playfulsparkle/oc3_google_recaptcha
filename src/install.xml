@@ -33,7 +33,7 @@ code package and also available on the project page: https://github.com/playfuls
             <style{% if ps_css_nonce %} nonce="{{ ps_css_nonce }}"{% endif %}>
             {% if ps_hide_badge %}
             .grecaptcha-badge { visibility: hidden; }
-            .form-group .col-sm-10 .grecaptcha-badge { visibility: visible; }
+            .form-group .grecaptcha-badge { visibility: visible; }
             {% endif %}
             .pull-right > div:has(> iframe) {
                 display: inline-block;
