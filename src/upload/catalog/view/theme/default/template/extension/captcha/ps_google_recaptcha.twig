@@ -1,64 +1,64 @@
-{% if key_type == 'v2_checkbox' %}<div id="{% if checkout_page %}input-payment-captcha{% else %}g-recaptcha-{{ widget_counter }}{% endif %}" data-sitekey="{{ site_key }}"></div>{% endif %}
-<script{% if script_nonce %} nonce="{{ script_nonce }}"{% endif %} data-widget-id="{{ widget_counter }}">
-	var repositionCaptchaBadge{{ widget_counter }} = function () {
-		var grecaptchaBadge = document.querySelector('.grecaptcha-badge'),
-		grecaptchaContainer = grecaptchaBadge ? grecaptchaBadge.closest('div') : null,
-		errorCaptcha = document.querySelector('#error-captcha');
-		if (grecaptchaContainer && errorCaptcha) { errorCaptcha.parentNode.insertBefore(grecaptchaContainer, errorCaptcha); }
-	};
-
-	var resetRecaptcha{{ widget_counter }} = function () {
-		if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
-			if (typeof recaptcha_widget{{ widget_counter }} === 'number') {
-				grecaptcha.reset(recaptcha_widget{{ widget_counter }});
-			} else {
-				grecaptcha.reset();
-			}
-		}
-	};
-{% if key_type == 'v3' or key_type == 'v2_invisible' %}
-	var recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
-
-	var onFormSubmit{{ widget_counter }} = function (token) {
-			if (recaptcha_form{{ widget_counter }}) {
-					var submitEvent = new Event('submit', {bubbles: true, cancelable: true});
-					if (recaptcha_form{{ widget_counter }}.dispatchEvent(submitEvent)) { recaptcha_form{{ widget_counter }}.submit(); }
-			}
-	}
-	{% if checkout_page %}
-	var onGuestFormSubmit{{ widget_counter }} = function(token) {
-		document.querySelector('#button-guest').click();
-	}
-
-	var onRegisterFormSubmit{{ widget_counter }} = function (token) {
-		document.querySelector('#button-register').click();
-	}
-{% endif %}
-{% elseif key_type == 'v2_checkbox' %}
-	var recaptcha_widget{{ widget_counter }},
-	recaptcha_widget_obj{{ widget_counter }} = {% if checkout_page %}document.querySelector('#input-payment-captcha'){% else %}document.querySelector('#g-recaptcha-{{ widget_counter }}'){% endif %},
-	recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
-
-	var onloadCallback{{ widget_counter }} = function () {
-		recaptcha_widget{{ widget_counter }} = grecaptcha.render(recaptcha_widget_obj{{ widget_counter }}, {
-			'sitekey': '{{ site_key }}',
-			'theme': '{{ badge_theme }}',
-			'size': '{{ badge_size }}'
-		});
-	};
-
-	if (recaptcha_form{{ widget_counter }}) {
-		recaptcha_form{{ widget_counter }}.addEventListener('submit', function () {
-			setTimeout(resetRecaptcha{{ widget_counter }}, 1000);
-		});
-	}
-{% endif %}
-</script>
 <fieldset>
   <legend>{{ text_captcha }}</legend>
   <div class="form-group required">
 		<label class="{% if not checkout_page %}col-sm-2 {% endif %}control-label">{% if key_type == 'v2_checkbox' %}{{ entry_challange_captcha }}{% else %}{{ entry_score_based_captcha }}{% endif %}</label>
     {% if not checkout_page %}<div class="col-sm-10">{% endif %}
+			{% if key_type == 'v2_checkbox' %}<div id="{% if checkout_page %}input-payment-captcha{% else %}g-recaptcha-{{ widget_counter }}{% endif %}" data-sitekey="{{ site_key }}"></div>{% endif %}
+			<script{% if script_nonce %} nonce="{{ script_nonce }}"{% endif %} data-widget-id="{{ widget_counter }}">
+				var repositionCaptchaBadge{{ widget_counter }} = function () {
+					var grecaptchaBadge = document.querySelector('.grecaptcha-badge'),
+					grecaptchaContainer = grecaptchaBadge ? grecaptchaBadge.closest('div') : null,
+					errorCaptcha = document.querySelector('#error-captcha');
+					if (grecaptchaContainer && errorCaptcha) { errorCaptcha.parentNode.insertBefore(grecaptchaContainer, errorCaptcha); }
+				};
+
+				var resetRecaptcha{{ widget_counter }} = function () {
+					if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
+						if (typeof recaptcha_widget{{ widget_counter }} === 'number') {
+							grecaptcha.reset(recaptcha_widget{{ widget_counter }});
+						} else {
+							grecaptcha.reset();
+						}
+					}
+				};
+			{% if key_type == 'v3' or key_type == 'v2_invisible' %}
+				var recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
+
+				var onFormSubmit{{ widget_counter }} = function (token) {
+						if (recaptcha_form{{ widget_counter }}) {
+								var submitEvent = new Event('submit', {bubbles: true, cancelable: true});
+								if (recaptcha_form{{ widget_counter }}.dispatchEvent(submitEvent)) { recaptcha_form{{ widget_counter }}.submit(); }
+						}
+				}
+				{% if checkout_page %}
+				var onGuestFormSubmit{{ widget_counter }} = function(token) {
+					document.querySelector('#button-guest').click();
+				}
+
+				var onRegisterFormSubmit{{ widget_counter }} = function (token) {
+					document.querySelector('#button-register').click();
+				}
+			{% endif %}
+			{% elseif key_type == 'v2_checkbox' %}
+				var recaptcha_widget{{ widget_counter }},
+				recaptcha_widget_obj{{ widget_counter }} = {% if checkout_page %}document.querySelector('#input-payment-captcha'){% else %}document.querySelector('#g-recaptcha-{{ widget_counter }}'){% endif %},
+				recaptcha_form{{ widget_counter }} = document.currentScript ? document.currentScript.closest('form') : null;
+
+				var onloadCallback{{ widget_counter }} = function () {
+					recaptcha_widget{{ widget_counter }} = grecaptcha.render(recaptcha_widget_obj{{ widget_counter }}, {
+						'sitekey': '{{ site_key }}',
+						'theme': '{{ badge_theme }}',
+						'size': '{{ badge_size }}'
+					});
+				};
+
+				if (recaptcha_form{{ widget_counter }}) {
+					recaptcha_form{{ widget_counter }}.addEventListener('submit', function () {
+						setTimeout(resetRecaptcha{{ widget_counter }}, 1000);
+					});
+				}
+			{% endif %}
+			</script>
 			{% if error_captcha %}<div id="error-captcha" class="text-danger">{{ error_captcha }}</div>{% else %}<div id="error-captcha"></div>{% endif %}
 		{% if not checkout_page %}</div>{% endif %}
 	</div>

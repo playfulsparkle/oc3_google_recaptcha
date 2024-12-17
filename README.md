@@ -15,6 +15,7 @@ The **Playful Sparkle - Google reCAPTCHA** extension for OpenCart 3.x+ enhances 
     - Badge position: Choose between **bottom left**, **bottom right**, or **inline**.
     - Theme: Select between **light** and **dark**.
     - Option to **hide the badge** with a footer notice to comply with Google policy.
+    - Set different score thresholds for specific pages, such as **Register**, **Guest Checkout**, **Reviews**, **Returns**, and **Contact**.
   - For v2 Checkbox:
     - Badge theme: Choose between **light** and **dark**.
     - Badge size: Select **normal** or **compact**.
@@ -22,7 +23,10 @@ The **Playful Sparkle - Google reCAPTCHA** extension for OpenCart 3.x+ enhances 
     - Badge position: Choose between **bottom left**, **bottom right**, or **inline**.
     - Theme: Select between **light** and **dark**.
     - Option to **hide the badge** with a footer notice to comply with Google policy.
-- **Compatibility**: Integrates smoothly with OpenCart 3.x+, supporting a range of online store setups.
+- **Advanced Features**:
+  - Logs any reCAPTCHA verification failures for debugging and monitoring purposes.
+  - Toggle option to include the client's IP address when sending verification requests to Google's reCAPTCHA service.
+- **Compatibility**: Integrates smoothly with OpenCart 4.x+, supporting a range of online store setups.
 - **Multilingual Support**: Ready for international use with languages including Čeština (cs-cz), Deutsch (de-de), English (GB) (en-gb), English (US) (en-us), Español (es-es), Français (fr-fr), Magyar (hu-hu), Italiano (it-it), Русский (ru-ru), and Slovenčina (sk-sk).
 
 ---
@@ -51,6 +55,12 @@ For assistance or inquiries related to this extension, please open an issue on t
 This project is distributed under the GPL-3.0 license. Please refer to the [LICENSE](./LICENSE) file for further details.
 
 ---
+
+## Important Notice
+
+This extension has been thoroughly tested with the default OpenCart template. If you are using a custom template, please note that **reCAPTCHA v3 (score-based)** and **reCAPTCHA v2 Invisible** may not work as expected. However, **reCAPTCHA v2 (checkbox)** should work as intended.
+
+If you encounter any issues with v3 or v2 Invisible on your custom template, please contact us, and we will be happy to assist you in updating the extension to ensure full compatibility.
 
 ## Contributing
 

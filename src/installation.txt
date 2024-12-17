@@ -26,6 +26,8 @@ Features
     - Theme: Select between light and dark.
     - Option to hide the badge with a footer notice to comply with
       Google policy.
+    - Set different score thresholds for specific pages, such as Register,
+      Guest Checkout, Reviews, Returns, and Contact.
   - For v2 Checkbox:
     - Badge theme: Choose between light and dark.
     - Badge size: Select normal or compact.
@@ -34,6 +36,11 @@ Features
     - Theme: Select between light and dark.
     - Option to hide the badge with a footer notice to comply with
       Google policy.
+- Advanced Features:
+  - Logs any reCAPTCHA verification failures for debugging and
+    monitoring purposes.
+  - Toggle option to include the client's IP address when sending verification
+    requests to Google's reCAPTCHA service.
 - Compatibility: Integrates smoothly with OpenCart 3.x+, supporting a range of
   online store setups.
 - Multilingual Support: Ready for international use with languages including
@@ -58,6 +65,17 @@ Installation Instructions
 8. Navigate to Extensions > Modifications, select all your modifications and
    click the Refresh button to update the modification cache and apply
    the changes.
+
+Important Notice
+
+This extension has been thoroughly tested with the default OpenCart template.
+If you are using a custom template, please note that reCAPTCHA v3 (score-based)
+and reCAPTCHA v2 Invisible may not work as expected. However,
+reCAPTCHA v2 (checkbox) should work as intended.
+
+If you encounter any issues with v3 or v2 Invisible on your custom template,
+please contact us, and we will be happy to assist you in updating the extension
+to ensure full compatibility.
 
 Support & Inquiries
 
