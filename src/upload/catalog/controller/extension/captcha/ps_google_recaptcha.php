@@ -119,14 +119,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         }
 
         $captcha_response = array_merge(
-            array(
-                'success' => false,      // whether this request was a valid reCAPTCHA token for your site
-                'score' => 0,            // the score for this request (0.0 - 1.0)
-                'action' => '',          // the action name for this request (important to verify)
-                'challenge_ts' => '',    // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
-                'hostname' => '',        // the hostname of the site where the reCAPTCHA was solved
-                'error-codes' => array() // optional
-            ),
+            array('success' => false, 'score' => 0.0, 'error-codes' => array()),
             (array) json_decode((string) $response, true)
         );
 
