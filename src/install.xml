@@ -35,7 +35,7 @@ code package and also available on the project page: https://github.com/playfuls
             .grecaptcha-badge { visibility: hidden; }
             .form-group .col-sm-10 .grecaptcha-badge { visibility: visible; }
             {% endif %}
-            .pull-right > div:has(.grecaptcha-badge) {
+            .pull-right > div:has(> iframe) {
                 display: inline-block;
             }
             </style>
