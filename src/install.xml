@@ -40,6 +40,18 @@ code package and also available on the project page: https://github.com/playfuls
         } else {
             $data['ps_captcha'] = '';
         }
+
+        $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
+
+        if ($data['ps_google_recaptcha_status']) {
+            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+
+            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+        }
         ]]></add>
     </operation>
     </file>
@@ -48,6 +60,20 @@ code package and also available on the project page: https://github.com/playfuls
     <operation>
         <search><![CDATA[<div class="text-right">]]></search>
         <add position="before"><![CDATA[{{ ps_captcha }}]]></add>
+    </operation>
+    </file>
+
+    <file path="admin/view/template/common/login.twig">
+    <operation>
+        <search position="replace"><![CDATA[<button type="submit" class="btn btn-primary"><i class="fa fa-key"></i> {{ button_login }}</button>]]></search>
+        <add><![CDATA[{% if ps_google_recaptcha_status %}
+            <button type="submit" class="btn btn-primary g-recaptcha"
+            {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+            {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
+            {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %}><i class="fa fa-key"></i> {{ button_login }}</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary"><i class="fa fa-key"></i> {{ button_login }}</button>
+        {% endif %}]]></add>
     </operation>
     </file>
     <!-- admin login end -->
