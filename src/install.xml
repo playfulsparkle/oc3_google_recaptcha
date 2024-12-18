@@ -17,7 +17,7 @@ code package and also available on the project page: https://github.com/playfuls
             <search><![CDATA[protected function validate() {]]></search>
             <add position="after"><![CDATA[
 		// Captcha
-		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
+		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('forgotten_password', (array)$this->config->get('config_captcha_page'))) {
 			$captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
 
 			if ($captcha) {
@@ -33,7 +33,7 @@ code package and also available on the project page: https://github.com/playfuls
             <search><![CDATA[if (isset($this->request->post['email'])) {]]></search>
             <add position="before"><![CDATA[
 		// Captcha
-		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('catalog_login', (array)$this->config->get('config_captcha_page'))) {
+		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('forgotten_password', (array)$this->config->get('config_captcha_page'))) {
 			$data['captcha'] = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha'), $this->error);
 		} else {
 			$data['captcha'] = '';
@@ -83,7 +83,7 @@ code package and also available on the project page: https://github.com/playfuls
             <search><![CDATA[protected function validate() {]]></search>
             <add position="after"><![CDATA[
 		// Captcha
-		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
+		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('catalog_login', (array)$this->config->get('config_captcha_page'))) {
 			$captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
 
 			if ($captcha) {

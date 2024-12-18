@@ -228,7 +228,12 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         );
 
         $data['captcha_pages'][] = array(
-            'text' => $this->language->get('text_forgotten_password'),
+            'text' => $this->language->get('text_admin_forgotten_password'),
+            'value' => 'admin_forgotten_password'
+        );
+
+        $data['captcha_pages'][] = array(
+            'text' => $this->language->get('text_catalog_forgotten_password'),
             'value' => 'forgotten_password'
         );
 
