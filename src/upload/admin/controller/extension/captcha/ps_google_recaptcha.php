@@ -391,7 +391,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $this->response->setOutput(json_encode($json));
     }
 
-    public function render_captcha($error = array())
+    public function render_captcha()
     {
         if (!$this->config->get('captcha_ps_google_recaptcha_status')) {
             return '';
@@ -406,12 +406,6 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         }
 
         $data = array();
-
-        if (isset($error['captcha'])) {
-            $data['error_captcha'] = $error['captcha'];
-        } else {
-            $data['error_captcha'] = '';
-        }
 
         $data['widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 

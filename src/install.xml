@@ -22,7 +22,7 @@ code package and also available on the project page: https://github.com/playfuls
             if ($ps_captcha) {
                 unset($this->session->data['user_token']);
 
-                $this->error['captcha'] = $ps_captcha;
+                $this->error['warning'] = $ps_captcha;
 
                 return !$this->error;
             }
@@ -36,7 +36,7 @@ code package and also available on the project page: https://github.com/playfuls
         <search><![CDATA[$data['footer'] = ]]></search>
         <add position="after"><![CDATA[
         if (in_array('admin_forgotten_password', (array) $this->config->get('config_captcha_page'))) {
-            $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha', $this->error);
+            $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha');
         } else {
             $data['ps_captcha'] = '';
         }
@@ -89,7 +89,7 @@ code package and also available on the project page: https://github.com/playfuls
             if ($ps_captcha) {
                 unset($this->session->data['user_token']);
 
-                $this->error['captcha'] = $ps_captcha;
+                $this->error['warning'] = $ps_captcha;
 
                 return !$this->error;
             }
@@ -103,7 +103,7 @@ code package and also available on the project page: https://github.com/playfuls
         <search><![CDATA[$data['footer'] = ]]></search>
         <add position="after"><![CDATA[
         if (in_array('admin_login', (array) $this->config->get('config_captcha_page'))) {
-            $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha', $this->error);
+            $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha');
         } else {
             $data['ps_captcha'] = '';
         }
