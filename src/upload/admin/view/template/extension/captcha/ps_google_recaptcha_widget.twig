@@ -47,11 +47,4 @@
 		{% endif %}
 		</script>
 </div>
-{% if hide_badge %}
-<div class="form-group">
-	<div class="col-sm-12">
-		<p>{{ text_recaptcha_branding }}</p>
-	</div>
-</div>
-{% endif %}
 <script{% if google_captcha_nonce %} nonce="{{ google_captcha_nonce }}"{% endif %} src="{{ google_captcha_url }}" async defer></script>
