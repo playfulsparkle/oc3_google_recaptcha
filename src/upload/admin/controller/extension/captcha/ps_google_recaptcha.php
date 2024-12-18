@@ -399,7 +399,11 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
         $this->load->language('extension/captcha/ps_google_recaptcha');
 
-        $this->session->data['ps_google_recaptcha_counter']++;
+        if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
+            $this->session->data['ps_google_recaptcha_counter'] = 0;
+        } else {
+            $this->session->data['ps_google_recaptcha_counter']++;
+        }
 
         $data = array();
 

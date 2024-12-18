@@ -20,7 +20,9 @@ code package and also available on the project page: https://github.com/playfuls
             $ps_captcha = $this->load->controller('extension/captcha/ps_google_recaptcha/validate_captcha');
 
             if ($ps_captcha) {
-                $error['captcha'] = $ps_captcha;
+                unset($this->session->data['user_token']);
+
+                $this->error['captcha'] = $ps_captcha;
 
                 return !$this->error;
             }
