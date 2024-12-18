@@ -11,6 +11,45 @@ code package and also available on the project page: https://github.com/playfuls
     <author>Playful Sparkle</author>
     <link>https://github.com/playfulsparkle/oc3_google_recaptcha.git</link>
 
+    <!-- admin login start -->
+    <file path="admin/controller/common/login.php">
+    <operation>
+        <search><![CDATA[protected function validate() {]]></search>
+        <add position="after"><![CDATA[
+        if (in_array('admin_login', (array) $this->config->get('config_captcha_page'))) {
+            $ps_captcha = $this->load->controller('extension/captcha/ps_google_recaptcha/validate_captcha');
+
+            if ($ps_captcha) {
+                $error['captcha'] = $ps_captcha;
+
+                return !$this->error;
+            }
+        }
+        ]]></add>
+    </operation>
+    </file>
+
+    <file path="admin/controller/common/login.php">
+    <operation>
+        <search><![CDATA[$data['footer'] = ]]></search>
+        <add position="after"><![CDATA[
+        if (in_array('admin_login', (array) $this->config->get('config_captcha_page'))) {
+            $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha', $this->error);
+        } else {
+            $data['ps_captcha'] = '';
+        }
+        ]]></add>
+    </operation>
+    </file>
+
+    <file path="admin/view/template/common/login.twig">
+    <operation>
+        <search><![CDATA[<div class="text-right">]]></search>
+        <add position="before"><![CDATA[{{ ps_captcha }}]]></add>
+    </operation>
+    </file>
+    <!-- admin login end -->
+
     <!-- forgotten password start -->
     <file path="catalog/controller/account/forgotten.php">
         <operation>
