@@ -11,6 +11,67 @@ code package and also available on the project page: https://github.com/playfuls
     <author>Playful Sparkle</author>
     <link>https://github.com/playfulsparkle/oc3_google_recaptcha.git</link>
 
+    <!-- frontend login start -->
+    <file path="catalog/controller/account/login.php">
+        <operation>
+            <search><![CDATA[protected function validate() {]]></search>
+            <add position="after"><![CDATA[
+		// Captcha
+		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
+			$captcha = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha') . '/validate');
+
+			if ($captcha) {
+				$this->error['captcha'] = $captcha;
+			}
+		}
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/account/login.php">
+        <operation>
+            <search><![CDATA[if (isset($this->request->post['email'])) {]]></search>
+            <add position="before"><![CDATA[
+		// Captcha
+		if ($this->config->get('captcha_' . $this->config->get('config_captcha') . '_status') && in_array('catalog_login', (array)$this->config->get('config_captcha_page'))) {
+			$data['captcha'] = $this->load->controller('extension/captcha/' . $this->config->get('config_captcha'), $this->error);
+		} else {
+			$data['captcha'] = '';
+		}
+
+        $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
+
+        if ($data['ps_google_recaptcha_status']) {
+            $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
+
+            $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
+            $data['ps_badge_theme'] = $this->config->get('captcha_ps_google_recaptcha_badge_theme');
+            $data['ps_badge_size'] = $this->config->get('captcha_ps_google_recaptcha_badge_size');
+            $data['ps_badge_position'] = $this->config->get('captcha_ps_google_recaptcha_badge_position');
+            $data['ps_site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
+        }
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/default/template/account/login.twig">
+        <operation>
+            <search position="replace"><![CDATA[<input type="submit" value="{{ button_login }}" class="btn btn-primary" />]]></search>
+            <add><![CDATA[
+            {{ captcha }}
+            {% if ps_google_recaptcha_status %}
+                <input type="submit" value="{{ button_login }}" class="btn btn-primary g-recaptcha"
+                {% if ps_badge_position == 'inline' %} data-theme="{{ ps_badge_theme }}"{% endif %} data-badge="{{ ps_badge_position }}"
+                {% if ps_key_type == 'v2_checkbox' or ps_key_type == 'v2_invisible' %} data-size="{{ ps_badge_size }}"{% endif %}
+                {% if ps_key_type == 'v3' or ps_key_type == 'v2_invisible' %} data-sitekey="{{ ps_site_key }}" data-callback="onFormSubmit{{ ps_widget_counter }}" data-action="submit"{% endif %} />
+            {% else %}
+                <input type="submit" value="{{ button_login }}" class="btn btn-primary" />
+            {% endif %}
+            ]]></add>
+        </operation>
+    </file>
+    <!-- frontend login end -->
+
     <file path="admin/controller/setting/setting.php">
         <operation>
             <search><![CDATA[$data['captcha_pages'] = array();]]></search>
