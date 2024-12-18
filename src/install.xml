@@ -7,9 +7,33 @@ code package and also available on the project page: https://github.com/playfuls
 <modification>
     <name>Playful Sparkle - Google reCAPTCHA</name>
     <code>ps_google_recaptcha</code>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <author>Playful Sparkle</author>
     <link>https://github.com/playfulsparkle/oc3_google_recaptcha.git</link>
+
+    <file path="admin/controller/setting/setting.php">
+        <operation>
+            <search><![CDATA[$data['captcha_pages'] = array();]]></search>
+            <add position="after"><![CDATA[
+        $this->load->language('extension/captcha/ps_google_recaptcha', 'ps_google_recaptcha');
+
+        $ps_language = $this->language->get('ps_google_recaptcha');
+
+		$data['captcha_pages'][] = array(
+			'text'  => $ps_language->get('text_admin_login'),
+			'value' => 'admin_login'
+		);
+		$data['captcha_pages'][] = array(
+			'text'  => $ps_language->get('text_catalog_login'),
+			'value' => 'catalog_login'
+		);
+		$data['captcha_pages'][] = array(
+			'text'  => $ps_language->get('text_forgotten_password'),
+			'value' => 'forgotten_password'
+		);
+            ]]></add>
+        </operation>
+    </file>
 
     <!-- frontend start -->
     <file path="catalog/controller/common/header.php">
