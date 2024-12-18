@@ -15,7 +15,7 @@ The **Playful Sparkle - Google reCAPTCHA** extension for OpenCart 3.x+ enhances 
     - Badge position: Choose between **bottom left**, **bottom right**, or **inline**.
     - Theme: Select between **light** and **dark**.
     - Option to **hide the badge** with a footer notice to comply with Google policy.
-    - Set different score thresholds for specific pages, such as **Register**, **Guest Checkout**, **Reviews**, **Returns**, and **Contact**.
+    - Set different score thresholds for specific pages, such as Admin **Login**, **Forgotten Password**; Client **Login**, **Forgotten Password**, **Register**, **Guest Checkout**, **Reviews**, **Comment**, **Returns**, and **Contact**.
   - For v2 Checkbox:
     - Badge theme: Choose between **light** and **dark**.
     - Badge size: Select **normal** or **compact**.
