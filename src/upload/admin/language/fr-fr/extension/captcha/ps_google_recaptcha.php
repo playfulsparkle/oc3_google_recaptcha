@@ -62,6 +62,8 @@ $_['entry_css_nonce']                  = 'Nonce de la balise de style CSS';
 $_['entry_log_filename']               = 'Nom du fichier de journal de validation';
 $_['entry_send_client_ip']             = 'Envoyer l\'adresse IP du client';
 $_['entry_enable_error_log']           = 'Activer le journal des erreurs';
+$_['entry_challange_captcha']          = 'Veuillez compléter la validation captcha ci-dessous';
+$_['entry_score_based_captcha']        = 'Validation captcha';
 
 // Button
 $_['button_download']                  = 'Télécharger';
@@ -85,3 +87,9 @@ $_['error_site_key']                   = 'Clé requise !';
 $_['error_secret_key']                 = 'Clé secrète requise !';
 $_['error_v3_score_threshold_value']   = 'La valeur du score doit être comprise entre 0 et 1. Elle ne peut pas être inférieure à 0 ni supérieure à 1.';
 $_['error_log_filename']               = 'Un nom de fichier de journal est requis pour stocker les erreurs de validation de reCAPTCHA.';
+$_['error_missing_input_secret']       = 'La clé secrète est manquante. Veuillez vous assurer que votre clé secrète reCAPTCHA est incluse dans la requête.';
+$_['error_invalid_input_secret']       = 'La clé secrète fournie est invalide ou mal formatée. Vérifiez votre clé secrète reCAPTCHA et essayez à nouveau.';
+$_['error_missing_input_response']     = 'La réponse reCAPTCHA est manquante. Veuillez compléter le défi reCAPTCHA avant de soumettre le formulaire.';
+$_['error_invalid_input_response']     = 'La réponse reCAPTCHA fournie est invalide ou mal formatée. Veuillez réessayer de compléter le défi reCAPTCHA.';
+$_['error_bad_request']                = 'La requête n’a pas pu être traitée car elle est invalide ou mal formée. Vérifiez le format et les paramètres de la requête, puis réessayez.';
+$_['error_timeout_or_duplicate']       = 'La réponse reCAPTCHA n’est plus valide. Elle a peut-être expiré ou été réutilisée. Actualisez la page et complétez à nouveau le défi reCAPTCHA.';

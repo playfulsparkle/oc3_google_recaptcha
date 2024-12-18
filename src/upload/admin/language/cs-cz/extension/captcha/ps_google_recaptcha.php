@@ -62,6 +62,8 @@ $_['entry_css_nonce']                  = 'Nonce CSS stylu';
 $_['entry_log_filename']               = 'Název souboru protokolu pro validaci';
 $_['entry_send_client_ip']             = 'Odeslat IP adresu klienta';
 $_['entry_enable_error_log']           = 'Povolit log chyb';
+$_['entry_challange_captcha']          = 'Dokončete prosím ověření captcha níže';
+$_['entry_score_based_captcha']        = 'Ověření captcha';
 
 // Button
 $_['button_download']                  = 'Stáhnout';
@@ -85,3 +87,9 @@ $_['error_site_key']                   = 'Klíč je požadován!';
 $_['error_secret_key']                 = 'Tajný klíč je požadován!';
 $_['error_v3_score_threshold_value']   = 'Hodnota skóre musí být mezi 0 a 1. Nemůže být nižší než 0 ani vyšší než 1.';
 $_['error_log_filename']               = 'Pro uložení chyb validace reCAPTCHA je požadován název souboru protokolu.';
+$_['error_missing_input_secret']       = 'Chybí tajný klíč. Ujistěte se, že váš reCAPTCHA tajný klíč je zahrnut v požadavku.';
+$_['error_invalid_input_secret']       = 'Poskytnutý tajný klíč je neplatný nebo má nesprávný formát. Zkontrolujte svůj reCAPTCHA tajný klíč a zkuste to znovu.';
+$_['error_missing_input_response']     = 'Chybí odpověď na reCAPTCHA. Ujistěte se, že výzva reCAPTCHA byla dokončena před odesláním formuláře.';
+$_['error_invalid_input_response']     = 'Poskytnutá odpověď na reCAPTCHA je neplatná nebo má nesprávný formát. Zkuste znovu dokončit výzvu reCAPTCHA.';
+$_['error_bad_request']                = 'Požadavek nemohl být zpracován, protože je neplatný nebo nesprávně vytvořený. Ověřte formát a parametry požadavku a zkuste to znovu.';
+$_['error_timeout_or_duplicate']       = 'Odpověď na reCAPTCHA již není platná. Mohla vypršet nebo být znovu použita. Obnovte stránku a znovu dokončete výzvu reCAPTCHA.';

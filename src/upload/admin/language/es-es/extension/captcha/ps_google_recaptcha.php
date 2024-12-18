@@ -62,6 +62,8 @@ $_['entry_css_nonce']                  = 'Nonce de la etiqueta de estilo CSS';
 $_['entry_log_filename']               = 'Nombre del archivo de registro de validación';
 $_['entry_send_client_ip']             = 'Enviar la dirección IP del cliente';
 $_['entry_enable_error_log']           = 'Habilitar registro de errores';
+$_['entry_challange_captcha']          = 'Por favor, complete la validación de captcha a continuación';
+$_['entry_score_based_captcha']        = 'Validación de captcha';
 
 // Button
 $_['button_download']                  = 'Descargar';
@@ -85,3 +87,9 @@ $_['error_site_key']                   = '¡Clave del sitio requerida!';
 $_['error_secret_key']                 = '¡Clave secreta requerida!';
 $_['error_v3_score_threshold_value']   = 'El valor del puntaje debe estar entre 0 y 1. No puede ser menor que 0 ni mayor que 1.';
 $_['error_log_filename']               = 'Se requiere un nombre de archivo de registro para almacenar los errores de validación de reCAPTCHA.';
+$_['error_missing_input_secret']       = 'Falta la clave secreta. Asegúrese de que la clave secreta de reCAPTCHA esté incluida en la solicitud.';
+$_['error_invalid_input_secret']       = 'La clave secreta proporcionada no es válida o tiene un formato incorrecto. Verifique su clave secreta de reCAPTCHA e intente nuevamente.';
+$_['error_missing_input_response']     = 'Falta la respuesta de reCAPTCHA. Asegúrese de completar el desafío de reCAPTCHA antes de enviar el formulario.';
+$_['error_invalid_input_response']     = 'La respuesta proporcionada de reCAPTCHA no es válida o tiene un formato incorrecto. Intente completar el desafío de reCAPTCHA nuevamente.';
+$_['error_bad_request']                = 'La solicitud no se pudo procesar porque es inválida o está mal formada. Verifique el formato y los parámetros de la solicitud, luego intente nuevamente.';
+$_['error_timeout_or_duplicate']       = 'La respuesta de reCAPTCHA ya no es válida. Puede haber expirado o haberse reutilizado. Actualice la página y complete nuevamente el desafío de reCAPTCHA.';
