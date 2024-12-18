@@ -1,4 +1,4 @@
-<div class="form-group required">
+<div class="form-group">
 	<label>{% if key_type == 'v2_checkbox' %}{{ entry_challange_captcha }}{% else %}{{ entry_score_based_captcha }}{% endif %}</label>
 		{% if key_type == 'v2_checkbox' %}<div id="g-recaptcha-{{ widget_counter }}" data-sitekey="{{ site_key }}"></div>{% endif %}
 		<script{% if script_nonce %} nonce="{{ script_nonce }}"{% endif %} data-widget-id="{{ widget_counter }}">
