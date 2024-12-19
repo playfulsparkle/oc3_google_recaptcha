@@ -39,7 +39,10 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $data['google_captcha_nonce'] = $this->config->get('captcha_ps_google_recaptcha_google_captcha_nonce');
         $data['hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
 
-        $data['alternative_layout'] = substr($this->request->get['route'], 0, 9) === 'checkout/' || substr($this->request->get['route'], 0, 13) === 'account/login';
+        $login_page = substr($this->request->get['route'], 0, 13) === 'account/login';
+
+        $data['alternative_layout'] = substr($this->request->get['route'], 0, 9) === 'checkout/' || substr($this->request->get['route'], 0, 15) === 'product/product' || $login_page;
+        $data['login_page'] = $login_page;
 
         $query = array();
 

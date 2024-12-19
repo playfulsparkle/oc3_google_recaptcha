@@ -41,6 +41,7 @@ $_['text_return']                      = 'Visszaküldés';
 $_['text_contact']                     = 'Kapcsolat';
 $_['text_default']                     = '(alapértelmezett)';
 $_['text_log_clear_success']           = 'A hibanapló sikeresen törlésre került.';
+$_['text_recaptcha_branding']          = 'Ez az oldal a reCAPTCHA védelme alatt áll, és a Google <a href="https://policies.google.com/privacy">Adatvédelmi irányelvei</a> valamint a <a href="https://policies.google.com/terms">Szolgáltatási feltételek</a> érvényesek rájuk.';
 
 // Tab
 $_['tab_general']                      = 'Általános';

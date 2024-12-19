@@ -41,6 +41,7 @@ $_['text_return']                      = 'Vrácení zboží';
 $_['text_contact']                     = 'Kontakt';
 $_['text_default']                     = '(výchozí)';
 $_['text_log_clear_success']           = 'Protokol chyb byl úspěšně vymazán.';
+$_['text_recaptcha_branding']          = 'Tato stránka je chráněna službou reCAPTCHA a platí <a href="https://policies.google.com/privacy">Zásady ochrany osobních údajů</a> a <a href="https://policies.google.com/terms">Podmínky služby</a> společnosti Google.';
 
 // Tab
 $_['tab_general']                      = 'Obecné';

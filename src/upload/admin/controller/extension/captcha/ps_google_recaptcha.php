@@ -416,6 +416,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $data['site_key'] = $this->config->get('captcha_ps_google_recaptcha_site_key');
         $data['script_nonce'] = $this->config->get('captcha_ps_google_recaptcha_script_nonce');
         $data['google_captcha_nonce'] = $this->config->get('captcha_ps_google_recaptcha_google_captcha_nonce');
+        $data['hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
 
         $query = array();
 

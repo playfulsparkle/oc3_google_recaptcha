@@ -41,6 +41,7 @@ $_['text_return']                      = 'Retours';
 $_['text_contact']                     = 'Contact';
 $_['text_default']                     = '(par défaut)';
 $_['text_log_clear_success']           = 'Le journal des erreurs a été vidé avec succès.';
+$_['text_recaptcha_branding']          = 'Ce site est protégé par reCAPTCHA et les <a href="https://policies.google.com/privacy">Politique de confidentialité</a> et <a href="https://policies.google.com/terms">Conditions d\'utilisation</a> de Google s\'appliquent.';
 
 // Tab
 $_['tab_general']                      = 'Général';

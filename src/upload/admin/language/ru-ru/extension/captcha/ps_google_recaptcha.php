@@ -41,6 +41,7 @@ $_['text_return']                      = 'Возвраты';
 $_['text_contact']                     = 'Контакт';
 $_['text_default']                     = '(по умолчанию)';
 $_['text_log_clear_success']           = 'Журнал ошибок успешно очищен.';
+$_['text_recaptcha_branding']          = 'Этот сайт защищён reCAPTCHA, и на него распространяются <a href="https://policies.google.com/privacy">Политика конфиденциальности</a> и <a href="https://policies.google.com/terms">Условия обслуживания</a> Google.';
 
 // Tab
 $_['tab_general']                      = 'Основные';

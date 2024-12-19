@@ -41,6 +41,7 @@ $_['text_return']                      = 'Resi';
 $_['text_contact']                     = 'Contatto';
 $_['text_default']                     = '(predefinito)';
 $_['text_log_clear_success']           = 'Il registro degli errori è stato cancellato con successo.';
+$_['text_recaptcha_branding']          = 'Questo sito è protetto da reCAPTCHA e si applicano la <a href="https://policies.google.com/privacy">Privacy Policy</a> e i <a href="https://policies.google.com/terms">Termini di Servizio</a> di Google.';
 
 // Tab
 $_['tab_general']                      = 'Generale';

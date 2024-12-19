@@ -44,12 +44,6 @@ code package and also available on the project page: https://github.com/playfuls
         $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
         if ($data['ps_google_recaptcha_status']) {
-            if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
-                $this->session->data['ps_google_recaptcha_counter'] = 0;
-            } else {
-                $this->session->data['ps_google_recaptcha_counter']++;
-            }
-
             $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
             $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -117,12 +111,6 @@ code package and also available on the project page: https://github.com/playfuls
         $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
         if ($data['ps_google_recaptcha_status']) {
-            if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
-                $this->session->data['ps_google_recaptcha_counter'] = 0;
-            } else {
-                $this->session->data['ps_google_recaptcha_counter']++;
-            }
-
             $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
             $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -346,6 +334,41 @@ code package and also available on the project page: https://github.com/playfuls
         </operation>
     </file>
     <!-- frontend end -->
+
+    <!-- backend start -->
+    <file path="admin/controller/common/header.php">
+        <operation>
+            <search><![CDATA[$this->load->view('common/header', $data);]]></search>
+            <add position="before"><![CDATA[
+            $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
+
+            if ($data['ps_google_recaptcha_status']) {
+                $data['ps_hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
+                $data['ps_css_nonce'] = $this->config->get('captcha_ps_google_recaptcha_css_nonce');
+            }
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/common/header.twig">
+        <operation>
+            <search><![CDATA[</head>]]></search>
+            <add position="before"><![CDATA[{% if ps_google_recaptcha_status %}
+            <style{% if ps_css_nonce %} nonce="{{ ps_css_nonce }}"{% endif %}>
+            {% if ps_hide_badge %}
+            .grecaptcha-badge { visibility: hidden; }
+            .form-group .grecaptcha-badge { visibility: visible; }
+            {% endif %}
+            .pull-right > div:has(> iframe) {
+                display: inline-block;
+            }
+            </style>
+            <link rel="preconnect" href="https://www.google.com">
+            <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+            {% endif %}]]></add>
+        </operation>
+    </file>
+    <!-- backend end -->
 
     <!-- captcha reset start -->
     <file path="catalog/controller/checkout/checkout.php">

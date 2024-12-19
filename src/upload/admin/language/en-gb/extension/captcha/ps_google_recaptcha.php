@@ -41,6 +41,7 @@ $_['text_return']                      = 'Returns';
 $_['text_contact']                     = 'Contact';
 $_['text_default']                     = '(default)';
 $_['text_log_clear_success']           = 'The error log has been cleared successfully.';
+$_['text_recaptcha_branding']          = 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.';
 
 // Tab
 $_['tab_general']                      = 'General';
