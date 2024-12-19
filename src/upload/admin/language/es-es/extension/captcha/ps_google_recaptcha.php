@@ -95,3 +95,4 @@ $_['error_missing_input_response']     = 'Falta la respuesta de reCAPTCHA. Aseg�
 $_['error_invalid_input_response']     = 'La respuesta proporcionada de reCAPTCHA no es válida o tiene un formato incorrecto. Intente completar el desafío de reCAPTCHA nuevamente.';
 $_['error_bad_request']                = 'La solicitud no se pudo procesar porque es inválida o está mal formada. Verifique el formato y los parámetros de la solicitud, luego intente nuevamente.';
 $_['error_timeout_or_duplicate']       = 'La respuesta de reCAPTCHA ya no es válida. Puede haber expirado o haberse reutilizado. Actualice la página y complete nuevamente el desafío de reCAPTCHA.';
+$_['error_low_score']                  = 'Su solicitud ha sido marcada como sospechosa. Inténtelo nuevamente o contacte con soporte si considera que es un error.';

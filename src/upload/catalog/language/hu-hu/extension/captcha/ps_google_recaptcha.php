@@ -14,3 +14,4 @@ $_['error_missing_input_response'] = 'Hiányzik a reCAPTCHA válasz. Kérjük, t
 $_['error_invalid_input_response'] = 'A megadott reCAPTCHA válasz érvénytelen vagy helytelen formátumú. Kérjük, próbálja újra kitölteni a reCAPTCHA kihívást.';
 $_['error_bad_request']            = 'A kérés nem dolgozható fel, mert érvénytelen vagy hibás. Ellenőrizze a kérés formátumát és paramétereit, majd próbálja újra.';
 $_['error_timeout_or_duplicate']   = 'A reCAPTCHA válasz már nem érvényes. Lehet, hogy lejárt vagy újrahasználták. Frissítse az oldalt, és töltse ki újra a reCAPTCHA kihívást.';
+$_['error_low_score']              = 'A kérelmét gyanúsnak minősítettük. Kérjük, próbálja meg újra, vagy lépjen kapcsolatba a támogatással, ha úgy gondolja, hogy ez tévedés.';

@@ -14,3 +14,4 @@ $_['error_missing_input_response'] = 'Die reCAPTCHA-Antwort fehlt. Bitte stellen
 $_['error_invalid_input_response'] = 'Die angegebene reCAPTCHA-Antwort ist ungültig oder falsch formatiert. Bitte versuchen Sie, die reCAPTCHA-Aufgabe erneut zu lösen.';
 $_['error_bad_request']            = 'Die Anfrage konnte nicht verarbeitet werden, da sie ungültig oder fehlerhaft ist. Überprüfen Sie das Format und die Parameter der Anfrage und versuchen Sie es erneut.';
 $_['error_timeout_or_duplicate']   = 'Die reCAPTCHA-Antwort ist nicht mehr gültig. Sie könnte abgelaufen oder erneut verwendet worden sein. Bitte aktualisieren Sie die Seite und lösen Sie die reCAPTCHA-Aufgabe erneut.';
+$_['error_low_score']              = 'Ihre Anfrage wurde als verdächtig eingestuft. Bitte versuchen Sie es erneut oder kontaktieren Sie den Support, falls Sie einen Fehler vermuten.';

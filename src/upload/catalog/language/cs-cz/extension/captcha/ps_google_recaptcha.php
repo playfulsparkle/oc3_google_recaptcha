@@ -14,3 +14,4 @@ $_['error_missing_input_response'] = 'Chybí odpověď na reCAPTCHA. Ujistěte s
 $_['error_invalid_input_response'] = 'Poskytnutá odpověď na reCAPTCHA je neplatná nebo má nesprávný formát. Zkuste znovu dokončit výzvu reCAPTCHA.';
 $_['error_bad_request']            = 'Požadavek nemohl být zpracován, protože je neplatný nebo nesprávně vytvořený. Ověřte formát a parametry požadavku a zkuste to znovu.';
 $_['error_timeout_or_duplicate']   = 'Odpověď na reCAPTCHA již není platná. Mohla vypršet nebo být znovu použita. Obnovte stránku a znovu dokončete výzvu reCAPTCHA.';
+$_['error_low_score']              = 'Vaše žádost byla označena jako podezřelá. Zkuste to prosím znovu nebo kontaktujte podporu, pokud si myslíte, že jde o chybu.';
