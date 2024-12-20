@@ -397,7 +397,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             return '';
         }
 
-        $this->load->language('extension/captcha/ps_google_recaptcha');
+        $this->load->language('extension/captcha/ps_google_recaptcha_widget');
 
         if (!isset($this->session->data['ps_google_recaptcha_counter'])) {
             $this->session->data['ps_google_recaptcha_counter'] = 0;
@@ -455,7 +455,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $log = new Log($this->config->get('captcha_ps_google_recaptcha_log_filename'));
         }
 
-        $this->load->language('extension/captcha/ps_google_recaptcha');
+        $this->load->language('extension/captcha/ps_google_recaptcha_widget');
 
         if (!isset($this->request->post['g-recaptcha-response'])) {
             if ($log_status) {

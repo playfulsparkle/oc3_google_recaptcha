@@ -39,7 +39,6 @@ $_['text_return']                      = 'Returns';
 $_['text_contact']                     = 'Contact';
 $_['text_default']                     = '(default)';
 $_['text_log_clear_success']           = 'The error log has been cleared successfully.';
-$_['text_recaptcha_branding']          = 'This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.';
 
 // Tab
 $_['tab_general']                      = 'General';
@@ -62,8 +61,6 @@ $_['entry_css_nonce']                  = 'CSS Style Tag Nonce';
 $_['entry_log_filename']               = 'Validation log filename';
 $_['entry_send_client_ip']             = 'Send Client IP Address';
 $_['entry_enable_error_log']           = 'Enable Error Log';
-$_['entry_challange_captcha']          = 'Please complete the captcha validation below';
-$_['entry_score_based_captcha']        = 'Captcha validation';
 
 // Button
 $_['button_download']                  = 'Download';
@@ -87,10 +84,3 @@ $_['error_site_key']                   = 'Key required!';
 $_['error_secret_key']                 = 'Secret required!';
 $_['error_v3_score_threshold_value']   = 'The score value must be between 0 and 1. It cannot be lower than 0 or greater than 1.';
 $_['error_log_filename']               = 'A log filename is required to store reCAPTCHA validation errors.';
-$_['error_missing_input_secret']       = 'The secret key is missing. Please ensure your reCAPTCHA secret key is included in the request.';
-$_['error_invalid_input_secret']       = 'The provided secret key is invalid or incorrectly formatted. Double-check your reCAPTCHA secret key and try again.';
-$_['error_missing_input_response']     = 'The reCAPTCHA response is missing. Please ensure the reCAPTCHA challenge has been completed before submitting the form.';
-$_['error_invalid_input_response']     = 'The provided reCAPTCHA response is invalid or incorrectly formatted. Please try completing the reCAPTCHA challenge again.';
-$_['error_bad_request']                = 'The request could not be processed because it is invalid or malformed. Verify the request format and parameters, then try again.';
-$_['error_timeout_or_duplicate']       = 'The reCAPTCHA response is no longer valid. It may have expired or been reused. Please refresh the page and complete the reCAPTCHA challenge again.';
-$_['error_low_score']                  = 'Your request was flagged as suspicious. Please try again or contact support if you believe this is a mistake.';

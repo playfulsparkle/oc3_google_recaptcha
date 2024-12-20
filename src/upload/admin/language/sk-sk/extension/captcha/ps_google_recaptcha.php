@@ -41,7 +41,6 @@ $_['text_return']                      = 'Vrátenie tovaru';
 $_['text_contact']                     = 'Kontakt';
 $_['text_default']                     = '(predvolené)';
 $_['text_log_clear_success']           = 'Chybový log bol úspešne vymazaný.';
-$_['text_recaptcha_branding']          = 'Tento web je chránený reCAPTCHA a platí preň <a href="https://policies.google.com/privacy">Zásady ochrany osobných údajov</a> a <a href="https://policies.google.com/terms">Podmienky služby</a> Google.';
 
 // Tab
 $_['tab_general']                      = 'Všeobecné';
@@ -64,8 +63,6 @@ $_['entry_css_nonce']                  = 'Nonce štýlu CSS značky';
 $_['entry_log_filename']               = 'Názov súboru protokolu pre validáciu';
 $_['entry_send_client_ip']             = 'Odoslať IP adresu klienta';
 $_['entry_enable_error_log']           = 'Povoliť protokol chýb';
-$_['entry_challange_captcha']          = 'Prosím, dokončite overenie captcha nižšie';
-$_['entry_score_based_captcha']        = 'Overenie captcha';
 
 // Button
 $_['button_download']                  = 'Stiahnuť';
@@ -89,10 +86,3 @@ $_['error_site_key']                   = 'Vyžaduje sa kľúč!';
 $_['error_secret_key']                 = 'Vyžaduje sa tajný kľúč!';
 $_['error_v3_score_threshold_value']   = 'Hodnota skóre musí byť medzi 0 a 1. Nemôže byť menšia ako 0 ani väčšia ako 1.';
 $_['error_log_filename']               = 'Na uloženie chýb validácie reCAPTCHA je potrebné zadať názov súboru protokolu.';
-$_['error_missing_input_secret']       = 'Chýba tajný kľúč. Uistite sa, že tajný kľúč reCAPTCHA je zahrnutý v požiadavke.';
-$_['error_invalid_input_secret']       = 'Zadaný tajný kľúč je neplatný alebo nesprávne formátovaný. Skontrolujte svoj tajný kľúč reCAPTCHA a skúste to znova.';
-$_['error_missing_input_response']     = 'Chýba odpoveď reCAPTCHA. Uistite sa, že výzva reCAPTCHA bola dokončená pred odoslaním formulára.';
-$_['error_invalid_input_response']     = 'Zadaná odpoveď reCAPTCHA je neplatná alebo nesprávne formátovaná. Skúste znova dokončiť výzvu reCAPTCHA.';
-$_['error_bad_request']                = 'Požiadavku nie je možné spracovať, pretože je neplatná alebo chybná. Overte formát a parametre požiadavky a skúste to znova.';
-$_['error_timeout_or_duplicate']       = 'Odpoveď reCAPTCHA už nie je platná. Mohla vypršať jej platnosť alebo bola znova použitá. Obnovte stránku a skúste výzvu reCAPTCHA znova.';
-$_['error_low_score']                  = 'Vaša požiadavka bola označená ako podozrivá. Skúste to znova alebo kontaktujte podporu, ak si myslíte, že ide o chybu.';
