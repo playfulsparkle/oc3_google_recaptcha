@@ -38,6 +38,8 @@ code package and also available on the project page: https://github.com/playfuls
         if (in_array('admin_forgotten_password', (array) $this->config->get('config_captcha_page'))) {
             $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha');
         } else {
+            $this->session->data['ps_google_recaptcha_counter'] = 0;
+
             $data['ps_captcha'] = '';
         }
 
@@ -105,6 +107,8 @@ code package and also available on the project page: https://github.com/playfuls
         if (in_array('admin_login', (array) $this->config->get('config_captcha_page'))) {
             $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha');
         } else {
+            $this->session->data['ps_google_recaptcha_counter'] = 0;
+
             $data['ps_captcha'] = '';
         }
 
