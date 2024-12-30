@@ -102,29 +102,43 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $post_data['remoteip'] = $this->request->server['REMOTE_ADDR'];
         }
 
+
         if (function_exists('curl_init')) {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
             $response = curl_exec($ch);
+            $request_error = curl_error($ch);
             curl_close($ch);
         } else if (ini_get('allow_url_fopen')) {
             $context = stream_context_create(array(
                 'http' => array(
                     'method' => 'POST',
                     'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
-                    'content' => http_build_query($post_data)
+                    'timeout' => 30,
+                    'content' => http_build_query($post_data),
+                    'ignore_errors' => true,
                 )
             ));
             $response = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context);
+            $request_error = 'unknown';
         }
 
-        $captcha_response = array_merge(
-            array('success' => false, 'score' => 0.0, 'error-codes' => array()),
-            (array) json_decode((string) $response, true)
-        );
+        if ($response === false) {
+            if ($log_status) {
+                $log->write('Request Error: ' . $request_error);
+            }
+
+            return $this->language->get('error_bad_request');
+        }
+
+        $response = json_decode((string) $response, true);
 
         if (JSON_ERROR_NONE !== $json_last_error = json_last_error()) {
             if ($log_status) {
@@ -133,6 +147,15 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
 
             return $this->language->get('error_bad_request');
         }
+
+        $default_response = array(
+            'success' => false,
+            'score' => 0.0,
+            'error-codes' => array()
+        );
+
+        $captcha_response = array_merge($default_response, (array) $response);
+
 
         if ($this->config->get('captcha_ps_google_recaptcha_key_type') === 'v3') {
             $route_to_page = array(
