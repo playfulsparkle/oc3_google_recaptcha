@@ -27,7 +27,7 @@ The **Playful Sparkle - Google reCAPTCHA** extension for OpenCart 3.x+ enhances 
   - Logs any reCAPTCHA verification failures for debugging and monitoring purposes.
   - Toggle option to include the client's IP address when sending verification requests to Google's reCAPTCHA service.
 - **Compatibility**: Integrates smoothly with OpenCart 4.x+, supporting a range of online store setups.
-- **Multilingual Support**: Ready for international use with languages including Čeština (cs-cz), Deutsch (de-de), English (GB) (en-gb), English (US) (en-us), Español (es-es), Français (fr-fr), Magyar (hu-hu), Italiano (it-it), Русский (ru-ru), and Slovenčina (sk-sk).
+- **Multilingual Support**: Ready for international use with languages including Čeština (cs-cz), Deutsch (de-de), English (GB) (en-gb), English (US) (en-us), Español (es-es), Français (fr-fr), Magyar (hu-hu), Italiano (it-it), Русский (ru-ru), Ελληνικά (el-GR), العربية (ar), Polski (pl-pl), and Slovenčina (sk-sk).
 
 ---
 
