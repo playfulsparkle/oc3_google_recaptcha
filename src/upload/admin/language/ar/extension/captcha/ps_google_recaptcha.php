@@ -1,7 +1,6 @@
 <?php
 // Heading
 $_['heading_title']                    = 'تألق مرح - جوجل reCAPTCHA';
-$_['heading_fix']                      = 'إصلاح الأخطاء الشائعة';
 $_['heading_getting_started']          = 'البدء';
 $_['heading_setup']                    = 'إعداد جوجل reCAPTCHA';
 $_['heading_troubleshot']              = 'استكشاف الأخطاء وإصلاحها الشائعة';
@@ -68,7 +67,6 @@ $_['entry_enable_error_log']           = 'تمكين سجل الأخطاء';
 $_['button_download']                  = 'تنزيل';
 $_['button_clear']                     = 'مسح';
 $_['tab_error_log']                    = 'سجل الأخطاء';
-$_['button_fix_event_handler']         = 'إصلاح معالج الأحداث';
 
 // Help
 $_['help_copy']                        = 'نسخ الرابط';

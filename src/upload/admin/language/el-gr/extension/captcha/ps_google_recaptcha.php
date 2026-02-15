@@ -1,7 +1,6 @@
 <?php
 // Heading
 $_['heading_title']                    = 'Playful Sparkle - Google reCAPTCHA';
-$_['heading_fix']                      = 'Επιδιόρθωση κοινών σφαλμάτων';
 $_['heading_getting_started']          = 'Ξεκινώντας';
 $_['heading_setup']                    = 'Ρύθμιση του Google reCAPTCHA';
 $_['heading_troubleshot']              = 'Συνηθισμένη Αντιμετώπιση Προβλημάτων';
@@ -68,7 +67,6 @@ $_['entry_enable_error_log']           = 'Ενεργοποίηση Αρχείο�
 $_['button_download']                  = 'Λήψη';
 $_['button_clear']                     = 'Εκκαθάριση';
 $_['tab_error_log']                    = 'Αρχείο Καταγραφής Σφαλμάτων';
-$_['button_fix_event_handler']         = 'Επιδιόρθωση Χειριστή Συμβάντων';
 
 // Help
 $_['help_copy']                        = 'Αντιγραφή URL';
