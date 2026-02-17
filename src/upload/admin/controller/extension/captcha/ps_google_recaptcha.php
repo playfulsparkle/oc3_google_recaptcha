@@ -9,7 +9,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
     /**
      * @var string The documentation URL for the extension.
      */
-    const EXTENSION_DOC = 'https://playfulsparkle.com/en-us/resources/downloads/';
+    const EXTENSION_DOC = 'https://github.com/playfulsparkle/oc3_google_recaptcha.git';
 
     private $error = array();
 
