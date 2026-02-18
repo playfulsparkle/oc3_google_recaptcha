@@ -315,13 +315,21 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
         $this->load->model('setting/setting');
 
         $data = array(
-            'captcha_ps_google_recaptcha_key_type' => 'v2_checkbox',
-            'captcha_ps_google_recaptcha_script_nonce' => $this->generateGuid(),
-            'captcha_ps_google_recaptcha_google_captcha_nonce' => $this->generateGuid(),
-            'captcha_ps_google_recaptcha_css_nonce' => $this->generateGuid(),
-            'captcha_ps_google_recaptcha_badge_theme' => 'light',
             'captcha_ps_google_recaptcha_badge_position' => 'bottomright',
+            'captcha_ps_google_recaptcha_badge_size' => 'normal',
+            'captcha_ps_google_recaptcha_badge_theme' => 'light',
+            'captcha_ps_google_recaptcha_css_nonce' => $this->generateGuid(),
+            'captcha_ps_google_recaptcha_error_log_status' => 0,
+            'captcha_ps_google_recaptcha_google_captcha_nonce' => $this->generateGuid(),
+            'captcha_ps_google_recaptcha_hide_badge' => 0,
+            'captcha_ps_google_recaptcha_key_type' => 'v2_checkbox',
             'captcha_ps_google_recaptcha_log_filename' => 'ps_google_recaptcha.log',
+            'captcha_ps_google_recaptcha_script_nonce' => $this->generateGuid(),
+            'captcha_ps_google_recaptcha_secret_key' => '',
+            'captcha_ps_google_recaptcha_send_client_ip' => 0,
+            'captcha_ps_google_recaptcha_site_key' => '',
+            'captcha_ps_google_recaptcha_status' => 0,
+            'captcha_ps_google_recaptcha_v3_score_threshold' => 0.5,
         );
 
         $this->model_setting_setting->editSetting('captcha_ps_google_recaptcha', $data);
