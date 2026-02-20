@@ -9,7 +9,7 @@ $_['text_extension']                               = 'Επεκτάσεις';
 $_['text_success']                                 = 'Επιτυχία: Τροποποιήσατε το Google reCAPTCHA!';
 $_['text_edit']                                    = 'Επεξεργασία Google reCAPTCHA';
 $_['text_signup']                                  = 'Για να ξεκινήσετε, επισκεφθείτε τη <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">σελίδα Google reCAPTCHA</a> και καταχωρίστε τον ιστότοπό σας για να λάβετε το Κλειδί Ιστότοπου reCAPTCHA και το Μυστικό Κλειδί.';
-$_['text_contact']                                 = '<p>Για περαιτέρω βοήθεια, επικοινωνήστε με την ομάδα υποστήριξής μας:</p><ul><li><strong>Επικοινωνία:</strong> <a href="mailto:%s">%s</a></li><li><strong>Τεκμηρίωση:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Εγχειρίδιο Χρήστη</a></li></ul>';
+$_['text_contact']                                 = '<p>Για περαιτέρω βοήθεια, επικοινωνήστε με την ομάδα υποστήριξής μας:</p><ul><li><strong>Επικοινωνία:</strong> <a href="mailto:%s">%s</a></li><li><strong>Τεκμηρίωση:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Τεκμηρίωση χρήστη</a></li></ul>';
 $_['text_key_type_v3']                             = 'Βασισμένο σε βαθμολογία (v3) - Επαλήθευση αιτημάτων με βαθμολογία';
 $_['text_key_type_v2_checkbox']                    = 'Πρόκληση (v2) - Πρόκληση πλαισίου ελέγχου "Δεν είμαι ρομπότ"';
 $_['text_key_type_v2_invisible']                   = 'Πρόκληση (v2) - Αόρατη πρόκληση σήματος reCAPTCHA';

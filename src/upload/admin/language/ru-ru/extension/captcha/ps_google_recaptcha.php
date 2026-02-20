@@ -9,7 +9,7 @@ $_['text_extension']                               = 'Расширения';
 $_['text_success']                                 = 'Успех: Вы успешно изменили настройки Google reCAPTCHA!';
 $_['text_edit']                                    = 'Редактировать Google reCAPTCHA';
 $_['text_signup']                                  = 'Для начала посетите <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">страницу Google reCAPTCHA</a> и зарегистрируйте ваш сайт, чтобы получить reCAPTCHA Site Key и Secret Key.';
-$_['text_contact']                                 = '<p>Для получения дополнительной помощи свяжитесь с нашей службой поддержки:</p><ul><li><strong>Контакт:</strong> <a href="mailto:%s">%s</a></li><li><strong>Документация:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Документация пользователя</a></li></ul>';
+$_['text_contact']                                 = '<p>Для получения дополнительной помощи, пожалуйста, свяжитесь с нашей службой поддержки:</p><ul><li><strong>Контакт:</strong> <a href="mailto:%s">%s</a></li><li><strong>Документация:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Руководство пользователя</a></li></ul>';
 $_['text_key_type_v3']                             = 'На основе баллов (v3) - Проверка запросов по баллам';
 $_['text_key_type_v2_checkbox']                    = 'Проверка (v2) - Флажок "Я не робот"';
 $_['text_key_type_v2_invisible']                   = 'Проверка (v2) - Невидимый значок reCAPTCHA';

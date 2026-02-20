@@ -9,7 +9,7 @@ $_['text_extension']                               = 'Rozszerzenia';
 $_['text_success']                                 = 'Sukces: Zmodyfikowano Google reCAPTCHA!';
 $_['text_edit']                                    = 'Edytuj Google reCAPTCHA';
 $_['text_signup']                                  = 'Aby rozpocząć, odwiedź <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">stronę Google reCAPTCHA</a> i zarejestruj swoją witrynę, aby uzyskać Klucz witryny reCAPTCHA i Klucz tajny.';
-$_['text_contact']                                 = '<p>Aby uzyskać dalszą pomoc, skontaktuj się z naszym zespołem wsparcia:</p><ul><li><strong>Kontakt:</strong> <a href="mailto:%s">%s</a></li><li><strong>Dokumentacja:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Dokumentacja użytkownika</a></li></ul>';
+$_['text_contact']                                 = '<p>W celu uzyskania dodatkowej pomocy prosimy o kontakt z zespołem wsparcia:</p><ul><li><strong>Kontakt:</strong> <a href="mailto:%s">%s</a></li><li><strong>Dokumentacja:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Dokumentacja użytkownika</a></li></ul>';
 $_['text_key_type_v3']                             = 'Oparta na punktach (v3) - Weryfikuj żądania za pomocą punktacji';
 $_['text_key_type_v2_checkbox']                    = 'Wyzwanie (v2) - Wyzwanie z polem wyboru "Nie jestem robotem"';
 $_['text_key_type_v2_invisible']                   = 'Wyzwanie (v2) - Wyzwanie z niewidoczną plakietką reCAPTCHA';
