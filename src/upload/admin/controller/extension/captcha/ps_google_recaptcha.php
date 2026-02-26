@@ -495,6 +495,12 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+            if (
+                defined('CURLSSLOPT_NATIVE_CA')
+                && version_compare(curl_version()['version'], '7.71', '>=')
+            ) {
+                curl_setopt($ch, CURLOPT_SSL_OPTIONS, CURLSSLOPT_NATIVE_CA);
+            }
             $response = curl_exec($ch);
             $request_error = curl_error($ch);
             if ($ch && PHP_VERSION_ID < 80500) {
