@@ -7,7 +7,7 @@ code package and also available on the project page: https://github.com/playfuls
 <modification>
     <name>Playful Sparkle - Google reCAPTCHA</name>
     <code>ps_google_recaptcha</code>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <author>Playful Sparkle</author>
     <link>https://github.com/playfulsparkle/oc3_google_recaptcha.git</link>
 
@@ -285,19 +285,19 @@ code package and also available on the project page: https://github.com/playfuls
         $ps_language = $this->language->get('ps_google_recaptcha');
 
 		$data['captcha_pages'][] = array(
-			'text'  => $ps_language->get('text_admin_login'),
+			'text'  => $ps_language->get('text_captcha_page_admin_login'),
 			'value' => 'admin_login'
 		);
 		$data['captcha_pages'][] = array(
-			'text'  => $ps_language->get('text_catalog_login'),
+			'text'  => $ps_language->get('text_captcha_page_catalog_login'),
 			'value' => 'catalog_login'
 		);
 		$data['captcha_pages'][] = array(
-			'text'  => $ps_language->get('text_admin_forgotten_password'),
+			'text'  => $ps_language->get('text_captcha_page_admin_forgotten_password'),
 			'value' => 'admin_forgotten_password'
 		);
 		$data['captcha_pages'][] = array(
-			'text'  => $ps_language->get('text_catalog_forgotten_password'),
+			'text'  => $ps_language->get('text_captcha_page_catalog_forgotten_password'),
 			'value' => 'forgotten_password'
 		);
             ]]></add>
