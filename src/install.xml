@@ -16,7 +16,10 @@ code package and also available on the project page: https://github.com/playfuls
     <operation>
         <search><![CDATA[protected function validate() {]]></search>
         <add position="after"><![CDATA[
-        if (in_array('admin_forgotten_password', (array) $this->config->get('config_captcha_page'))) {
+        if (
+            $this->config->get('captcha_ps_google_recaptcha_status') &&
+            in_array('admin_forgotten_password', (array) $this->config->get('config_captcha_page'))
+        ) {
             $ps_captcha = $this->load->controller('extension/captcha/ps_google_recaptcha/validate_captcha');
 
             if ($ps_captcha) {
@@ -35,7 +38,10 @@ code package and also available on the project page: https://github.com/playfuls
     <operation>
         <search><![CDATA[$data['footer'] = ]]></search>
         <add position="after"><![CDATA[
-        if (in_array('admin_forgotten_password', (array) $this->config->get('config_captcha_page'))) {
+        if (
+            $this->config->get('captcha_ps_google_recaptcha_status') &&
+            in_array('admin_forgotten_password', (array) $this->config->get('config_captcha_page'))
+        ) {
             $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha');
         } else {
             $this->session->data['ps_google_recaptcha_counter'] = 0;
@@ -45,7 +51,7 @@ code package and also available on the project page: https://github.com/playfuls
 
         $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-        if ($data['ps_google_recaptcha_status']) {
+        if ($this->config->get('captcha_ps_google_recaptcha_status')) {
             $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
             $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -85,7 +91,10 @@ code package and also available on the project page: https://github.com/playfuls
     <operation>
         <search><![CDATA[protected function validate() {]]></search>
         <add position="after"><![CDATA[
-        if (in_array('admin_login', (array) $this->config->get('config_captcha_page'))) {
+        if (
+            $this->config->get('captcha_ps_google_recaptcha_status') &&
+            in_array('admin_login', (array) $this->config->get('config_captcha_page'))
+        ) {
             $ps_captcha = $this->load->controller('extension/captcha/ps_google_recaptcha/validate_captcha');
 
             if ($ps_captcha) {
@@ -104,7 +113,10 @@ code package and also available on the project page: https://github.com/playfuls
     <operation>
         <search><![CDATA[$data['footer'] = ]]></search>
         <add position="after"><![CDATA[
-        if (in_array('admin_login', (array) $this->config->get('config_captcha_page'))) {
+        if (
+            $this->config->get('captcha_ps_google_recaptcha_status') &&
+            in_array('admin_login', (array) $this->config->get('config_captcha_page'))
+        ) {
             $data['ps_captcha'] = $this->load->controller('extension/captcha/ps_google_recaptcha/render_captcha');
         } else {
             $this->session->data['ps_google_recaptcha_counter'] = 0;
@@ -114,7 +126,7 @@ code package and also available on the project page: https://github.com/playfuls
 
         $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-        if ($data['ps_google_recaptcha_status']) {
+        if ($this->config->get('captcha_ps_google_recaptcha_status')) {
             $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
             $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -179,7 +191,7 @@ code package and also available on the project page: https://github.com/playfuls
 
         $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-        if ($data['ps_google_recaptcha_status']) {
+        if ($this->config->get('captcha_ps_google_recaptcha_status')) {
             $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
             $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -245,7 +257,7 @@ code package and also available on the project page: https://github.com/playfuls
 
         $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-        if ($data['ps_google_recaptcha_status']) {
+        if ($this->config->get('captcha_ps_google_recaptcha_status')) {
             $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
             $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -311,7 +323,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
                 $data['ps_css_nonce'] = $this->config->get('captcha_ps_google_recaptcha_css_nonce');
             }
@@ -346,7 +358,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_hide_badge'] = $this->config->get('captcha_ps_google_recaptcha_hide_badge');
                 $data['ps_css_nonce'] = $this->config->get('captcha_ps_google_recaptcha_css_nonce');
             }
@@ -438,7 +450,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -457,7 +469,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -476,7 +488,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -495,7 +507,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -514,7 +526,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -533,7 +545,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
@@ -552,7 +564,7 @@ code package and also available on the project page: https://github.com/playfuls
             <add position="before"><![CDATA[
             $data['ps_google_recaptcha_status'] = $this->config->get('captcha_ps_google_recaptcha_status');
 
-            if ($data['ps_google_recaptcha_status']) {
+            if ($this->config->get('captcha_ps_google_recaptcha_status')) {
                 $data['ps_widget_counter'] = $this->session->data['ps_google_recaptcha_counter'];
 
                 $data['ps_key_type'] = $this->config->get('captcha_ps_google_recaptcha_key_type');
