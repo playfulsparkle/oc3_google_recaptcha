@@ -42,15 +42,11 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             $this->response->redirect($this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=captcha', true));
         }
 
-        if (isset($this->session->data['error'])) {
-            $data['error_warning'] = $this->session->data['error'];
-
-            unset($this->session->data['error']);
-        } else if (isset($this->error['warning'])) {
-            $data['error_warning'] = $this->error['warning'];
-        } else {
-            $data['error_warning'] = '';
-        }
+		if (isset($this->error['warning'])) {
+			$data['error_warning'] = $this->error['warning'];
+		} else {
+			$data['error_warning'] = '';
+		}
 
         if (isset($this->error['log_filename'])) {
             $data['error_log_filename'] = $this->error['log_filename'];
@@ -257,9 +253,9 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             'value' => 'contact'
         );
 
-        $data['error_log_output'] = '';
-        $data['error_log_download'] = $this->url->link('extension/captcha/ps_google_recaptcha/download', 'user_token=' . $this->session->data['user_token'], true);
-        $data['error_log_clear'] = $this->url->link('extension/captcha/ps_google_recaptcha/clear', 'user_token=' . $this->session->data['user_token'], true);
+        $data['log_content'] = '';
+        $data['download_log'] = $this->url->link('extension/captcha/ps_google_recaptcha/download', 'user_token=' . $this->session->data['user_token'], true);
+        $data['clear_log'] = $this->url->link('extension/captcha/ps_google_recaptcha/clear', 'user_token=' . $this->session->data['user_token'], true);
 
         if ($data['captcha_ps_google_recaptcha_error_log_status']) {
             $error_log_filename = DIR_LOGS . $data['captcha_ps_google_recaptcha_log_filename'];
@@ -267,7 +263,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
             if (is_readable($error_log_filename)) {
                 $error_log_handle = fopen($error_log_filename, 'r+');
 
-                $data['error_log_output'] = fread($error_log_handle, 3145728);
+                $data['log_content'] = fread($error_log_handle, 3145728);
 
                 fclose($error_log_handle);
             }
