@@ -9,7 +9,7 @@ $_['text_extension']                               = 'الإضافات';
 $_['text_success']                                 = 'نجاح: لقد قمت بتعديل جوجل reCAPTCHA!';
 $_['text_edit']                                    = 'تحرير جوجل reCAPTCHA';
 $_['text_signup']                                  = 'للبدء، قم بزيارة <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">صفحة جوجل reCAPTCHA</a> وقم بتسجيل موقع الويب الخاص بك للحصول على مفتاح الموقع ومفتاح السر.';
-$_['text_contact']                                 = '<p>للحصول على مزيد من المساعدة، يرجى التواصل مع فريق الدعم لدينا:</p><ul><li><strong>الاتصال:</strong> <a href="mailto:%s">%s</a></li><li><strong>التوثيق:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">توثيق المستخدم</a></li></ul>';
+$_['text_contact']                                 = '<p>للمزيد من المساعدة، يرجى التواصل مع فريق الدعم لدينا:</p><ul><li><strong>موقع الدعم:</strong> <a href="%1$s">%1$s</a></li><li><strong>مستودع GitHub:</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>الاتصال بالدعم:</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = 'قائم على النتيجة (الإصدار 3) - التحقق من الطلبات بنتيجة';
 $_['text_key_type_v2_checkbox']                    = 'تحدي (الإصدار 2) - تحدي مربع اختيار "أنا لست برنامج روبوت"';
 $_['text_key_type_v2_invisible']                   = 'تحدي (الإصدار 2) - تحدي شارة reCAPTCHA غير المرئية';

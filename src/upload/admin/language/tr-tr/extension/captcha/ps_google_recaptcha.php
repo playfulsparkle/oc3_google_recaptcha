@@ -9,7 +9,7 @@ $_['text_extension']                               = 'Eklentiler';
 $_['text_success']                                 = 'Başarılı: Google reCAPTCHA güncellendi!';
 $_['text_edit']                                    = 'Google reCAPTCHA Düzenle';
 $_['text_signup']                                  = 'Başlamak için <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">Google reCAPTCHA sayfasını</a> ziyaret edin ve reCAPTCHA Site Anahtarı ile Gizli Anahtarı almak için web sitenizi kaydedin.';
-$_['text_contact']                                 = '<p>Daha fazla yardım için lütfen destek ekibimize ulaşın:</p><ul><li><strong>İletişim:</strong> <a href="mailto:%s">%s</a></li><li><strong>Dokümantasyon:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Kullanıcı Dokümantasyonu</a></li></ul>';
+$_['text_contact']                                 = '<p>Daha fazla yardım için lütfen destek ekibimizle iletişime geçin:</p><ul><li><strong>Destek Web Sitesi:</strong> <a href="%1$s">%1$s</a></li><li><strong>GitHub Deposu:</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>Destekle İletişime Geçin:</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = 'Puan tabanlı (v3) - İstekleri bir puanla doğrulayın';
 $_['text_key_type_v2_checkbox']                    = 'Sınama (v2) - "Ben robot değilim" onay kutusu';
 $_['text_key_type_v2_invisible']                   = 'Sınama (v2) - Görünmez reCAPTCHA rozeti';

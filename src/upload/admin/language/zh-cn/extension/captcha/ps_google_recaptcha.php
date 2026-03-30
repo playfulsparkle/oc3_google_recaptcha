@@ -9,7 +9,7 @@ $_['text_extension']                               = '扩展程序';
 $_['text_success']                                 = '成功：您已修改 Google reCAPTCHA！';
 $_['text_edit']                                    = '编辑 Google reCAPTCHA';
 $_['text_signup']                                  = '要开始使用，请访问 <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">Google reCAPTCHA 页面</a>并注册您的网站，以获取 reCAPTCHA 站点密钥 (Site Key) 和通信密钥 (Secret Key)。';
-$_['text_contact']                                 = '<p>如需进一步帮助，请联系我们的支持团队：</p><ul><li><strong>联系方式：</strong> <a href="mailto:%s">%s</a></li><li><strong>文档：</strong> <a href="%s" target="_blank" rel="noopener noreferrer">用户文档</a></li></ul>';
+$_['text_contact']                                 = '<p>如需进一步协助，请联系我们的支持团队：</p><ul><li><strong>支持网站：</strong> <a href="%1$s">%1$s</a></li><li><strong>GitHub 仓库：</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>联系支持：</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = '基于评分 (v3) - 通过分数验证请求';
 $_['text_key_type_v2_checkbox']                    = '挑战 (v2) - "我不是机器人" 复选框挑战';
 $_['text_key_type_v2_invisible']                   = '挑战 (v2) - 隐形 reCAPTCHA 徽章挑战';

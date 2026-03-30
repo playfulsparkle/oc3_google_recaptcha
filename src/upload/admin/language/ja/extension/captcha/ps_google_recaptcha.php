@@ -9,7 +9,7 @@ $_['text_extension']                               = '拡張機能';
 $_['text_success']                                 = '成功: Google reCAPTCHA を更新しました。';
 $_['text_edit']                                    = 'Google reCAPTCHA の編集';
 $_['text_signup']                                  = '開始するには、<a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">Google reCAPTCHA ページ</a>にアクセスし、ウェブサイトを登録して reCAPTCHA サイトキーとシークレットキーを取得してください。';
-$_['text_contact']                                 = '<p>さらにサポートが必要な場合は、サポートチームにお問い合わせください：</p><ul><li><strong>連絡先:</strong> <a href="mailto:%s">%s</a></li><li><strong>ドキュメント:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">ユーザーマニュアル</a></li></ul>';
+$_['text_contact']                                 = '<p>さらなるサポートが必要な場合は、弊社のサポートチームまでお問い合わせください。</p><ul><li><strong>サポートウェブサイト:</strong> <a href="%1$s">%1$s</a></li><li><strong>GitHub リポジトリ:</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>サポートへの連絡:</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = 'スコアベース (v3) - スコアでリクエストを検証';
 $_['text_key_type_v2_checkbox']                    = 'チャレンジ (v2) - 「私はロボットではありません」チェックボックス';
 $_['text_key_type_v2_invisible']                   = 'チャレンジ (v2) - 非表示 reCAPTCHA バッジ';

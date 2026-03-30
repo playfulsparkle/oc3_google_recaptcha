@@ -9,7 +9,7 @@ $_['text_extension']                               = 'Разширения';
 $_['text_success']                                 = 'Успех: Променихте Google reCAPTCHA!';
 $_['text_edit']                                    = 'Редактиране на Google reCAPTCHA';
 $_['text_signup']                                  = 'За да започнете, посетете <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">страницата на Google reCAPTCHA</a> и регистрирайте сайта си, за да получите reCAPTCHA Site Key и Secret Key.';
-$_['text_contact']                                 = '<p>За допълнително съдействие, моля, свържете се с нашия екип по поддръжка:</p><ul><li><strong>Контакт:</strong> <a href="mailto:%s">%s</a></li><li><strong>Документация:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Потребителска документация</a></li></ul>';
+$_['text_contact']                                 = '<p>За допълнително съдействие, моля, свържете се с нашия екип за поддръжка:</p><ul><li><strong>Уебсайт за поддръжка:</strong> <a href="%1$s">%1$s</a></li><li><strong>GitHub хранилище:</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>Контакт с поддръжката:</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = 'Базиран на резултат (v3) - Проверка на заявки с резултат';
 $_['text_key_type_v2_checkbox']                    = 'Предизвикателство (v2) - Чекбокс "Аз не съм робот"';
 $_['text_key_type_v2_invisible']                   = 'Предизвикателство (v2) - Невидим reCAPTCHA значка';

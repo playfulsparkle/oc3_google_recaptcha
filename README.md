@@ -27,7 +27,7 @@ The **Playful Sparkle - Google reCAPTCHA** extension for OpenCart 3.x+ enhances 
   - Logs any reCAPTCHA verification failures for debugging and monitoring purposes.
   - Toggle option to include the client's IP address when sending verification requests to Google's reCAPTCHA service.
 - **Compatibility**: Integrates smoothly with OpenCart 4.x+, supporting a range of online store setups.
-- **Multilingual Support**: Ready for international use with languages including العربية (ar), Български (bg), 中文(简体) (zh-cn), 中文(繁體) (zh-tw), Čeština (cs-cz), English (UK) (en-gb), English (US) (en-us), Français (fr-fr), Deutsch (de-de), Ελληνικά (el-gr), Magyar (hu-hu), Italiano (it-it), 日本語 (ja), 한국어 (ko-kr), Polski (pl-pl), Português (Brasil) (pt-br), Русский (ru-ru), Slovenčina (sk-sk), Español (es-es), and Türkçe (tr-tr).
+- **Multilingual Support**: Ready for international use with languages including العربية (ar), فارسی (fa-ir), Български (bg), 中文(简体) (zh-cn), 中文(繁體) (zh-tw), Čeština (cs-cz), English (UK) (en-gb), English (US) (en-us), Français (fr-fr), Deutsch (de-de), Ελληνικά (el-gr), Magyar (hu-hu), Italiano (it-it), 日本語 (ja), 한국어 (ko-kr), Polski (pl-pl), Português (Brasil) (pt-br), Русский (ru-ru), Slovenčina (sk-sk), Español (es-es), and Türkçe (tr-tr).
 
 ---
 
@@ -46,7 +46,7 @@ The **Playful Sparkle - Google reCAPTCHA** extension for OpenCart 3.x+ enhances 
 
 ## Support & Inquiries
 
-For assistance or inquiries related to this extension, please open an issue on this repository or contact us via email at [support@playfulsparkle.com](mailto:support@playfulsparkle.com).
+For assistance or inquiries related to this extension, please open an issue on this repository, visit our [url=https://support.playfulsparkle.com]support website[/url], or contact us via email at [support@playfulsparkle.com](mailto:support@playfulsparkle.com).
 
 ---
 
@@ -55,12 +55,6 @@ For assistance or inquiries related to this extension, please open an issue on t
 This project is distributed under the GPL-3.0 license. Please refer to the [LICENSE](./LICENSE) file for further details.
 
 ---
-
-## Important Notice
-
-This extension has been thoroughly tested with the default OpenCart template. If you are using a custom template, please note that **reCAPTCHA v3 (score-based)** and **reCAPTCHA v2 Invisible** may not work as expected. However, **reCAPTCHA v2 (checkbox)** should work as intended.
-
-If you encounter any issues with v3 or v2 Invisible on your custom template, please contact us, and we will be happy to assist you in updating the extension to ensure full compatibility.
 
 ## Contributing
 

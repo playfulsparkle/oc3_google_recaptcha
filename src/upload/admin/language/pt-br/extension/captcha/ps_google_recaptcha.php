@@ -9,7 +9,7 @@ $_['text_extension']                               = 'Extensões';
 $_['text_success']                                 = 'Sucesso: Você modificou o Google reCAPTCHA!';
 $_['text_edit']                                    = 'Editar Google reCAPTCHA';
 $_['text_signup']                                  = 'Para começar, visite a <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">página do Google reCAPTCHA</a> e registre seu site para obter a Chave do Site e a Chave Secreta.';
-$_['text_contact']                                 = '<p>Para mais assistência, entre em contato com nossa equipe de suporte:</p><ul><li><strong>Contato:</strong> <a href="mailto:%s">%s</a></li><li><strong>Documentação:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Documentação do Usuário</a></li></ul>';
+$_['text_contact']                                 = '<p>Para obter mais assistência, entre em contato com nossa equipe de suporte:</p><ul><li><strong>Site de suporte:</strong> <a href="%1$s">%1$s</a></li><li><strong>Repositório GitHub:</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>Contatar suporte:</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = 'Baseado em pontuação (v3) - Verificar solicitações com uma pontuação';
 $_['text_key_type_v2_checkbox']                    = 'Desafio (v2) - Caixa de seleção "Não sou um robô"';
 $_['text_key_type_v2_invisible']                   = 'Desafio (v2) - Selo reCAPTCHA invisível';

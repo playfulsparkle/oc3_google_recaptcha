@@ -9,7 +9,7 @@ $_['text_extension']                               = 'Bővítmények';
 $_['text_success']                                 = 'Siker: Sikeresen módosította a Google reCAPTCHA beállításait!';
 $_['text_edit']                                    = 'Google reCAPTCHA szerkesztése';
 $_['text_signup']                                  = 'A kezdéshez látogasson el a <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">Google reCAPTCHA oldalára</a> és regisztrálja weboldalát, hogy megkapja a reCAPTCHA Site Key-t és Secret Key-t.';
-$_['text_contact']                                 = '<p>További segítségért kérjük, lépjen kapcsolatba támogatási csapatunkkal:</p><ul><li><strong>Kapcsolat:</strong> <a href="mailto:%s">%s</a></li><li><strong>Dokumentáció:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Felhasználói dokumentáció</a></li></ul>';
+$_['text_contact']                                 = '<p>További segítségért forduljon bizalommal ügyfélszolgálatunkhoz:</p><ul><li><strong>Támogatási weboldal:</strong> <a href="%1$s">%1$s</a></li><li><strong>GitHub tárhely:</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>Kapcsolatfelvétel:</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = 'Pontszám alapú (v3) - Kérések ellenőrzése pontszám alapján';
 $_['text_key_type_v2_checkbox']                    = 'Kihívás (v2) - "Nem robot vagyok" jelölőnégyzet kihívás';
 $_['text_key_type_v2_invisible']                   = 'Kihívás (v2) - Láthatatlan reCAPTCHA badge kihívás';

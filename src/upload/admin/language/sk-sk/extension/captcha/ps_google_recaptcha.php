@@ -9,7 +9,7 @@ $_['text_extension']                               = 'Rozšírenia';
 $_['text_success']                                 = 'Úspech: Google reCAPTCHA bolo úspešne upravené!';
 $_['text_edit']                                    = 'Upraviť Google reCAPTCHA';
 $_['text_signup']                                  = 'Pre začiatok navštívte <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">stránku Google reCAPTCHA</a> a zaregistrujte svoju webovú stránku, aby ste získali reCAPTCHA Site Key a Secret Key.';
-$_['text_contact']                                 = '<p>Pre ďalšiu pomoc sa, prosím, obráťte na náš tím podpory:</p><ul><li><strong>Kontakt:</strong> <a href="mailto:%s">%s</a></li><li><strong>Dokumentácia:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">Dokumentácia pre používateľov</a></li></ul>';
+$_['text_contact']                                 = '<p>Ak potrebujete ďalšiu pomoc, obráťte sa na náš tím podpory:</p><ul><li><strong>Webová stránka podpory:</strong> <a href="%1$s">%1$s</a></li><li><strong>GitHub repozitár:</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>Kontaktovať podporu:</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = 'Skóre na základe (v3) - Overiť požiadavky pomocou skóre';
 $_['text_key_type_v2_checkbox']                    = 'Výzva (v2) - Zaškrtávacie políčko „Nie som robot“';
 $_['text_key_type_v2_invisible']                   = 'Výzva (v2) - Neviditeľné reCAPTCHA odznak';

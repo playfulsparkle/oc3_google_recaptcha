@@ -9,7 +9,7 @@ $_['text_extension']                               = '확장 모듈';
 $_['text_success']                                 = '성공: Google reCAPTCHA 설정을 수정했습니다!';
 $_['text_edit']                                    = 'Google reCAPTCHA 수정';
 $_['text_signup']                                  = '시작하려면 <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">Google reCAPTCHA 페이지</a>를 방문하여 웹사이트를 등록하고 reCAPTCHA 사이트 키와 비밀 키를 발급받으세요.';
-$_['text_contact']                                 = '<p>추가 도움이 필요하시면 지원팀에 문의해 주세요:</p><ul><li><strong>문의처:</strong> <a href="mailto:%s">%s</a></li><li><strong>문서:</strong> <a href="%s" target="_blank" rel="noopener noreferrer">사용자 설명서</a></li></ul>';
+$_['text_contact']                                 = '<p>추가적인 도움이 필요하시면 당사의 지원 팀에 문의해 주시기 바랍니다.</p><ul><li><strong>지원 웹사이트:</strong> <a href="%1$s">%1$s</a></li><li><strong>GitHub 저장소:</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>지원 문의:</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = '점수 기반 (v3) - 점수로 요청 확인';
 $_['text_key_type_v2_checkbox']                    = '챌린지 (v2) - "로봇이 아닙니다" 체크박스';
 $_['text_key_type_v2_invisible']                   = '챌린지 (v2) - 보이지 않는 reCAPTCHA 배지';

@@ -9,7 +9,7 @@ $_['text_extension']                               = '擴充功能';
 $_['text_success']                                 = '成功：您已修改 Google reCAPTCHA！';
 $_['text_edit']                                    = '編輯 Google reCAPTCHA';
 $_['text_signup']                                  = '要開始使用，請訪問 <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank" rel="noopener noreferrer">Google reCAPTCHA 頁面</a>並註冊您的網站，以獲取 reCAPTCHA 金鑰 (Site Key) 與密鑰 (Secret Key)。';
-$_['text_contact']                                 = '<p>如需進一步協助，請聯繫我們的支援團隊：</p><ul><li><strong>聯繫方式：</strong> <a href="mailto:%s">%s</a></li><li><strong>說明文件：</strong> <a href="%s" target="_blank" rel="noopener noreferrer">使用者文件</a></li></ul>';
+$_['text_contact']                                 = '<p>如需進一步協助，請聯繫我們的支援團隊：</p><ul><li><strong>支援網站：</strong> <a href="%1$s">%1$s</a></li><li><strong>GitHub 倉庫：</strong> <a href="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a></li><li><strong>聯繫支援：</strong> <a href="mailto:%3$s">%3$s</a></li></ul>';
 $_['text_key_type_v3']                             = '評分型 (v3) - 透過分數驗證請求';
 $_['text_key_type_v2_checkbox']                    = '挑戰型 (v2) - 「我不是機器人」核取方塊';
 $_['text_key_type_v2_invisible']                   = '挑戰型 (v2) - 隱形 reCAPTCHA 標記';
