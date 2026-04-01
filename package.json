@@ -9,9 +9,16 @@
   "keywords": [
     "opencart",
     "opencart3",
+    "opencart-extension",
     "playfulsparkle",
     "google",
-    "recaptcha"
+    "recaptcha",
+    "google-recaptcha",
+    "recaptcha-v3",
+    "recaptcha-v2",
+    "invisible-recaptcha",
+    "spam-protection",
+    "bot-protection"
   ],
   "author": "zsoltoroszlany82 <zsolt.oroszlany@playfulsparkle.com>",
   "license": "GPL",
