@@ -273,6 +273,7 @@ class ControllerExtensionCaptchaPsGoogleReCaptcha extends Controller
                 fclose($error_log_handle);
             }
         }
+
         $data['text_contact'] = sprintf($this->language->get('text_contact'), self::SUPPORT_URL, self::GITHUB_REPO_URL, self::EXTENSION_EMAIL);
 
         $data['header'] = $this->load->controller('common/header');
